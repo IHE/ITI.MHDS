@@ -609,8 +609,8 @@ groupings in other related profiles.
 <colgroup>
 <col style="width: 19%" />
 <col style="width: 28%" />
-<col style="width: 38%" />
-<col style="width: 14%" />
+<col style="width: 34%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
