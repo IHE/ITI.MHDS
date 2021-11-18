@@ -607,10 +607,10 @@ groupings in other related profiles.
 
 <table style="width:100%;">
 <colgroup>
-<col style="width: 19%" />
+<col style="width: 20%" />
 <col style="width: 28%" />
-<col style="width: 34%" />
-<col style="width: 18%" />
+<col style="width: 32%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
