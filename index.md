@@ -404,7 +404,7 @@ Table 50.2-1: MHDS – Actors and Options
 </thead>
 <tbody>
 <tr class="odd">
-<td>Document Registry</td>
+<td rowspan="4">Document Registry</td>
 <td>Authorization Option</td>
 <td>Section 50.2.1</td>
 </tr>
