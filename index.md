@@ -151,7 +151,7 @@ sharing.
 The IHE IT Infrastructure Domain has published several resources to
 support document sharing:
 
-- ITI Technical Framework: [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4
+- [ITI Technical Framework](https://profiles.ihe.net/ITI/TF): [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4)
 - [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
 - [Document Sharing Metadata Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf)
 - [Template for XDS Affinity Domain Deployment Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)
@@ -211,7 +211,7 @@ profiles:
 - **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Consumer** enables the [Document Registry](#150111_document_registry) to gain access to ValueSets that the Registry is enforcing Metadata consistency.
 - **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) – Care Services Selective Consumer** enables the Registry to have access to Organization and Practitioner resources.
 - **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) – Authorization Server and Resource Server** enforces access control decisions.
-- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) ** enable the [Document Registry](#150111_document_registry) to be secure, record audit records, and support secure transactions.
+- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the [Document Registry](#150111_document_registry) to be secure, record audit records, and support secure transactions.
 - **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the [Document Registry](#150111_document_registry) are aligned with the Time Source.
 
 **_HIE Central Infrastructure Requirements_**
@@ -624,47 +624,47 @@ groupings in other related profiles.
 <tr class="odd">
 <td rowspan="9">Document Registry</td>
 <td>Required</td>
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) / Time Client</td>
+<td>CT / Time Client</td>
 <td>ITI TF-1:7</td>
 </tr>
 <tr class="even">
 <td>Required</td>
-<td>[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) / [Secure Node or Secure Application](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option</td>
+<td>ATNA / Secure Node or Secure Application with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option</td>
 <td>ITI TF-1:9</td>
 </tr>
 <tr class="odd">
 <td>Required</td>
-<td>MHD / [Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder)</td>
+<td>MHD / Document Responder</td>
 <td>ITI TF-1:33</td>
 </tr>
 <tr class="even">
 <td>Required</td>
-<td>MHD / [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) with the Comprehensive Metadata Option</td>
+<td>MHD / Document Recipient with the Comprehensive Metadata Option</td>
 <td>ITI TF-1:33</td>
 </tr>
 <tr class="odd">
 <td>Required</td>
-<td>[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) / Patient Identity Consumer</td>
+<td>PMIR / Patient Identity Consumer</td>
 <td>ITI TF-1:49</td>
 </tr>
 <tr class="even">
 <td>if the Authorization Option</td>
-<td>[IUA](https://profiles.ihe.net/ITI/IUA/index.html) / Resource Server</td>
+<td>IUA / Resource Server</td>
 <td>ITI TF-1:34</td>
 </tr>
 <tr class="odd">
 <td>if the Authorization Option</td>
-<td>[IUA](https://profiles.ihe.net/ITI/IUA/index.html) / Authorization Server</td>
+<td>IUA / Authorization Server</td>
 <td>ITI TF-1:34</td>
 </tr>
 <tr class="even">
 <td>if the UnContained References Option</td>
-<td>[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) / Care Services Selective Consumer</td>
+<td>mCSD / Care Services Selective Consumer</td>
 <td>ITI TF-1:46</td>
 </tr>
 <tr class="odd">
 <td>if the SVCM Validation Option</td>
-<td>[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) / Terminology Consumer</td>
+<td>SVCM / Terminology Consumer</td>
 <td>ITI TF-1:51</td>
 </tr>
 </tbody>
@@ -1164,17 +1164,17 @@ System that publishes documents - Integration Statement
 </thead>
 <tbody>
 <tr class="odd">
-<td>[MHD](https://profiles.ihe.net/ITI/MHD/index.html)</td>
-<td>[Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source)</td>
+<td>MHD</td>
+<td>Document Source</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)</td>
+<td>CT</td>
 <td>Time Client</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html)</td>
+<td>PMIR</td>
 <td>Patient Identity Source</td>
 <td></td>
 </tr>
@@ -1189,30 +1189,30 @@ System that publishes documents - Integration Statement
 <td></td>
 </tr>
 <tr class="even">
-<td>[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html)</td>
+<td>SVCM</td>
 <td>Terminology Consumer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="2">[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)</td>
-<td rowspan="2">[Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)</td>
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="even">
 <td>ATX: FHIR Feed Option</td>
 </tr>
 <tr class="odd">
-<td>[IUA](https://profiles.ihe.net/ITI/IUA/index.html)</td>
+<td>IUA</td>
 <td>Authorization Client</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html)</td>
+<td>mCSD</td>
 <td>Care Service Selective Consumer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[NPFS](https://profiles.ihe.net/ITI/TF/Volume1/ch-47.html)</td>
+<td>NPFS</td>
 <td>File Consumer</td>
 <td></td>
 </tr>
@@ -1242,17 +1242,17 @@ System that consumes documents - Integration Statement
 </thead>
 <tbody>
 <tr class="odd">
-<td>[MHD](https://profiles.ihe.net/ITI/MHD/index.html)</td>
-<td>[Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer)</td>
+<td>MHD</td>
+<td>Document Consumer</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)</td>
+<td>CT</td>
 <td>Time Client</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="3">[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html)</td>
+<td rowspan="3">PMIR</td>
 <td>Patient Identity Source</td>
 <td></td>
 </tr>
@@ -1265,30 +1265,30 @@ System that consumes documents - Integration Statement
 <td></td>
 </tr>
 <tr class="even">
-<td>[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html)</td>
+<td>SVCM</td>
 <td>Terminology Consumer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="2">[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)</td>
-<td rowspan="2">[Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)</td>
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="even">
 <td>ATX: FHIR Feed Option</td>
 </tr>
 <tr class="odd">
-<td>[IUA](https://profiles.ihe.net/ITI/IUA/index.html)</td>
+<td>IUA</td>
 <td>Authorization Client</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html)</td>
+<td>mCSD</td>
 <td>Care Service Selective Consumer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[NPFS](https://profiles.ihe.net/ITI/TF/Volume1/ch-47.html)</td>
+<td>NPFS</td>
 <td>File Consumer</td>
 <td></td>
 </tr>
@@ -1320,22 +1320,22 @@ System that consumes clinical data elements - Integration Statement
 </thead>
 <tbody>
 <tr class="odd">
-<td>[QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)</td>
+<td>QEDm</td>
 <td>Clinical Data Consumer</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[MHD](https://profiles.ihe.net/ITI/MHD/index.html)</td>
-<td>[Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer)</td>
+<td>MHD</td>
+<td>Document Consumer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)</td>
+<td>CT</td>
 <td>Time Client</td>
 <td></td>
 </tr>
 <tr class="even">
-<td rowspan="3">[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html)</td>
+<td rowspan="3">PMIR</td>
 <td>Patient Identity Source</td>
 <td></td>
 </tr>
@@ -1348,30 +1348,30 @@ System that consumes clinical data elements - Integration Statement
 <td></td>
 </tr>
 <tr class="odd">
-<td>[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html)</td>
+<td>SVCM</td>
 <td>Consumer</td>
 <td></td>
 </tr>
 <tr class="even">
-<td rowspan="2">[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)</td>
-<td rowspan="2">[Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)</td>
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="odd">
 <td>ATX: FHIR Feed Option</td>
 </tr>
 <tr class="even">
-<td>[IUA](https://profiles.ihe.net/ITI/IUA/index.html)</td>
+<td>IUA</td>
 <td>Authorization Client</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html)</td>
+<td>mCSD</td>
 <td>Care Service Selective Consumer</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[NPFS](https://profiles.ihe.net/ITI/TF/Volume1/ch-47.html)</td>
+<td>NPFS</td>
 <td>File Consumer</td>
 <td></td>
 </tr>
@@ -1386,6 +1386,7 @@ into one system. This combined system is provided for informational
 purposes.
 
 Central Infrastructure Integration Statement
+
 
 <table>
 <colgroup>
@@ -1403,7 +1404,7 @@ Central Infrastructure Integration Statement
 <tbody>
 <tr class="odd">
 <td rowspan="4">MHDS</td>
-<td rowspan="4">[Document Registry](#150111_document_registry)</td>
+<td rowspan="4">Document Registry</td>
 <td>Authorization Option</td>
 </tr>
 <tr class="even">
@@ -1416,27 +1417,27 @@ Central Infrastructure Integration Statement
 <td>SVCM Validation Option</td>
 </tr>
 <tr class="odd">
-<td>[MHD](https://profiles.ihe.net/ITI/MHD/index.html)</td>
-<td>[Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder)</td>
+<td>MHD</td>
+<td>Document Responder</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[MHD](https://profiles.ihe.net/ITI/MHD/index.html)</td>
-<td>[Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient)</td>
+<td>MHD</td>
+<td>Document Recipient</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html)</td>
+<td>PMIR</td>
 <td>Patient Identity Consumer</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)</td>
+<td>CT</td>
 <td>Time Client</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="2">[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html)</td>
+<td rowspan="2">SVCM</td>
 <td>Terminology Consumer</td>
 <td></td>
 </tr>
@@ -1445,7 +1446,7 @@ Central Infrastructure Integration Statement
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="2">[IUA](https://profiles.ihe.net/ITI/IUA/index.html)</td>
+<td rowspan="2">IUA</td>
 <td>Resource Server</td>
 <td></td>
 </tr>
@@ -1454,8 +1455,8 @@ Central Infrastructure Integration Statement
 <td></td>
 </tr>
 <tr class="odd">
-<td rowspan="4">[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)</td>
-<td rowspan="4">[Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)</td>
+<td rowspan="4">ATNA</td>
+<td rowspan="4">Secure Node</td>
 <td>STX: TLS 1.0 Floor with AES Option</td>
 </tr>
 <tr class="even">
@@ -1473,18 +1474,18 @@ Central Infrastructure Integration Statement
 <td></td>
 </tr>
 <tr class="even">
-<td>[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)</td>
+<td>CT</td>
 <td>Time Server</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html)</td>
+<td>PMIR</td>
 <td>Patient Identity Manager</td>
 <td></td>
 </tr>
 <tr class="even">
-<td rowspan="4">[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)</td>
-<td rowspan="4">[Audit Record Repository](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.3)</td>
+<td rowspan="4">ATNA</td>
+<td rowspan="4">Audit Record Repository</td>
 <td>STX: TLS 1.0 Floor with AES Option</td>
 </tr>
 <tr class="odd">
@@ -1497,7 +1498,7 @@ Central Infrastructure Integration Statement
 <td>ATX: FHIR Feed Option</td>
 </tr>
 <tr class="even">
-<td rowspan="2">[IUA](https://profiles.ihe.net/ITI/IUA/index.html)</td>
+<td rowspan="2">IUA</td>
 <td>Authorization Server</td>
 <td></td>
 </tr>
@@ -1506,25 +1507,24 @@ Central Infrastructure Integration Statement
 <td></td>
 </tr>
 <tr class="even">
-<td>[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html)</td>
+<td>mCSD</td>
 <td>Care Service Selective Supplier</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[NPFS](https://profiles.ihe.net/ITI/TF/Volume1/ch-47.html)</td>
+<td>NPFS</td>
 <td>File Server</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>[mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html)</td>
+<td>mXDE</td>
 <td>Data Element Extractor</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>[QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)</td>
+<td>QEDm</td>
 <td>Clinical Data Source</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-
