@@ -389,16 +389,45 @@ applicable, are specified in notes.
 
 Table 50.2-1: MHDS – Actors and Options
 
-| Actor             | Option Name                     | Reference      |
-| ----------------- | ------------------------------- | -------------- |
-| Document Registry | Authorization Option            | Section 50.2.1 |
-|                   | Consent Manager Option (Note 1) | Section 50.2.2 |
-|                   | SVCM Validation Option          | Section 50.2.3 |
-|                   | Uncontained Reference Option    | Section 50.2.4 |
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Actor</th>
+<th>Option Name</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document Registry</td>
+<td>Authorization Option</td>
+<td>Section 50.2.1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Consent Manager Option (Note 1)</td>
+<td>Section 50.2.2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>SVCM Validation Option</td>
+<td>Section 50.2.3</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Uncontained Reference Option</td>
+<td>Section 50.2.4</td>
+</tr>
+</tbody>
+</table>
 
 Note 1: The Consent Manager Option requires the Authorization Option
 
-**TODO: I think this table must be converted to html table so that column A can be merged cell**
 
 ### 50.2.1 Authorization Option
 
@@ -1068,19 +1097,76 @@ other actors shown are there to support this primary function.
 
 System that publishes documents - Integration Statement
 
-| Profiles Implemented | Actors Implemented              | Options Implemented                    |
-| -------------------- | ------------------------------- | -------------------------------------- |
-| MHD                  | Document Source                 |                                        |
-| CT                   | Time Client                     |                                        |
-| PMIR                 | Patient Identity Source         |                                        |
-| PIXm                 | Patient Identity Consumer       |                                        |
-| PDQm                 | Patient Demographics Consumer   |                                        |
-| SVCM                 | Terminology Consumer            |                                        |
-| ATNA                 | Secure Node                     | STX: TLS 1.2 Floor using BCP195 Option |
-|                      |                                 | ATX: FHIR Feed Option                  |
-| IUA                  | Authorization Client            |                                        |
-| mCSD                 | Care Service Selective Consumer |                                        |
-| NPFS                 | File Consumer                   |                                        |
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 37%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Profiles Implemented</th>
+<th>Actors Implemented</th>
+<th>Options Implemented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MHD</td>
+<td>Document Source</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CT</td>
+<td>Time Client</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PMIR</td>
+<td>Patient Identity Source</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PIXm</td>
+<td>Patient Identity Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PDQm</td>
+<td>Patient Demographics Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SVCM</td>
+<td>Terminology Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
+<td>STX: TLS 1.2 Floor using BCP195 Option</td>
+</tr>
+<tr class="even">
+<td>ATX: FHIR Feed Option</td>
+</tr>
+<tr class="odd">
+<td>IUA</td>
+<td>Authorization Client</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>mCSD</td>
+<td>Care Service Selective Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NPFS</td>
+<td>File Consumer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 #### 50.6.2.2 System that consumes documents System Design
 
@@ -1089,19 +1175,74 @@ other actors shown are there to support this primary function.
 
 System that consumes documents - Integration Statement
 
-| Profiles Implemented | Actors Implemented                        | Options Implemented                    |
-| -------------------- | ----------------------------------------- | -------------------------------------- |
-| MHD                  | Document Consumer                         |                                        |
-| CT                   | Time Client                               |                                        |
-| PMIR                 | Patient Identity Source                   |                                        |
-|                      | Patient Identity Cross-Reference Consumer |                                        |
-|                      | Patient Demographics Consumer             |                                        |
-| SVCM                 | Terminology Consumer                      |                                        |
-| ATNA                 | Secure Node                               | STX: TLS 1.2 Floor using BCP195 Option |
-|                      |                                           | ATX: FHIR Feed Option                  |
-| IUA                  | Authorization Client                      |                                        |
-| mCSD                 | Care Service Selective Consumer           |                                        |
-| NPFS                 | File Consumer                             |                                        |
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 48%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Profiles Implemented</th>
+<th>Actors Implemented</th>
+<th>Options Implemented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MHD</td>
+<td>Document Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CT</td>
+<td>Time Client</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="3">PMIR</td>
+<td>Patient Identity Source</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Patient Identity Cross-Reference Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Patient Demographics Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SVCM</td>
+<td>Terminology Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
+<td>STX: TLS 1.2 Floor using BCP195 Option</td>
+</tr>
+<tr class="even">
+<td>ATX: FHIR Feed Option</td>
+</tr>
+<tr class="odd">
+<td>IUA</td>
+<td>Authorization Client</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>mCSD</td>
+<td>Care Service Selective Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NPFS</td>
+<td>File Consumer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 #### 50.6.2.3 System that consumes clinical data elements Systems Design
 
@@ -1112,20 +1253,78 @@ function. Further details can be found in the referenced profiles.
 
 System that consumes clinical data elements - Integration Statement
 
-| Profiles Implemented | Actors Implemented                        | Options Implemented                    |
-| -------------------- | ----------------------------------------- | -------------------------------------- |
-| QEDm                 | Clinical Data Consumer                    |                                        |
-| MHD                  | Document Consumer                         |                                        |
-| CT                   | Time Client                               |                                        |
-| PMIR                 | Patient Identity Source                   |                                        |
-|                      | Patient Identity Cross-Reference Consumer |                                        |
-|                      | Patient Demographics Consumer             |                                        |
-| SVCM                 | Consumer                                  |                                        |
-| ATNA                 | Secure Node                               | STX: TLS 1.2 Floor using BCP195 Option |
-|                      |                                           | ATX: FHIR Feed Option                  |
-| IUA                  | Authorization Client                      |                                        |
-| mCSD                 | Care Service Selective Consumer           |                                        |
-| NPFS                 | File Consumer                             |                                        |
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 37%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Profiles Implemented</th>
+<th>Actors Implemented</th>
+<th>Options Implemented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>QEDm</td>
+<td>Clinical Data Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MHD</td>
+<td>Document Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CT</td>
+<td>Time Client</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="3">PMIR</td>
+<td>Patient Identity Source</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Patient Identity Cross-Reference Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Patient Demographics Consumer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SVCM</td>
+<td>Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
+<td>STX: TLS 1.2 Floor using BCP195 Option</td>
+</tr>
+<tr class="odd">
+<td>ATX: FHIR Feed Option</td>
+</tr>
+<tr class="even">
+<td>IUA</td>
+<td>Authorization Client</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>mCSD</td>
+<td>Care Service Selective Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NPFS</td>
+<td>File Consumer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 #### 50.6.2.4 Central Infrastructure as a single system
 
@@ -1136,35 +1335,144 @@ purposes.
 
 Central Infrastructure Integration Statement
 
-| Profiles Implemented | Actors Implemented              | Options Implemented                    |
-| -------------------- | ------------------------------- | -------------------------------------- |
-| MHDS                 | Document Registry               | Authorization Option                   |
-|                      |                                 | Consent Manager Option                 |
-|                      |                                 | UnContained Option                     |
-|                      |                                 | SVCM Validation Option                 |
-| MHD                  | Document Responder              |                                        |
-| MHD                  | Document Recipient              |                                        |
-| PMIR                 | Patient Identity Consumer       |                                        |
-| CT                   | Time Client                     |                                        |
-| SVCM                 | Terminology Consumer            |                                        |
-|                      | Terminology Repository          |                                        |
-| IUA                  | Resource Server                 |                                        |
-|                      | Authorization Server            |                                        |
-| ATNA                 | Secure Node                     | STX: TLS 1.0 Floor with AES Option     |
-|                      |                                 | STX: TLS 1.0 Floor using BCP195 Option |
-|                      |                                 | STX: TLS 1.2 Floor using BCP195 Option |
-|                      |                                 | ATX: FHIR Feed Option                  |
-| BPPC                 | Content Consumer                |                                        |
-| CT                   | Time Server                     |                                        |
-| PMIR                 | Patient Identity Manager        |                                        |
-| ATNA                 | Audit Record Repository         | STX: TLS 1.0 Floor with AES Option     |
-|                      |                                 | STX: TLS 1.0 Floor using BCP195 Option |
-|                      |                                 | STX: TLS 1.2 Floor using BCP195 Option |
-|                      |                                 | ATX: FHIR Feed Option                  |
-| IUA                  | Authorization Server            |                                        |
-|                      | Resource Server                 |                                        |
-| mCSD                 | Care Service Selective Supplier |                                        |
-| NPFS                 | File Server                     |                                        |
-| mXDE                 | Data Element Extractor          |                                        |
-| QEDm                 | Clinical Data Source            |                                        |
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Profiles Implemented</th>
+<th>Actors Implemented</th>
+<th>Options Implemented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="4">MHDS</td>
+<td rowspan="4">Document Registry</td>
+<td>Authorization Option</td>
+</tr>
+<tr class="even">
+<td>Consent Manager Option</td>
+</tr>
+<tr class="odd">
+<td>UnContained Option</td>
+</tr>
+<tr class="even">
+<td>SVCM Validation Option</td>
+</tr>
+<tr class="odd">
+<td>MHD</td>
+<td>Document Responder</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MHD</td>
+<td>Document Recipient</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PMIR</td>
+<td>Patient Identity Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CT</td>
+<td>Time Client</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">SVCM</td>
+<td>Terminology Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminology Repository</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">IUA</td>
+<td>Resource Server</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Authorization Server</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td rowspan="4">ATNA</td>
+<td rowspan="4">Secure Node</td>
+<td>STX: TLS 1.0 Floor with AES Option</td>
+</tr>
+<tr class="even">
+<td>STX: TLS 1.0 Floor using BCP195 Option</td>
+</tr>
+<tr class="odd">
+<td>STX: TLS 1.2 Floor using BCP195 Option</td>
+</tr>
+<tr class="even">
+<td>ATX: FHIR Feed Option</td>
+</tr>
+<tr class="odd">
+<td>BPPC</td>
+<td>Content Consumer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CT</td>
+<td>Time Server</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PMIR</td>
+<td>Patient Identity Manager</td>
+<td></td>
+</tr>
+<tr class="even">
+<td rowspan="4">ATNA</td>
+<td rowspan="4">Audit Record Repository</td>
+<td>STX: TLS 1.0 Floor with AES Option</td>
+</tr>
+<tr class="odd">
+<td>STX: TLS 1.0 Floor using BCP195 Option</td>
+</tr>
+<tr class="even">
+<td>STX: TLS 1.2 Floor using BCP195 Option</td>
+</tr>
+<tr class="odd">
+<td>ATX: FHIR Feed Option</td>
+</tr>
+<tr class="even">
+<td rowspan="2">IUA</td>
+<td>Authorization Server</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resource Server</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>mCSD</td>
+<td>Care Service Selective Supplier</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NPFS</td>
+<td>File Server</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>mXDE</td>
+<td>Data Element Extractor</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>QEDm</td>
+<td>Clinical Data Source</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
