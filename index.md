@@ -602,18 +602,71 @@ groupings in other related profiles.
 
 Table 50.3-1: Required Actor Groupings
 
-|                   |                                      |                                                                                                                     |             |
-| ----------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------- |
-| MHDS Actor        | Grouping Condition                   | Actor(s) to be grouped with                                                                                         | Reference   |
-| Document Registry | Required                             | CT / Time Client                                                                                                    | ITI TF-1:7  |
-|                   | Required                             | ATNA / Secure Node or Secure Application with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option | ITI TF-1:9  |
-|                   | Required                             | MHD / Document Responder                                                                                            | ITI TF-1:33 |
-|                   | Required                             | MHD / Document Recipient with the Comprehensive Metadata Option                                                     | ITI TF-1:33 |
-|                   | Required                             | PMIR / Patient Identity Consumer                                                                                    | ITI TF-1:49 |
-|                   | if the Authorization Option          | IUA / Resource Server                                                                                               | ITI TF-1:34 |
-|                   | if the Authorization Option          | IUA / Authorization Server                                                                                          | ITI TF-1:34 |
-|                   | if the UnContained References Option | mCSD / Care Services Selective Consumer                                                                             | ITI TF-1:46 |
-|                   | if the SVCM Validation Option        | SVCM / Terminology Consumer                                                                                         | ITI TF-1:51 |
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 28%" />
+<col style="width: 38%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>MHDS Actor</th>
+<th>Grouping Condition</th>
+<th>Actor(s) to be grouped with</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="9">Document Registry</td>
+<td>Required</td>
+<td>CT / Time Client</td>
+<td>ITI TF-1:7</td>
+</tr>
+<tr class="even">
+<td>Required</td>
+<td>ATNA / Secure Node or Secure Application with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option</td>
+<td>ITI TF-1:9</td>
+</tr>
+<tr class="odd">
+<td>Required</td>
+<td>MHD / Document Responder</td>
+<td>ITI TF-1:33</td>
+</tr>
+<tr class="even">
+<td>Required</td>
+<td>MHD / Document Recipient with the Comprehensive Metadata Option</td>
+<td>ITI TF-1:33</td>
+</tr>
+<tr class="odd">
+<td>Required</td>
+<td>PMIR / Patient Identity Consumer</td>
+<td>ITI TF-1:49</td>
+</tr>
+<tr class="even">
+<td>if the Authorization Option</td>
+<td>IUA / Resource Server</td>
+<td>ITI TF-1:34</td>
+</tr>
+<tr class="odd">
+<td>if the Authorization Option</td>
+<td>IUA / Authorization Server</td>
+<td>ITI TF-1:34</td>
+</tr>
+<tr class="even">
+<td>if the UnContained References Option</td>
+<td>mCSD / Care Services Selective Consumer</td>
+<td>ITI TF-1:46</td>
+</tr>
+<tr class="odd">
+<td>if the SVCM Validation Option</td>
+<td>SVCM / Terminology Consumer</td>
+<td>ITI TF-1:51</td>
+</tr>
+</tbody>
+</table>
+
 
 ## 50.4 MHDS Overview
 
