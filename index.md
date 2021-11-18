@@ -608,9 +608,9 @@ groupings in other related profiles.
 <table style="width:100%;">
 <colgroup>
 <col style="width: 20%" />
-<col style="width: 25%" />
-<col style="width: 30%" />
-<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
