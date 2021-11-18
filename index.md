@@ -1,272 +1,54 @@
+**TODO**
+- some TODO tags in the text
+- given that the HIE Whitepaper was updated to include MHD, section 50.7 could / should be removed. The whitepaper is now inclusive of the concepts we wrote in MHDS, so it should be the living result. The only drawback to that is that the whitepaper covers ALL flavors of Document Sharing, and section 50.7 only covers MHDS.
+- Add more links to the profiles MHDS uses.
+- UML is websequence format, should be plantuml (e.g. -->+ )
+- multiple markdown tables likely need to be converted to html as they really need merged cells (e.g. actors with multiple options)
+
+**DONE**
+- simplify front materials
+- simplify table of content
+- removed the General Intro section, as that Actor is already in appendix A
+- fixup markdown to be more simple than got from export
+- change references from pointers at old PDF technical framework to the new profiles.ihe.net site
+
+**********************************************************************************************************
+
 **Integrating the Healthcare Enterprise**
 
-![IHE\_LOGO\_for\_tf-docs](.//media/image1.jpeg)
+**[IHE IT Infrastructure](https://profiles.ihe.net/ITI)** **Supplement**
 
-**IHE IT Infrastructure**
+**Mobile Health Document Sharing (MHDS)**
 
-**Technical Framework Supplement**
+**Revision 2.2 - Public Comment**
 
-**Mobile Health Document Sharing**
-
-**(MHDS)**
-
-**HL7<sup>®</sup> FHIR<sup>®</sup>**
-
-**Revision 2.1 – Trial Implementation**
-
-Date: May 29, 2020
+Date: December 31, 2021
 
 Author: ITI Technical Committee
 
-Email: iti@ihe.net
+Email: [iti@ihe.net](mailto:iti@ihe.net)
 
-**Please verify you have the most recent version of this document.** See
-[here](http://ihe.net/Technical_Frameworks/) for Trial Implementation
-and Final Text versions and [here](http://ihe.net/Public_Comment/) for
-Public Comment versions.
+**Please verify you have the most recent version of this Supplement. See [here](http://profiles.ihe.net/ITI) for the Published version.
 
-**Foreword**
+# Foreword
 
-This is a supplement to the IHE IT Infrastructure Technical Framework
-V16.0. Each supplement undergoes a process of public comment and trial
+This is a supplement to the [IHE](http://www.ihe.net) [IT Infrastructure Technical Framework](https://profiles.ihe.net/ITI/TF/index.html).
+Each supplement undergoes a process of public comment and trial
 implementation before being incorporated into the volumes of the
 Technical Frameworks.
 
-This supplement is published on May 29, 2020 for trial implementation
-and may be available for testing at subsequent IHE Connectathons. The
-supplement may be amended based on the results of testing. Following
-successful testing it will be incorporated into the IT Infrastructure
-Technical Framework. Comments are invited and may be submitted at
-[http://www.ihe.net/ITI\_Public\_Comments](http://www.ihe.net/ITI_Public_Comments/).
 
-This supplement describes changes to the existing technical framework
-documents.
+**CONTENTS**
 
-“Boxed” instructions like the sample below indicate to the Volume Editor
-how to integrate the relevant section(s) into the relevant Technical
-Framework volume.
+* [1:50 Mobile Health Document Sharing (MHDS) Profile](#mobile-health-document-sharing-mhds-profile)
+* [1:50.1 MHDS Actors, Transactions, and Content Modules](#mhds-actors-transactions-and-content-modules)
+* [1:50.2 MHDS Actor Options](#mhds-actor-options)
+* [1:50.3 MHDS Required Actor Groupings](#mhds-required-actor-groupings)
+* [1:50.4 MHDS Overview](#mhds-overview)
+* [1:50.5 MHDS Security Considerations](#mhds-security-considerations)
+* [1:50.6 MHDS Cross Profile Considerations](#mhds-cross-profile-considerations)
+* [1:50.7 MHDS Background](#mhds-background)
 
-Amend Section 50.X by the following:
-
-Where the amendment adds text, make the added text
-**<span class="underline">bold underline</span>**. Where the amendment
-removes text, make the removed text **~~bold strikethrough~~**. When
-entire new sections are added, introduce with editor’s instructions to
-“add new text” or similar, which for readability are not bolded or
-underlined.
-
-General information about IHE can be found at
-[http://ihe.net](http://ihe.net/).
-
-Information about the IHE IT Infrastructure domain can be found at
-[http://ihe.net/IHE\_Domains](http://ihe.net/IHE_Domains/).
-
-Information about the organization of IHE Technical Frameworks and
-Supplements and the process used to create them can be found at
-[http://ihe.net/IHE\_Process](http://ihe.net/IHE_Process/) and
-[http://ihe.net/Profiles](http://ihe.net/Profiles/).
-
-The current version of the IHE IT Infrastructure Technical Framework can
-be found at
-[http://ihe.net/Technical\_Frameworks](http://ihe.net/Technical_Frameworks/).
-
-CONTENTS
-
-[Introduction to this Supplement 5](#introduction-to-this-supplement)
-
-[Open Issues and Questions 6](#open-issues-and-questions)
-
-[Closed Issues 6](#closed-issues)
-
-[IHE Technical Frameworks General Introduction
-8](#ihe-technical-frameworks-general-introduction)
-
-[9 Copyright Licenses 8](#copyright-licenses)
-
-[9.1 Copyright of Base Standards 8](#copyright-of-base-standards)
-
-[9.1.1 DICOM (Digital Imaging and Communications in Medicine)
-8](#dicom-digital-imaging-and-communications-in-medicine)
-
-[9.1.2 HL7 (Health Level Seven) 8](#hl7-health-level-seven)
-
-[9.1.3 LOINC (Logical Observation Identifiers Names and Codes)
-8](#loinc-logical-observation-identifiers-names-and-codes)
-
-[9.1.4 SNOMED CT (Systematized Nomenclature of Medicine -- Clinical
-Terms)
-9](#snomed-ct-systematized-nomenclature-of-medicine----clinical-terms)
-
-[10 Trademark 9](#trademark)
-
-[IHE Technical Frameworks General Introduction Appendices
-10](#ihe-technical-frameworks-general-introduction-appendices)
-
-[Appendix A – Actor Summary Definitions
-10](#appendix-a-actor-summary-definitions)
-
-[Appendix B – Transaction Summary Definitions 10](#_Toc41641123)
-
-[Appendix D – Glossary 10](#appendix-d-glossary)
-
-[**Volume 1 – Profiles 11**](#_Toc345074647)
-
-[50 Mobile Health Document Sharing (MHDS) Profile
-11](#mobile-health-document-sharing-mhds-profile)
-
-[50.1 MHDS Actors, Transactions, and Content Modules
-12](#mhds-actors-transactions-and-content-modules)
-
-[**50.1.1 Actor Descriptions and Actor Profile Requirements**
-15](#actor-descriptions-and-actor-profile-requirements)
-
-[50.1.1.1 Document Registry 16](#document-registry)
-
-[50.1.1.1.1 When the grouped MHD Document Recipient – is triggered
-16](#when-the-grouped-mhd-document-recipient-is-triggered)
-
-[50.1.1.1.2 When the grouped MHD Document Responder – is triggered
-18](#when-the-grouped-mhd-document-responder-is-triggered)
-
-[50.1.1.1.3 When the grouped PMIR Patient Identity Consumer – is
-triggered
-20](#when-the-grouped-pmir-patient-identity-consumer-is-triggered)
-
-[50.1.1.2 Storage of Binary 20](#storage-of-binary)
-
-[50.2 MHDS Actor Options 21](#mhds-actor-options)
-
-[50.2.1 Authorization Option 21](#authorization-option)
-
-[50.2.2 Consent Manager Option 22](#consent-manager-option)
-
-[50.2.3 SVCM Validation Option 25](#svcm-validation-option)
-
-[50.2.4 UnContained Reference Option 25](#uncontained-reference-option)
-
-[50.3 MHDS Required Actor Groupings 26](#mhds-required-actor-groupings)
-
-[50.4 MHDS Overview 27](#mhds-overview)
-
-[50.4.1 Concepts 27](#concepts)
-
-[50.4.2 Use Cases 27](#use-cases)
-
-[50.4.2.1 Use Case \#1: Publication of a new document with persistence
-27](#use-case-1-publication-of-a-new-document-with-persistence)
-
-[50.4.2.2 Use Case \#2: Update of patient identity after an authorized
-Merge
-28](#use-case-2-update-of-patient-identity-after-an-authorized-merge)
-
-[50.4.2.3 Use Case \#3: Discovery and Retrieval of existing documents
-28](#use-case-3-discovery-and-retrieval-of-existing-documents)
-
-[50.4.2.4 Use Case \#4: Consent Management for disclosure under Use Case
-\#3 28](#use-case-4-consent-management-for-disclosure-under-use-case-3)
-
-[50.5 MHDS Security Considerations 28](#mhds-security-considerations)
-
-[50.5.1 Policies and Risk Management 29](#policies-and-risk-management)
-
-[50.5.2 Technical Security and Privacy controls
-30](#technical-security-and-privacy-controls)
-
-[50.5.3 Applying Security and Privacy to Document Sharing
-31](#applying-security-and-privacy-to-document-sharing)
-
-[50.5.3.1 Basic Security 32](#basic-security)
-
-[50.5.3.2 Protecting different types of documents
-32](#protecting-different-types-of-documents)
-
-[50.5.3.3 Patient Privacy Consent to participate in Document Sharing
-34](#patient-privacy-consent-to-participate-in-document-sharing)
-
-[50.5.3.4 Security and Privacy in a Patient Safety Environment
-35](#security-and-privacy-in-a-patient-safety-environment)
-
-[50.5.4 IHE Security and Privacy Controls
-35](#ihe-security-and-privacy-controls)
-
-[50.6 MHDS Cross Profile Considerations
-36](#mhds-cross-profile-considerations)
-
-[50.6.1 Interaction Diagram for the MHDS environment.
-36](#interaction-diagram-for-the-mhds-environment.)
-
-[50.6.2 Typical Client System Designs
-40](#typical-client-system-designs)
-
-[50.6.2.1 System that publishes documents System Design
-40](#system-that-publishes-documents-system-design)
-
-[50.6.2.2 System that consumes documents System Design
-41](#system-that-consumes-documents-system-design)
-
-[50.6.2.3 System that consumes clinical data elements Systems Design
-41](#system-that-consumes-clinical-data-elements-systems-design)
-
-[50.6.2.4 Central Infrastructure as a single system
-42](#central-infrastructure-as-a-single-system)
-
-[50.7 MHDS Background 43](#mhds-background)
-
-[**50.7.1 Overview** 44](#overview)
-
-[**50.7.2** Principles of IHE for Health Document Sharing
-45](#principles-of-ihe-for-health-document-sharing)
-
-[50.7.2.1 General IHE principles 46](#general-ihe-principles)
-
-[50.7.2.2 Document Sharing Governance 46](#document-sharing-governance)
-
-[50.7.2.3 Distinction between Documents and Messages
-47](#distinction-between-documents-and-messages)
-
-[50.7.2.4 Longitudinal Patient Record 48](#longitudinal-patient-record)
-
-[50.7.2.5 Use of Documents 49](#use-of-documents)
-
-[50.7.2.6 Value of Metadata 50](#value-of-metadata)
-
-[50.7.2.7 Document Relationships 51](#document-relationships)
-
-[50.7.2.8 Document Sharing Models 51](#document-sharing-models)
-
-[50.7.2.9 Patient Identity Management 52](#patient-identity-management)
-
-[50.7.2.10 Locating sharing partners 52](#locating-sharing-partners)
-
-[50.7.2.11 Security/Privacy 53](#securityprivacy)
-
-[50.7.3 Document sharing profiles 53](#document-sharing-profiles)
-
-[50.7.3.1 Direct Push 54](#direct-push)
-
-[50.7.3.2 MHDS based Centralized Discovery and Retrieve
-54](#mhds-based-centralized-discovery-and-retrieve)
-
-[50.7.3.2.1 Document Publishing 55](#document-publishing)
-
-[50.7.3.2.2 Document Discovery 56](#document-discovery)
-
-[50.7.3.2.3 Governance 56](#governance)
-
-[50.7.3.2.4 Notifications 57](#notifications)
-
-[50.7.3.3 Federated Discovery and Retrieve
-57](#federated-discovery-and-retrieve)
-
-[50.7.4 Patient Identity Management 57](#patient-identity-management-1)
-
-[50.7.4.1 Patient Identity Management
-58](#patient-identity-management-2)
-
-[50.7.4.2 Patient Demographics Query for Mobile (PDQm)
-59](#patient-demographics-query-for-mobile-pdqm)
-
-[50.7.5 Common Provider Directory 60](#common-provider-directory)
 
 # Introduction to this Supplement
 
@@ -285,64 +67,24 @@ much as possible of modularity enabled by defined Profiles.
 
 Core business functions provided by MHDS Profile:
 
-  - Publication of Document based information
-
-<!-- end list -->
-
+- Publication of Document based information
   - Content agnostic but CDA<sup>®</sup> and FHIR preferred
-
-<!-- end list -->
-
-  - Persistence and lifecycle management of Documents, DocumentManifest,
-    DocumentReference, and List resources
-
-<!-- end list -->
-
-  - Enabling centralized document storage, or distributed document
-    storage at a service identified at the source
-
-<!-- end list -->
-
-  - Patient Identity Management –
-
-<!-- end list -->
-
-  - specifically, a golden patient identity for use within the domain,
-    cross-reference to other identities, and lifecycle of updates
-
-  - Appropriate comprehensive handling of patient identity updates
-    including merge
-
-<!-- end list -->
-
-  - Participant Organizations management
-
-<!-- end list -->
-
+- Persistence and lifecycle management of Documents, DocumentManifest, DocumentReference, and List resources
+  - Enabling centralized document storage, or distributed document storage at a service identified at the source
+- Patient Identity Management –
+  - specifically, a golden patient identity for use within the domain, cross-reference to other identities, and lifecycle of updates
+  - Appropriate comprehensive handling of patient identity updates including merge
+- Participant Organizations management
   - Enabling use of mCSD directory for author identity management
-
-<!-- end list -->
-
-  - Authorization management
-
-<!-- end list -->
-
+- Authorization management
   - Consent
-
   - User Role-Based-Access-Control (RBAC) or
     Attribute-Based-Access-Control (ABAC)
-
   - Application
-
   - PurposeOfUse
-
-<!-- end list -->
-
-  - Encryption and Integrity requirements
-
-  - Audit Log Management
-
-  - Consumption side can be further refined using mXDE and QEDm
+- Encryption and Integrity requirements
+- Audit Log Management
+- Consumption side can be further refined using mXDE and QEDm
 
 ## Open Issues and Questions
 
@@ -351,7 +93,7 @@ Core business functions provided by MHDS Profile:
     supplement in order to be more self-contained and not rely on the
     reader referencing other whitepapers and handbooks. Section 50.7
     could be considered to be removed if and when the ITI whitepaper on
-    using IHE Profiles for and HIE is updated to include MHD and MHDS.
+    using IHE Profiles for and HIE is updated to include MHD and MHDS. **TODO**
 
 ## Closed Issues
 
@@ -361,8 +103,6 @@ Core business functions provided by MHDS Profile:
     original MHD acronym while removing the word “access” which is
     important in MHD to define it as an API and inserting the word
     “Sharing” which indicates persistence.
-
-<!-- end list -->
 
 2.  There is no action defined for the Document Registry when the PMIR
     feed transaction indicated a Delete action on a Patient that the
@@ -390,141 +130,16 @@ Core business functions provided by MHDS Profile:
     it is not pointed out as such and thus not well known. There is
     description of this virtual Document Repository functionality.
 
-<!-- end list -->
-
-1.  The MHDS environment allows for some normally contained Resources be
+6.  The MHDS environment allows for some normally contained Resources be
     recorded as a link to data in the mCSD managed Directory or PMIR
     Patient Identity Manager. This is defined in the “UnContained
     Reference Option”. The necessary change to MHD has not been done yet
     in order to get feedback from Public Comment. CP-ITI-1200 has
     updated. MHD to add an UnContained Reference Option for this support
 
-# IHE Technical Frameworks General Introduction
 
-The [IHE Technical Framework General
-Introduction](http://ihe.net/Technical_Frameworks/#GenIntro) is shared
-by all of the IHE domain technical frameworks. Each technical framework
-volume contains links to this document where appropriate.
 
-# Copyright Licenses
-
-IHE International hereby grants to each Member Organization, and to any
-other user of these documents, an irrevocable, worldwide, perpetual,
-royalty-free, nontransferable, nonexclusive, non-sublicensable license
-under its copyrights in any IHE profiles and Technical Framework
-documents, as well as any additional copyrighted materials that will be
-owned by IHE International and will be made available for use by Member
-Organizations, to reproduce and distribute (in any and all print,
-electronic or other means of reproduction, storage or transmission) such
-IHE Technical Documents.
-
-The licenses covered by this Copyright License are only to those
-copyrights owned or controlled by IHE International itself. If parts of
-the Technical Framework are included in products that also include
-materials owned or controlled by other parties, licenses to use those
-products are beyond the scope of this IHE document and would have to be
-obtained from that other party.
-
-## Copyright of Base Standards
-
-IHE technical documents refer to and make use of a number of standards
-developed and published by several standards development organizations.
-All rights for their respective base standards are reserved by these
-organizations. This agreement does not supersede any copyright
-provisions applicable to such base standards. Copyright license
-information for frequently referenced base standards is provided below.
-
-### DICOM (Digital Imaging and Communications in Medicine)
-
-DICOM<sup>®</sup> is the registered trademark of the National Electrical
-Manufacturers Association for its standards publications relating to
-digital communications of medical information.
-
-### HL7 (Health Level Seven)
-
-HL7<sup>®</sup>, Health Level Seven<sup>®</sup>, CCD<sup>®</sup>,
-CDA<sup>®</sup>, FHIR<sup>®</sup>, and the FHIR \[FLAME DESIGN\]
-<sup>®</sup> are registered trademarks of Health Level. Seven
-International and the use does not constitute endorsement by HL7.
-
-Health Level Seven, Inc. has granted permission to IHE to reproduce
-tables from the HL7 standard. The HL7 tables in this document are
-copyrighted by Health Level Seven, Inc. All rights reserved. Material
-drawn from these documents is credited where used.
-
-### LOINC (Logical Observation Identifiers Names and Codes)
-
-LOINC<sup>®</sup> is registered United States trademarks of Regenstrief
-Institute, Inc.
-
-### SNOMED CT (Systematized Nomenclature of Medicine -- Clinical Terms)
-
-Some IHE Profiles incorporate SNOMED<sup>®</sup> CT, which is used by
-permission of the International Health Terminology Standards Development
-Organisation. SNOMED CT<sup>©</sup> was originally created by the
-College of American Pathologists. SNOMED CT is a registered trademark of
-the International Health Terminology Standards Development Organisation,
-all rights reserved.
-
-# Trademark
-
-IHE<sup>®</sup> and the IHE logo are trademarks of the Healthcare
-Information Management Systems Society in the United States and
-trademarks of IHE Europe in the European Community. They may only be
-used with the written consent of the IHE International Board Operations
-Committee, which may be given to a Member Organization in broad terms
-for any use that is consistent with the IHE mission and operating
-principles.
-
-# IHE Technical Frameworks General Introduction Appendices
-
-The [IHE Technical Framework General Introduction
-Appendices](http://ihe.net/Technical_Frameworks/#GenIntro) are
-components shared by all of the IHE domain technical frameworks. Each
-technical framework volume contains links to these documents where
-appropriate.
-
-Update the following appendices to the General Introduction as indicated
-below. Note that these are **not** appendices to this domain’s Technical
-Framework (TF-1, TF-2, TF-3 or TF-4) but rather, they are appendices to
-the IHE Technical Frameworks General Introduction located
-[here](https://www.ihe.net/resources/technical_frameworks/#GenIntro).
-
-# Appendix A – Actor Summary Definitions
-
-Add the following **new or modified** actors to the IHE Technical
-Frameworks General Introduction Appendix A:
-
-No *new* actors.
-
-The table below lists *existing* actors that are utilized in this
-profile.
-
-List of Existing Actors Utilized in this Profile
-
-| Existing Actor Name | Definition                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Document Registry   | The Document Registry maintains metadata about each registered document in a document entry. This includes a link to the Document in the Repository where it is stored. The Document Registry responds to queries from Document Consumer Actors about documents meeting specific criteria. It also enforces some healthcare specific technical policies at the time of document registration. |
-
-# Appendix B – Transaction Summary Definitions
-
-Add the following **new or modified** transactions to the IHE Technical
-Frameworks General Introduction Appendix B:
-
-No new transactions
-
-# Appendix D – Glossary
-
-Add the following **new or updated glossary** terms to the IHE Technical
-Frameworks General Introduction Appendix D.
-
-No new terms.
-
-<span id="_Toc345074647" class="anchor"></span>Volume 1 – Profiles
-
-Add new Section 50
-
-# 50 Mobile Health Document Sharing (MHDS) Profile
+# 1:50 Mobile Health Document Sharing (MHDS) Profile
 
 The MHDS Profile specifies how a collection of IHE profiles can be used
 by communities for exchanging health information. These IHE profiles
@@ -537,26 +152,18 @@ sharing.
 The IHE IT Infrastructure Domain has published several resources to
 support document sharing:
 
-  - ITI Technical Framework: [Vol. 3 - Section 4.0 Metadata used in
-    Document
-    Sharing](http://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_TF_Vol3.pdf#nameddest=4_0_Metadata_used_in_Document_S)
-
-  - [Health Information Exchange: Enabling Document Sharing Using IHE
-    Profiles](https://www.ihe.net/wp-content/uploads/Technical_Framework/upload/IHE_ITI_White-Paper_Enabling-doc-sharing-through-IHE-Profiles_Rev1-0_2012-01-24.pdf)
-
-  - [Document Sharing Metadata
-    Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata_Rev1-1_Pub_2018-08-20.pdf)
-
-  - [Template for XDS Affinity Domain Deployment
-    Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)
+- ITI Technical Framework: [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4
+- [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
+- [Document Sharing Metadata Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf)
+- [Template for XDS Affinity Domain Deployment Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)
 
 This MHDS Profile defines a Document Sharing Exchange that is based
 around the HL7 FHIR standard, following the principles described in the
 [Health Information Exchange: Enabling Document Sharing Using IHE
-Profiles](https://www.ihe.net/wp-content/uploads/Technical_Framework/upload/IHE_ITI_White-Paper_Enabling-doc-sharing-through-IHE-Profiles_Rev1-0_2012-01-24.pdf)
+Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) 
 whitepaper. This Document Sharing exchange requires the same management
 of metadata as described in the [Document Sharing Metadata
-Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata_Rev1-1_Pub_2018-08-20.pdf).
+Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
 ![](.//media/image2.png)
 
@@ -566,19 +173,14 @@ Readers that need background on high level concepts of Document Sharing
 should first review Section 50.7 “MHD Background”. The MHDS Profile is
 described in the following sections:
 
-  - 50.1 – MHDS Actors, Transactions, and Content Modules
+* [1:50.1 MHDS Actors, Transactions, and Content Modules](#mhds-actors-transactions-and-content-modules)
+* [1:50.2 MHDS Actor Options](#mhds-actor-options)
+* [1:50.3 MHDS Required Actor Groupings](#mhds-required-actor-groupings)
+* [1:50.4 MHDS Overview](#mhds-overview)
+* [1:50.5 MHDS Security Considerations](#mhds-security-considerations)
+* [1:50.6 MHDS Cross Profile Considerations](#mhds-cross-profile-considerations)
+* [1:50.7 MHDS Background](#mhds-background)
 
-  - 50.2 – MHDS Actor Options
-
-  - 50.3 – MHDS Required Actor Groupings
-
-  - 50.4 – MHDS Overview and Use-cases
-
-  - 50.5 – MHDS Security Considerations
-
-  - 50.6 – MHDS Cross Profile Considerations
-
-  - 50.7 – MHDS Background
 
 ## 50.1 MHDS Actors, Transactions, and Content Modules
 
@@ -606,34 +208,16 @@ Table 50.1-1: MHDS Profile - Actors and Transactions
 The Document Registry is grouped with a set of actors from other
 profiles:
 
-  - **MHD - Document Recipient** supports publication requests by the
-    MHD Document Source. The Comprehensive Metadata Option is required.
+- **MHD - Document Recipient** supports publication requests by the MHD Document Source. The Comprehensive Metadata Option is required.
+- **MHD - Document Responder** supports the discovery and retrieval of documents by MHD Document Consumer.
+- **PMIR - Patient Identity Consumer** provides patient identity synchronization and specifically the merge function to be applied to any data managed in the Document Registry.
+- **SVCM – Terminology Consumer** enables the Document Registry to gain access to ValueSets that the Registry is enforcing Metadata consistency.
+- **mCSD – Care Services Selective Consumer** enables the Registry to have access to Organization and Practitioner resources.
+- **IUA – Authorization Server and Resource Server** enforces access control decisions.
+- **ATNA - Secure Node** enable the Document Registry to be secure, record audit records, and support secure transactions.
+- **CT - Time Client** assures that all records of time done by the Document Registry are aligned with the Time Source.
 
-  - **MHD - Document Responder** supports the discovery and retrieval of
-    documents by MHD Document Consumer.
-
-  - **PMIR - Patient Identity Consumer** provides patient identity
-    synchronization and specifically the merge function to be applied to
-    any data managed in the Document Registry.
-
-  - **SVCM – Terminology Consumer** enables the Document Registry to
-    gain access to ValueSets that the Registry is enforcing Metadata
-    consistency.
-
-  - **mCSD – Care Services Selective Consumer** enables the Registry to
-    have access to Organization and Practitioner resources.
-
-  - **IUA – Authorization Server and Resource Server** enforces access
-    control decisions.
-
-  - **ATNA - Secure Node** enable the Document Registry to be secure,
-    record audit records, and support secure transactions.
-
-  - **CT - Time Client** assures that all records of time done by the
-    Document Registry are aligned with the Time Source.
-
-**<span class="underline">HIE Central Infrastructure
-Requirements</span>**
+**_HIE Central Infrastructure Requirements_**
 
 In MHDS, the Document Registry is part of a Document Sharing Health
 Information Exchange (HIE). See Figure 50.1-2. The Document Registry
@@ -652,38 +236,19 @@ Figure 50.1-2: MHDS Document Sharing Health Information Exchange
 The HIE Central Infrastructure is a set of Services based on IHE
 Profiles as shown in Figure 50.1-2:
 
-  - **CT - Time Server** – to provide consistent time to all participant
-    systems
-
-  - **ATNA – Audit Record Repository** with support for the ATX: FHIR
-    Feed Option – to capture audit events and provide appropriate audit
-    log access for security and privacy use-cases
-
-  - **PMIR – Patient Identity Source and Patient Identity Manager – to
-    provide patient identity lookup by demographics or identity, and to
-    receive create and update of patient identity from participants**
-
-  - **SVCM – Terminology Repository** – Provide vocabulary and value set
-    management within the Community
-
-  - **mCSD – Care Services Selective Supplier** – a Provider Directory
-    to enable endpoint lookup and optionally provider identity
-    management
+- **CT - Time Server** – to provide consistent time to all participant systems
+- **ATNA – Audit Record Repository** with support for the ATX: FHIR Feed Option – to capture audit events and provide appropriate audit log access for security and privacy use-cases
+- **PMIR – Patient Identity Source and Patient Identity Manager** – to provide patient identity lookup by demographics or identity, and to receive create and update of patient identity from participants
+- **SVCM – Terminology Repository** – Provide vocabulary and value set management within the Community
+- **mCSD – Care Services Selective Supplier** – a Provider Directory to enable endpoint lookup and optionally provider identity management
 
 There are other useful actors that are compatible with MHDS, but are not
 required by the MHDS Profile:
 
-  - **NPFS – File Manager** – Provide files that are needed in the
-    community but are not patient specific such as policy documents
-
-  - **mXDE – Data Element Extractor** – to enable QEDm access to data
-    elements derived from published documents
-
-  - **QEDm – Clinical Data Source – to enable access to data elements
-    (aka FHIR clinical Resources)**
-
-  - **mACM – Alert Communication Manager** – to enable community
-    supported alert communications
+- **NPFS – File Manager** – Provide files that are needed in the community but are not patient specific such as policy documents
+- **mXDE – Data Element Extractor** – to enable QEDm access to data elements derived from published documents
+- **QEDm – Clinical Data Source** – to enable access to data elements (aka FHIR clinical Resources)
+- **mACM – Alert Communication Manager** – to enable community supported alert communications
 
 In addition to these IHE-defined actors, the Community will also select
 how they will manage Digital Certificates through a Certificate
@@ -699,7 +264,7 @@ Profile may be used to make the information in shared documents more
 consumable as FHIR Resources using QEDm Profile. See Section 50.6 Cross
 Profile Considerations for more details.
 
-### **50.1.1 Actor Descriptions and Actor Profile Requirements**
+### 50.1.1 Actor Descriptions and Actor Profile Requirements
 
 This profile assumes that some Health Information Exchange (HIE)
 authority manages the configuration of the Community. This includes
@@ -717,7 +282,7 @@ The HIE authority is responsible for setting Document Sharing Metadata
 rules, following the metadata rules and using the Metadata Handbook to
 set specific metadata element requirements including the specification
 of mandatory ValueSets. See the [Document Sharing Metadata
-Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata_Rev1-1_Pub_2018-08-20.pdf).
+Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
 #### 50.1.1.1 Document Registry
 
@@ -735,19 +300,10 @@ records of time are correlated.
 The Document Registry SHALL be grouped with an ATNA Secure Node or
 Secure Application:
 
-  - The Document Registry SHALL obtain a Digital Certificate from the
-    HIE-defined Certificate Authority.
-
-  - The Document Registry SHALL support at least the ATNA “STX: TLS 1.2
-    Floor using BCP195” Option.
-
-  - The Document Registry SHALL allow only authorized access to the
-    protected resources managed by the Document Registry.
-
-  - The Document Registry SHALL record all security relevant events to
-    ATNA Audit Record Repository with the “ATX: FHIR Feed” Option. This
-    SHALL include all IHE-defined audit events that are in the control
-    of the Document Registry, including its grouped actors.
+- The Document Registry SHALL obtain a Digital Certificate from the HIE-defined Certificate Authority.
+- The Document Registry SHALL support at least the ATNA “STX: TLS 1.2 Floor using BCP195” Option.
+- The Document Registry SHALL allow only authorized access to the protected resources managed by the Document Registry.
+- The Document Registry SHALL record all security relevant events to ATNA Audit Record Repository with the “ATX: FHIR Feed” Option. This SHALL include all IHE-defined audit events that are in the control of the Document Registry, including its grouped actors.
 
 ##### 50.1.1.1.1 When the grouped MHD Document Recipient – is triggered
 
@@ -757,68 +313,17 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 
 Figure 50.1.1.1.1-1: Document Publication Process Flow
 
-1.  The Document Registry SHALL confirm its identity to the requesting
-    system by use of the ATNA Secure Node or Secure Application TLS
-    protocol using a Certificate assigned to the Document Registry.
-
-<!-- end list -->
-
-6.  When the Authorization Option (Section 50.2.1) is implemented and
-    enabled, the Document Registry SHALL confirm the client identity
-    using the IUA Profile.
-
-7.  The Document Registry SHALL validate to the requirements of MHD
-    Document Recipient using the MHD Comprehensive Metadata Option.
-    Additional policy driven requirements, not specified here, may also
-    apply.
-
-8.  When the UnContained Reference Option is used in the grouped MHD
-    Document Recipient, the Document Registry SHALL not require that the
-    references are contained, but SHALL validate that the reference is
-    found in the central registries. (See Section 50.2.4 UnContained
-    Reference Option.)
-
-9.  The Document Registry SHALL validate that the subject of the
-    DocumentReference, DocumentManifest, and List Resources is the same
-    Patient, and that Patient is a recognized and active Patient within
-    the Community. The Patient identity must be recognized and active by
-    the PMIR Patient Identity Manager in the document sharing community.
-    This may be accomplished by a query of the PMIR Patient Identity
-    Manager, by way of a cached internal patient database, or other
-    means.
-
-10. The Document Registry SHALL validate the metadata conformance
-    received according to the appropriate validation rules, and
-    configured ValueSets to assure that the document submission request
-    is valid. If any of the metadata are found to be not valid then the
-    transaction shall be rejected.
-
-11. When the SVCM Validation Option (Section 50.2.3) is implemented and
-    enabled, the Document Registry SHALL use the grouped SVCM
-    Terminology Consumer to validate metadata elements as appropriate to
-    configured policy. For example, the DocumentReference.type often
-    must be a value within a ValueSet agreed to by the Community.
-
-12. Provided the request is valid, the Document Registry SHALL persist
-    all DocumentManifest, DocumentReference, List, and Binary that are
-    received by way of the grouped MHD - Document Recipient – Provide
-    Document Bundle \[ITI-65\] Transaction.
-
-13. When the request includes a DocumentReference intended to replace an
-    existing DocumentReference, the Document Registry SHALL mark the
-    replaced DocumentReference as deprecated. The Replace action in the
-    request is indicated when the Bundle contains a new
-    DocumentReference with DocumentReference.relatesTo.code of replaces
-    and DocumentReference.relatesTo.target pointing at the existing
-    DocumentReference to be deprecated. The Document Registry sets the
-    existing DocumentReference.status element to inactive.
-
-14. Any of the above checks that fail will result in the whole Provide
-    Document Bundle \[ITI-65\] failing and returning errors as defined
-    in \[ITI-65\].
-
-15. The Document Registry SHALL record success and failure events into
-    the ATNA Audit Record Repository.
+1.  The Document Registry SHALL confirm its identity to the requesting system by use of the ATNA Secure Node or Secure Application TLS protocol using a Certificate assigned to the Document Registry.
+2.  When the Authorization Option (Section 50.2.1) is implemented and enabled, the Document Registry SHALL confirm the client identity using the IUA Profile.
+3.  The Document Registry SHALL validate to the requirements of MHD Document Recipient using the MHD Comprehensive Metadata Option. Additional policy driven requirements, not specified here, may also apply.
+4.  When the UnContained Reference Option is used in the grouped MHD Document Recipient, the Document Registry SHALL not require that the references are contained, but SHALL validate that the reference is found in the central registries. (See Section 50.2.4 UnContained Reference Option.)
+5.  The Document Registry SHALL validate that the subject of the DocumentReference, DocumentManifest, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the PMIR Patient Identity Manager in the document sharing community. This may be accomplished by a query of the PMIR Patient Identity Manager, by way of a cached internal patient database, or other means.
+6. The Document Registry SHALL validate the metadata conformance received according to the appropriate validation rules, and configured ValueSets to assure that the document submission request is valid. If any of the metadata are found to be not valid then the transaction shall be rejected.
+7. When the SVCM Validation Option (Section 50.2.3) is implemented and enabled, the Document Registry SHALL use the grouped SVCM Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
+8. Provided the request is valid, the Document Registry SHALL persist all DocumentManifest, DocumentReference, List, and Binary that are received by way of the grouped MHD - Document Recipient – Provide Document Bundle \[ITI-65\] Transaction.
+9. When the request includes a DocumentReference intended to replace an existing DocumentReference, the Document Registry SHALL mark the replaced DocumentReference as deprecated. The Replace action in the request is indicated when the Bundle contains a new DocumentReference with DocumentReference.relatesTo.code of replaces and DocumentReference.relatesTo.target pointing at the existing DocumentReference to be deprecated. The Document Registry sets the existing DocumentReference.status element to inactive.
+10. Any of the above checks that fail will result in the whole Provide Document Bundle \[ITI-65\] failing and returning errors as defined in \[ITI-65\].
+11. The Document Registry SHALL record success and failure events into the ATNA Audit Record Repository.
 
 ##### 50.1.1.1.2 When the grouped MHD Document Responder – is triggered
 
@@ -830,36 +335,13 @@ References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 Figure 50.1.1.1.2-1: Discovery and Retrieval of Existing Document
 Process Flow
 
-1.  The Document Registry SHALL confirm its identity to the requesting
-    system by use of the ATNA Secure Node or Secure Application TLS
-    protocol using a Certificate assigned to the Document Registry.
-
-<!-- end list -->
-
-16. When the Authorization Option is implemented and enabled, the
-    Document Registry SHALL confirm the client identity using the IUA
-    Profile.
-
-17. Additional policy driven requirements, not specified here, may also
-    apply. Such as enforcement at the Document Registry of
-    Patient-specific Consent Directives.
-
-18. The Document Registry SHALL validate that the subject of the find or
-    retrieve request is a Patient that is a recognized Patient within
-    the Community. The Patient identity must be recognized by the
-    approved PMIR Patient Identity Manager system. This may be
-    accomplished by a query of the PMIR manager, by way of a cached
-    internal patient database, or other means.
-
-19. The Document Registry SHALL provide the persisted resources to the
-    grouped MHD Document Responder in support of the Document Responder
-    duties to return results.
-
-20. The Document Registry, if the Authorization Option is used, SHALL
-    confirm that only authorized results are returned.
-
-21. The Document Registry SHALL record a success or failure event into
-    the ATNA Audit Record Repository.
+1.  The Document Registry SHALL confirm its identity to the requesting system by use of the ATNA Secure Node or Secure Application TLS protocol using a Certificate assigned to the Document Registry.
+2. When the Authorization Option is implemented and enabled, the Document Registry SHALL confirm the client identity using the IUA Profile.
+3. Additional policy driven requirements, not specified here, may also apply. Such as enforcement at the Document Registry of Patient-specific Consent Directives.
+4. The Document Registry SHALL validate that the subject of the find or retrieve request is a Patient that is a recognized Patient within the Community. The Patient identity must be recognized by the approved PMIR Patient Identity Manager system. This may be accomplished by a query of the PMIR manager, by way of a cached internal patient database, or other means.
+5. The Document Registry SHALL provide the persisted resources to the grouped MHD Document Responder in support of the Document Responder duties to return results.
+6. The Document Registry, if the Authorization Option is used, SHALL confirm that only authorized results are returned.
+7. The Document Registry SHALL record a success or failure event into the ATNA Audit Record Repository.
 
 ##### 50.1.1.1.3 When the grouped PMIR Patient Identity Consumer – is triggered
 
@@ -903,11 +385,9 @@ DocumentReference.content.attachment.url. value is a persistent URL to
 the Binary content. When this is used by the Community, the service
 hosting the Binary shall:
 
-  - persist the Binary for the lifecycle expected of the Community,
-
-  - provide access to the community members,
-
-  - use the security model agreed to by the community members
+- persist the Binary for the lifecycle expected of the Community,
+- provide access to the community members,
+- use the security model agreed to by the community members
 
 ## 50.2 MHDS Actor Options
 
@@ -925,6 +405,8 @@ Table 50.2-1: MHDS – Actors and Options
 |                   | Uncontained Reference Option    | Section 50.2.4 |
 
 Note 1: The Consent Manager Option requires the Authorization Option
+
+**TODO: I think this table must be converted to html table so that column A can be merged cell**
 
 ### 50.2.1 Authorization Option
 
@@ -980,20 +462,11 @@ Figure 50.2.2-2: Simple Consent state diagram
 
 The IUA Authorization Server SHALL
 
-  - support Permit and Deny policies and may support other policies.
-
-  - support through some functionality the patient consent state to be
-    changed: Authorize action to move from Deny to Permit state, and
-    Revoke action to move from Permit to Deny state.
-
-  - support consent state for PurposeOfUse of Treatment (HL7
-    PurposeOfUse code of “TREAT”) and may support consent states for
-    other PurposeOfUse values within the scope of the MHDS community.
-
-  - Deny access to any PurposeOfUse not authorized.
-
-  - support expiring a consent that results in a Permit state
-    automatically transitioning to Deny at expiration.
+- support Permit and Deny policies and may support other policies.
+- support through some functionality the patient consent state to be changed: Authorize action to move from Deny to Permit state, and Revoke action to move from Permit to Deny state.
+- support consent state for PurposeOfUse of Treatment (HL7 PurposeOfUse code of “TREAT”) and may support consent states for other PurposeOfUse values within the scope of the MHDS community.
+- Deny access to any PurposeOfUse not authorized.
+- support expiring a consent that results in a Permit state automatically transitioning to Deny at expiration.
 
 The IUA Resource Server enforcement point grouped with the MHDS Document
 Registry SHALL enforce the security authorization decision. This
@@ -1015,6 +488,8 @@ the scope values for PurposeOfUse and the identity of the Patient. This
 OAuth Scope specification does not require the use of SMART-on-FHIR but
 is compatible with it. There are two defined scope values that are
 included in the scope separated by a space and repeated as necessary:
+
+**TODO: Seems this should have some code block markup**
 
 “PurposeOfUse” '.' PurposeOfUse
 
@@ -1100,8 +575,7 @@ Identity Manager using the PDQm Query \[ITI-78\].
 ## 50.3 MHDS Required Actor Groupings 
 
 An actor from this profile (Column 1) shall implement all of the
-required transactions in this profile ***in addition to***
-***<span class="underline">all</span>*** of the requirements for the
+required transactions in this profile **in addition to all** of the requirements for the
 grouped actor (Column 3).
 
 Section 50.5 describes some optional groupings that may be of interest
@@ -1235,44 +709,22 @@ to be harmonized with those policies of the local health enterprises
 connected to the community. The following is a list of sample policy
 fragments to stimulate discussion:
 
-  - Policies for who has access to what type of documents in the
-    community
-
-  - Policies for who is allowed to publish documents into the community
-
-  - Policies on the acceptable types of documents that can be published
-    into the community
-
-  - Policies that indicate acceptable levels of risk within community
-
-  - Policies that indicate what sanctions will be imposed on individuals
-    that violate the community policies
-
-  - Policies on training and awareness
-
-  - Policies on user provisioning and de-provisioning within the
-    community and local operation
-
-  - Policies on emergency mode operations
-
-  - Policies on acceptable network use (browser, decency, external-email
-    access, etc.)
-
-  - Policies on user authentication methods that are acceptable
-
-  - Policies on backup and recovery planning
-
-  - Policies on acceptable third-party access
-
-  - Policies on secondary use of the information in the community
-
-  - Policies on the availability of the community systems (are the
-    community systems considered life critical, normal, or low priority)
-
-  - Policies for maintenance downtime
-
-  - Policies for length of time that information will be maintained in
-    the community
+- Policies for who has access to what type of documents in the  community
+- Policies for who is allowed to publish documents into the community
+- Policies on the acceptable types of documents that can be published into the community
+- Policies that indicate acceptable levels of risk within community
+- Policies that indicate what sanctions will be imposed on individuals that violate the community policies
+- Policies on training and awareness
+- Policies on user provisioning and de-provisioning within the community and local operation
+- Policies on emergency mode operations
+- Policies on acceptable network use (browser, decency, external-email access, etc.)
+- Policies on user authentication methods that are acceptable
+- Policies on backup and recovery planning
+- Policies on acceptable third-party access
+- Policies on secondary use of the information in the community
+- Policies on the availability of the community systems (are the community systems considered life critical, normal, or low priority)
+- Policies for maintenance downtime
+- Policies for length of time that information will be maintained in the community
 
 These policies are not a flat set, but often interlock and at other
 times cascade. An important set of policies are those around emergency
@@ -1281,24 +733,11 @@ emergency mode. These emergency modes need to be recognized for the
 risks they present. When these use cases are factored in up-front, the
 mitigations are reasonable.
 
-  - Natural or manmade catastrophic disaster (e.g., hurricane,
-    earthquake) – often times additional workforce migrates into the
-    area from other places to help out. These individuals need to
-    quickly be screened and provisioned with appropriate access.
-
-  - Utility failure (e.g., electric failure) – this situation is common
-    and easily handled through uninterruptible power supplies and backup
-    generation
-
-  - IT infrastructure failure (e.g., hard drive crash) – this situation
-    is also common and handled through common infrastructural redundancy
-
-  - Need to elevate privileges due to a patient emergency, often called
-    break-glass (e.g., nurse needs to prescribe)
-
-  - Need to override a patient specified privacy block due to eminent
-    danger to that patient – this override is not a breaking of the
-    policy but would need to be an explicit condition within the policy.
+- Natural or man-made catastrophic disaster (e.g., hurricane, earthquake) – often times additional workforce migrates into the area from other places to help out. These individuals need to quickly be screened and provisioned with appropriate access.
+- Utility failure (e.g., electric failure) – this situation is common and easily handled through uninterruptible power supplies and backup generation
+- IT infrastructure failure (e.g., hard drive crash) – this situation is also common and handled through common infrastructural redundancy
+- Need to elevate privileges due to a patient emergency, often called break-glass (e.g., nurse needs to prescribe)
+- Need to override a patient specified privacy block due to eminent danger to that patient – this override is not a breaking of the policy but would need to be an explicit condition within the policy.
 
 Often times being in the emergency department is considered as an
 emergency mode, but the emergency department is really a normal mode for
@@ -1336,42 +775,14 @@ Management.
 
 These security and privacy controls are:
 
-1.  Audit Log Controls – The controls that can prove the system is
-    protecting the resources in accordance to the policies. This set of
-    controls includes security audit logging, reporting, alerting and
-    alarming.
-
-<!-- end list -->
-
-22. Identification and Authentication Controls – The controls that prove
-    that a system or person is who they say that they are. For example:
-    personal interactions, Oauth, OpenID-Connect
-
-23. Data Access Controls – The controls that limit access by an
-    authenticated entity to the information and functions that they are
-    authorized to have access to. These controls are often implemented
-    using Role Based Access Controls (RBAC), or Attribute Based Access
-    Controls (ABAC).
-
-24. Secrecy Controls– As sensitive information is created, stored,
-    communicated, and modified; this control protects the information
-    from being exposed. For example: encryption or access controls.
-
-25. Data Integrity Controls – The controls that prove that the data has
-    not changed in an unauthorized way. For example: digital signatures,
-    secure hash algorithms, CRC, and checksum.
-
-26. Non-Repudiation Controls – The controls that ensure that an entity
-    cannot later refute that they participated in an act. For example,
-    author of a document, order of a test, prescribe of medications.
-
-27. Patient Privacy Controls – The controls that enforce patient
-    specific handling instructions.
-
-28. Availability Controls – The controls that ensure that information is
-    available when needed. For example: backup, replication, fault
-    tolerance, RAID, trusted recovery, uninterruptible power supplies,
-    etc. (not an area where Interoperability applies)
+1.  Audit Log Controls – The controls that can prove the system is protecting the resources in accordance to the policies. This set of controls includes security audit logging, reporting, alerting and  alarming.
+2. Identification and Authentication Controls – The controls that prove that a system or person is who they say that they are. For example: personal interactions, Oauth, OpenID-Connect
+3. Data Access Controls – The controls that limit access by an authenticated entity to the information and functions that they are authorized to have access to. These controls are often implemented using Role Based Access Controls (RBAC), or Attribute Based Access Controls (ABAC).
+4. Secrecy Controls– As sensitive information is created, stored, communicated, and modified; this control protects the information from being exposed. For example: encryption or access controls.
+5. Data Integrity Controls – The controls that prove that the data has not changed in an unauthorized way. For example: digital signatures, secure hash algorithms, CRC, and checksum.
+6. Non-Repudiation Controls – The controls that ensure that an entity cannot later refute that they participated in an act. For example, author of a document, order of a test, prescribe of medications.
+7. Patient Privacy Controls – The controls that enforce patient specific handling instructions.
+8. Availability Controls – The controls that ensure that information is available when needed. For example: backup, replication, fault tolerance, RAID, trusted recovery, uninterruptible power supplies, etc. (not an area where Interoperability applies)
 
 ### 50.5.3 Applying Security and Privacy to Document Sharing
 
@@ -1392,13 +803,8 @@ Authentication (ATNA). This profile requires three things of each
 system:
 
 1.  User authentication and Access Controls are enforced accordingly,
-
-<!-- end list -->
-
-29. Security Audit Logs are recorded, and
-
-30. Strong network authentication and encryption for all communications
-    of sensitive patient data
+2. Security Audit Logs are recorded, and
+3. Strong network authentication and encryption for all communications of sensitive patient data
 
 The Security Audit Logging includes a set of security relevant events
 that must be audited. When one of these events happens the record of the
@@ -1494,24 +900,13 @@ has not yet been profiled by IHE.
 Some examples of the type of policy that can be necessary for Patient
 Privacy Consents are:
 
-  - Explicit Opt-In (patient elects to have some information shared) is
-    required which enables document sharing
-
-  - Explicit Opt-Out (patient elects to not have information shared)
-    stops all document sharing
-
-  - Implicit Opt-In allows for document sharing
-
-  - Explicit Opt-Out of sharing outside of use in local care events, but
-    does allow emergency override
-
-  - Explicit Opt-Out of sharing outside of use in local care events, but
-    without emergency override
-
-  - Explicit authorization captured that allows specific research
-    project
-
-  - Change the consent policy (change from opt-in to opt-out)
+- Explicit Opt-In (patient elects to have some information shared) is required which enables document sharing
+- Explicit Opt-Out (patient elects to not have information shared) stops all document sharing
+- Implicit Opt-In allows for document sharing
+- Explicit Opt-Out of sharing outside of use in local care events, but does allow emergency override
+- Explicit Opt-Out of sharing outside of use in local care events, but without emergency override
+- Explicit authorization captured that allows specific research project
+- Change the consent policy (change from opt-in to opt-out)
 
 The BPPC Profile can be used as a gate-keeper to the document sharing
 community. BPPC does not define the policies but does allow for a
@@ -1588,39 +983,25 @@ Table 50.5.4-1: Profiles relationship to Controls
 This section includes interactions between systems, with details at the
 actor and transaction level:
 
-1.  Overall Perspective from publication of documents to consumption of
-    documents
-
-<!-- end list -->
-
-31. Typical system that publishes documents
-
-32. Typical system that consumes documents
-
-33. Typical system that consumes data elements extracted from documents
-
-34. Central Infrastructure supporting services
+1.  Overall Perspective from publication of documents to consumption of documents
+2. Typical system that publishes documents
+3. Typical system that consumes documents
+4. Typical system that consumes data elements extracted from documents
+5. Central Infrastructure supporting services
 
 ### 50.6.1 Interaction Diagram for the MHDS environment.
 
 Figure 50.6.1-1 shows a simplified view, where the following simplified
 components are defined:
 
-  - “Publisher” – represents “System that publishes Documents”
+- “Publisher” – represents “System that publishes Documents”
+- “Consumer” – represents “System that consumes Documents”
+- “Patient” – represents actions the patient themselves might do, such  as seeking care
+- “PatientDir” – represents the PMIR Patient Identity Manager that is managing identity for the community
+- “ConsentMgr” – represents the Consent Manager function within the Document Registry when the Consent Manager Option is used
+- “Registry” – represents the MHDS Document Registry defined in this profile
 
-  - “Consumer” – represents “System that consumes Documents”
-
-  - “Patient” – represents actions the patient themselves might do, such
-    as seeking care
-
-  - “PatientDir” – represents the PMIR Patient Identity Manager that is
-    managing identity for the community
-
-  - “ConsentMgr” – represents the Consent Manager function within the
-    Document Registry when the Consent Manager Option is used
-
-  - “Registry” – represents the MHDS Document Registry defined in this
-    profile
+**TODO: is the next section looking okay? Could it be more markdown friendly encoded?**
 
 The diagram has “Opt” groupings with actions of a
 
@@ -1672,95 +1053,8 @@ The diagram has “Opt” groupings with actions of a
 
 Figure 50.6.1-1: FHIR MHDS Controlled Exchange (100% FHIR)
 
-*Source for WebSequence diagram above*
+[Source for WebSequence diagram above](.//media/MHDS_controlled_exchange.plantuml)
 
-title FHIR MHDS Controlled Exchange (100% FHIR)
-
-participant Publisher
-
-participant Patient
-
-participant PatientDir
-
-participant ConsentMgr
-
-participant Registry
-
-participant Consumer
-
-opt Patient identity (PMIR feed)
-
-Patient-\>Publisher: visits Publisher
-
-Publisher-\>PatientDir: update Patient Identity
-
-PatientDir-\>PatientDir: cross-reference to Patient Master Identity
-
-PatientDir-\>Registry: feed update Patient Master Identity
-
-end
-
-opt publish new document (MHD)
-
-Publisher-\>PatientDir: discover Patient Master Identity (PDQm)
-
-Publisher-\>+Registry: publish New DocumentManifest, DocumentReference,
-and Binary (MHD provide)
-
-Registry-\>Registry: persist DocumentReference, Binary, and
-DocumentManifest
-
-Registry-\>-Publisher: success
-
-end
-
-opt get consent to disclose documents
-
-note right of Patient
-
-Patient is presented with opportunity to
-
-ConsentMgr likely internal to ConsentMgr
-
-could be FHIR Consent or BPPC
-
-end note
-
-Patient-\>ConsentMgr: Record Consent Permit
-
-end
-
-opt discover Patient Master Identity and data (MHD)
-
-Patient-\>Consumer: visits Consumer
-
-Consumer-\>PatientDir: update Patient Identity (PatientDir feed)
-
-PatientDir-\>PatientDir: cross-reference to Patient Master Identity
-
-PatientDir-\>Registry: feed update Patient Master Identity
-
-Consumer-\>PatientDir: discover Patient Master Identity (PDQ query)
-
-Consumer-\>+ConsentMgr: get authorization token
-
-ConsentMgr-\>ConsentMgr: lookup state of Consent for this patient
-
-ConsentMgr-\>-Consumer: provide token permitting access
-
-Consumer-\>+Registry: using token discovery Entry(s) (MHD query)
-
-Registry-\>Registry: confirm token
-
-Registry-\>-Consumer: here are DocumentReference Entry(s)
-
-Consumer-\>+Registry: using token Ask for data (MHD retrieve)
-
-Registry-\>Registry: confirm token
-
-Registry-\>-Consumer: Here is the document requested
-
-end
 
 ### 50.6.2 Typical Client System Designs
 
@@ -1773,8 +1067,7 @@ transaction functionality, responsibility, and interoperability.
 
 Following the sections outline sample IHE Integration Statements for
 systems of various functionality. For more details on the full use and
-format of an IHE Integration Statement ([see Appendix
-F](https://www.ihe.net/resources/technical_frameworks/#GenIntro)).
+format of an IHE Integration Statement ([see Appendix F](https://profiles.ihe.net/GeneralIntro/ch-F.html)).
 
 #### 50.6.2.1 System that publishes documents System Design
 
@@ -1929,7 +1222,7 @@ together to solve common document sharing problems. The IHE White Paper,
 Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)”,
 provides support for policy and deployment planning. The IHE “[Document
 Sharing Metadata
-Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata_Rev1-1_Pub_2018-08-20.pdf)”,
+Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf)”,
 provides guidance on developing policy and vocabulary valuesets for use
 within the community. For application of Document Sharing for particular
 clinical use cases, consider the work of the clinical IHE domains:
