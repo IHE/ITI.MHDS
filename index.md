@@ -409,17 +409,14 @@ Table 50.2-1: MHDS – Actors and Options
 <td>Section 50.2.1</td>
 </tr>
 <tr class="even">
-<td></td>
 <td>Consent Manager Option (Note 1)</td>
 <td>Section 50.2.2</td>
 </tr>
 <tr class="odd">
-<td></td>
 <td>SVCM Validation Option</td>
 <td>Section 50.2.3</td>
 </tr>
 <tr class="even">
-<td></td>
 <td>Uncontained Reference Option</td>
 <td>Section 50.2.4</td>
 </tr>
