@@ -625,47 +625,47 @@ groupings in other related profiles.
 <td rowspan="9">Document Registry</td>
 <td>Required</td>
 <td>CT / Time Client</td>
-<td>ITI TF-1:7</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html">ITI TF-1:7</a></td>
 </tr>
 <tr class="even">
 <td>Required</td>
 <td>ATNA / Secure Node or Secure Application with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option</td>
-<td>ITI TF-1:9</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">ITI TF-1:9</a></td>
 </tr>
 <tr class="odd">
 <td>Required</td>
 <td>MHD / Document Responder</td>
-<td>ITI TF-1:33</td>
+<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1:33</a></td>
 </tr>
 <tr class="even">
 <td>Required</td>
 <td>MHD / Document Recipient with the Comprehensive Metadata Option</td>
-<td>ITI TF-1:33</td>
+<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1:33</a></td>
 </tr>
 <tr class="odd">
 <td>Required</td>
 <td>PMIR / Patient Identity Consumer</td>
-<td>ITI TF-1:49</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html">ITI TF-1:49</a></td>
 </tr>
 <tr class="even">
 <td>if the Authorization Option</td>
 <td>IUA / Resource Server</td>
-<td>ITI TF-1:34</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
 </tr>
 <tr class="odd">
 <td>if the Authorization Option</td>
 <td>IUA / Authorization Server</td>
-<td>ITI TF-1:34</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
 </tr>
 <tr class="even">
 <td>if the UnContained References Option</td>
 <td>mCSD / Care Services Selective Consumer</td>
-<td>ITI TF-1:46</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-46.html">ITI TF-1:46</a></td>
 </tr>
 <tr class="odd">
 <td>if the SVCM Validation Option</td>
 <td>SVCM / Terminology Consumer</td>
-<td>ITI TF-1:51</td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html">ITI TF-1:51</a></td>
 </tr>
 </tbody>
 </table>
