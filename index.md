@@ -1,6 +1,4 @@
 **TODO**
-- some TODO tags in the text
-- internal section linking
 - align to new MHD that does not use DocumentManifest 
 
 **DONE**
@@ -16,6 +14,7 @@
 - UML is websequence format, should be plantuml (e.g. -->+ )
 - links to IGs (MHD, PIXm, PDQm, FormatCode)
 - links to html (IUA, mCSD, metadataHandbook, TF)
+- internal section linking
 
 **********************************************************************************************************
 
@@ -45,13 +44,13 @@ Technical Frameworks.
 
 **CONTENTS**
 
-* [1:50 Mobile Health Document Sharing (MHDS) Profile](#mobile-health-document-sharing-mhds-profile)
-* [1:50.1 MHDS Actors, Transactions, and Content Modules](#mhds-actors-transactions-and-content-modules)
-* [1:50.2 MHDS Actor Options](#mhds-actor-options)
-* [1:50.3 MHDS Required Actor Groupings](#mhds-required-actor-groupings)
-* [1:50.4 MHDS Overview](#mhds-overview)
-* [1:50.5 MHDS Security Considerations](#mhds-security-considerations)
-* [1:50.6 MHDS Cross Profile Considerations](#mhds-cross-profile-considerations)
+* [1:50 Mobile Health Document Sharing (MHDS) Profile](#150-mobile-health-document-sharing-mhds-profile)
+* [1:50.1 MHDS Actors, Transactions, and Content Modules](#1501-mhds-actors-transactions-and-content-modules)
+* [1:50.2 MHDS Actor Options](#1502-mhds-actor-options)
+* [1:50.3 MHDS Required Actor Groupings](#1503-mhds-required-actor-groupings)
+* [1:50.4 MHDS Overview](#1504-mhds-overview)
+* [1:50.5 MHDS Security Considerations](#1505-mhds-security-considerations)
+* [1:50.6 MHDS Cross Profile Considerations](#1506-mhds-cross-profile-considerations)
 
 
 # Introduction to this Supplement
@@ -172,12 +171,12 @@ Readers that need background on high level concepts of Document Sharing
 should first review the whitepaper [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html). 
 The MHDS Profile is described in the following sections:
 
-* [1:50.1 MHDS Actors, Transactions, and Content Modules](#mhds-actors-transactions-and-content-modules)
-* [1:50.2 MHDS Actor Options](#mhds-actor-options)
-* [1:50.3 MHDS Required Actor Groupings](#mhds-required-actor-groupings)
-* [1:50.4 MHDS Overview](#mhds-overview)
-* [1:50.5 MHDS Security Considerations](#mhds-security-considerations)
-* [1:50.6 MHDS Cross Profile Considerations](#mhds-cross-profile-considerations)
+* [1:50.1 MHDS Actors, Transactions, and Content Modules](#1501-mhds-actors-transactions-and-content-modules)
+* [1:50.2 MHDS Actor Options](#1502-mhds-actor-options)
+* [1:50.3 MHDS Required Actor Groupings](#1503-mhds-required-actor-groupings)
+* [1:50.4 MHDS Overview](#1504-mhds-overview)
+* [1:50.5 MHDS Security Considerations](#1505-mhds-security-considerations)
+* [1:50.6 MHDS Cross Profile Considerations](#1506-mhds-cross-profile-considerations)
 
 ## 1:50.1 MHDS Actors, Transactions, and Content Modules
 
@@ -214,7 +213,7 @@ profiles:
 - **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the [Document Registry](#150111_document_registry) to be secure, record audit records, and support secure transactions.
 - **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the [Document Registry](#150111_document_registry) are aligned with the Time Source.
 
-**_HIE Central Infrastructure Requirements_**
+**<ins>HIE Central Infrastructure Requirements</ins>**
 
 In MHDS, the [Document Registry](#150111_document_registry) is part of a Document Sharing Health
 Information Exchange (HIE). See Figure 1:50.1-2. The [Document Registry](#150111_document_registry)
@@ -1074,53 +1073,20 @@ actor and transaction level:
 - “ConsentMgr” – represents the Consent Manager function within the [Document Registry](#150111_document_registry) when the Consent Manager Option is used
 - “Registry” – represents the [MHDS Document Registry](#150111_document_registry) defined in this profile
 
-**TODO: is the next section looking okay? Could it be more markdown friendly encoded?**
-
 The diagram has “Opt” groupings with actions of a
 
-1)  Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the
-    Patient at the source. Deeper details on this interaction can be
-    found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile
-    
-    1.  This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the
-        community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all
-        the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for
-        feed.
-
-2)  Publication of new Documents to represent a case where new data need
-    to be published.
-    
-    1.  the PDQm is used to get the golden patient identifier for use in
-        the [Document Registry](#150111_document_registry).
-
-3)  the Provide transaction includes a DocumentManifest,
-    DocumentReference, and the Binary resource containing the document.
-    Get consent to disclose documents
-    
-    1.  There is no standard protocol, this functionality would be
-        provided by the Consent Manager. It might by a User Interface or
-        some undefined transaction. The consent must be legally obtained
-        according to local regulations and user experience expectations.
-
-4)  Discover Patient Master Identity and data (MHD)
-    
-    1.  This portion starts with the patient visiting the Consumer. Thus
-        there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager.
-        Not all visits will result in a feed.
-    
-    2.  Given that the Consumer wants to discover documents, it will
-        first use PDQm to get the proper identity for the community. As
-        indicated above other methods are available other than PDQm.
-    
-    3.  The Consumer must get a security token from the Consent Manager
-        that is part of the [Document Registry](#150111_document_registry) using the Consent Manager
-        Option
-    
-    4.  The Recipient queries the Registry to find appropriate entries,
-        and selects the one of interest
-    
-    5.  The Recipient will GET the document given the
-        DocumentReference.content.attachment.url
+1. Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the Patient at the source. Deeper details on this interaction can be found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile
+  - This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for feed.
+2. Publication of new Documents to represent a case where new data need to be published.
+  - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111_document_registry).
+3. The Provide transaction includes a DocumentManifest, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
+  - There is no standard protocol, this functionality would be provided by the Consent Manager. It might by a User Interface or some undefined transaction. The consent must be legally obtained according to local regulations and user experience expectations.
+4. Discover Patient Master Identity and data (MHD)
+  - This portion starts with the patient visiting the Consumer. Thus there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager. Not all visits will result in a feed.
+  - Given that the Consumer wants to discover documents, it will first use PDQm to get the proper identity for the community. As indicated above other methods are available other than PDQm.
+  - The Consumer must get a security token from the Consent Manager that is part of the [Document Registry](#150111_document_registry) using the Consent Manager Option
+  - The Recipient queries the Registry to find appropriate entries, and selects the one of interest
+  - The Recipient will GET the document given the DocumentReference.content.attachment.url
 
 ![](.//media/image12.png)
 
