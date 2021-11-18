@@ -1,8 +1,9 @@
 **TODO**
 - some TODO tags in the text
 - UML is websequence format, should be plantuml (e.g. -->+ )
-- multiple markdown tables likely need to be converted to html as they really need merged cells (e.g. actors with multiple options)
 - metadata handbook will be html
+- internal section linking
+- align to new MHD that does not use DocumentManifest 
 
 **DONE**
 - simplify front materials
@@ -11,6 +12,9 @@
 - fixup markdown to be more simple than got from export
 - change references from pointers at old PDF technical framework to the new profiles.ihe.net site
 - removed section 50.7 in favor of the more updated HIE-Whitepaper
+- multiple markdown tables likely need to be converted to html as they really need merged cells (e.g. actors with multiple options) ( note one can get the right tables with pandoc and markdown_strict)
+- bold figure / table titles
+- code block `style`
 
 **********************************************************************************************************
 
@@ -161,7 +165,7 @@ Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metad
 
 ![](.//media/image2.png)
 
-Figure 50-1: MHDS High Level View Diagram
+**Figure 50-1: MHDS High Level View Diagram**
 
 Readers that need background on high level concepts of Document Sharing
 should first review the whitepaper [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html). 
@@ -183,14 +187,14 @@ MHDS Document Registry.
 
 ![](.//media/image3.png)
 
-Figure 50.1-1: MHDS Registry Actor Diagram
+**Figure 50.1-1: MHDS Registry Actor Diagram**
 
 Table 50.1-1 lists the transactions for each actor directly involved in
 the MHDS Profile. To claim compliance with this profile, an actor shall
 support all required transactions (labeled “R”) and may support the
 optional transactions (labeled “O”).
 
-Table 50.1-1: MHDS Profile - Actors and Transactions
+**Table 50.1-1: MHDS Profile - Actors and Transactions**
 
 |                   |                                                                           |                        |             |           |
 | ----------------- | ------------------------------------------------------------------------- | ---------------------- | ----------- | --------- |
@@ -223,7 +227,7 @@ Document Sharing Community (aka Community).
 
 ![](.//media/image4.png)
 
-Figure 50.1-2: MHDS Document Sharing Health Information Exchange
+**Figure 50.1-2: MHDS Document Sharing Health Information Exchange**
 
 The HIE Central Infrastructure is a set of Services based on IHE
 Profiles as shown in Figure 50.1-2:
@@ -303,7 +307,7 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 
 ![](.//media/image5.png)
 
-Figure 50.1.1.1.1-1: Document Publication Process Flow
+**Figure 50.1.1.1.1-1: Document Publication Process Flow**
 
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the ATNA Secure Node or Secure Application TLS protocol using a Certificate assigned to the Document Registry.
 2.  When the Authorization Option (Section 50.2.1) is implemented and enabled, the Document Registry SHALL confirm the client identity using the IUA Profile.
@@ -313,7 +317,7 @@ Figure 50.1.1.1.1-1: Document Publication Process Flow
 6. The Document Registry SHALL validate the metadata conformance received according to the appropriate validation rules, and configured ValueSets to assure that the document submission request is valid. If any of the metadata are found to be not valid then the transaction shall be rejected.
 7. When the SVCM Validation Option (Section 50.2.3) is implemented and enabled, the Document Registry SHALL use the grouped SVCM Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
 8. Provided the request is valid, the Document Registry SHALL persist all DocumentManifest, DocumentReference, List, and Binary that are received by way of the grouped MHD - Document Recipient – Provide Document Bundle \[ITI-65\] Transaction.
-9. When the request includes a DocumentReference intended to replace an existing DocumentReference, the Document Registry SHALL mark the replaced DocumentReference as deprecated. The Replace action in the request is indicated when the Bundle contains a new DocumentReference with DocumentReference.relatesTo.code of replaces and DocumentReference.relatesTo.target pointing at the existing DocumentReference to be deprecated. The Document Registry sets the existing DocumentReference.status element to inactive.
+9. When the request includes a DocumentReference intended to replace an existing DocumentReference, the Document Registry SHALL mark the replaced DocumentReference as deprecated. The Replace action in the request is indicated when the Bundle contains a new DocumentReference with `DocumentReference.relatesTo.code` of `replaces` and `DocumentReference.relatesTo.target` pointing at the existing DocumentReference to be deprecated. The Document Registry sets the existing `DocumentReference.status` element to `inactive`.
 10. Any of the above checks that fail will result in the whole Provide Document Bundle \[ITI-65\] failing and returning errors as defined in \[ITI-65\].
 11. The Document Registry SHALL record success and failure events into the ATNA Audit Record Repository.
 
@@ -324,8 +328,7 @@ References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 
 ![](.//media/image6.png)
 
-Figure 50.1.1.1.2-1: Discovery and Retrieval of Existing Document
-Process Flow
+**Figure 50.1.1.1.2-1: Discovery and Retrieval of Existing Document Process Flow**
 
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the ATNA Secure Node or Secure Application TLS protocol using a Certificate assigned to the Document Registry.
 2. When the Authorization Option is implemented and enabled, the Document Registry SHALL confirm the client identity using the IUA Profile.
@@ -342,13 +345,13 @@ a Merge:
 
 ![](.//media/image7.png)
 
-Figure 50.1.1.1.3-1: Patient Merge Process Flow
+**Figure 50.1.1.1.3-1: Patient Merge Process Flow**
 
 The Document Registry SHALL search for any resources with the deprecated
-\_id value in the DocumentManifest.subject, DocumentReference.subject,
-and List.subject; and replace subject value of with the surviving id.
+`_id` value in the `DocumentManifest.subject`, `DocumentReference.subject`,
+and `List.subject`; and replace subject value of with the surviving id.
 The Document Registry SHALL record a single audit event indicating the
-Merge action, with an .entity element for each of the updated Document
+Merge action, with an `.entity` element for each of the updated Document
 Registry Resources updated. The Document Registry SHOULD create within
 the Document Registry a single Provenance Resource indicating the Merge
 action, with the .target element pointing at all of the resources
@@ -373,7 +376,7 @@ to store the Binary in a system in the Community other than the Document
 Registry. This might be other centralized infrastructure, distributed
 infrastructure, or within the system implementing the Document Source.
 The \[ITI-65\] transaction does not include the Binary, and the
-DocumentReference.content.attachment.url. value is a persistent URL to
+`DocumentReference.content.attachment.url`. value is a persistent URL to
 the Binary content. When this is used by the Community, the service
 hosting the Binary shall:
 
@@ -387,7 +390,7 @@ Options that may be selected for each actor in this profile, if any, are
 listed in the Table 50.2-1. Dependencies between options, when
 applicable, are specified in notes.
 
-Table 50.2-1: MHDS – Actors and Options
+**Table 50.2-1: MHDS – Actors and Options**
 
 <table>
 <colgroup>
@@ -441,8 +444,7 @@ rules associated with that option.
 
 ![](.//media/image8.png)
 
-Figure 50.2.1-1: Document Publication Process Flow with Authorization
-Option
+**Figure 50.2.1-1: Document Publication Process Flow with Authorization Option**
 
 ### 50.2.2 Consent Manager Option
 
@@ -462,7 +464,7 @@ Registry would enforce these decisions.
 
 ![](.//media/image9.png)
 
-Figure 50.2.2-1: Consent Management for Disclosure Process Flow
+**Figure 50.2.2-1: Consent Management for Disclosure Process Flow**
 
 The grouped IUA Authorization Server SHALL support consent configuration
 to enable Implied Consent and Explicit Consent environments. Implied
@@ -476,7 +478,7 @@ appropriate roles, and authorized Treatment PurposeOfUse.
 
 ![](.//media/image10.png)
 
-Figure 50.2.2-2: Simple Consent state diagram
+**Figure 50.2.2-2: Simple Consent state diagram**
 
 The IUA Authorization Server SHALL
 
@@ -507,25 +509,29 @@ OAuth Scope specification does not require the use of SMART-on-FHIR but
 is compatible with it. There are two defined scope values that are
 included in the scope separated by a space and repeated as necessary:
 
-**TODO: Seems this should have some code block markup**
-
+```
 “PurposeOfUse” '.' PurposeOfUse
 
 queryParam (e.g. “patient” '=' Patient)
+```
 
 e.g., a simple request for Treatment access to patient f5c7395
 
+```
 PurposeOfUse.TREAT
 patient="http://myserver.example/fhir/Patient/f5c7395"
+```
 
 e.g., a request for Treatment, Payment, and Operations access to patient
 f5c7395 in addition to SMART-on-FHIR scopes for read access to
 DocumentReference, DocumentManifest, List, and Binary
 
-> user/DocumentReference.read user/DocumentManifest.read user/List.read
-> user/Binary.read PurposeOfUse.TREAT PurposeOfUse.HPAYMT
-> PurposeOfUse.OPERAT
-> patient="http://myserver.example/fhir/Patient/f5c7395"
+```
+user/DocumentReference.read user/DocumentManifest.read user/List.read
+user/Binary.read PurposeOfUse.TREAT PurposeOfUse.HPAYMT
+PurposeOfUse.OPERAT
+patient="http://myserver.example/fhir/Patient/f5c7395"
+```
 
 ### 50.2.3 SVCM Validation Option
 
@@ -539,10 +545,10 @@ transaction.
 ### 50.2.4 UnContained Reference Option
 
 By default in \[ITI-65\], an MHD Document Source is required to include
-by containment the information in the DocumentReference.author, the
-DocumentReference.authenticator, the
-DocumentReference.context.sourcePatientInfo, and the
-DocumentManifest.author. This requirement encourages the persisting of
+by containment the information in the `DocumentReference.author`, 
+the `DocumentReference.authenticator`, 
+the `DocumentReference.context.sourcePatientInfo`, and 
+the `DocumentManifest.author`. This requirement encourages the persisting of
 the information at the time the document is published. This supports
 lifecycle management that recognizes that these identities change over
 time, and often become invalid due to individual retirement or other
@@ -563,16 +569,16 @@ The UnContained Reference Option requires the grouped MHD Document
 Recipient to support the MHD UnContained Option. An MHD Document Source
 may implement the MHD UnContained Option so as to be able to send
 UnContained References. The MHD and MHDS UnContained Option allows
-DocumentReference.author, DocumentReference.authenticator,
-DocumentReference.context.sourcePatientInfo, and DocumentManifest.author
-to be a Reference to a
-(Practitioner|PractitionerRole|Organization|Patient) Resource, where the
+`DocumentReference.author`, `DocumentReference.authenticator`,
+`DocumentReference.context.sourcePatientInfo`, and `DocumentManifest.author`
+to be a `Reference` to a
+`(Practitioner|PractitionerRole|Organization|Patient)` Resource, where the
 referenced resource is published in the associated centrally managed
 mCSD Care Services Selective Supplier, or PMIR Patient Identity Manager.
 
 ![](.//media/image11.png)
 
-Figure 50.2.4-1: Author Reference Process Flow
+**Figure 50.2.4-1: Author Reference Process Flow**
 
 The mCSD Care Services Selective Supplier and the PMIR Patient Identity
 Manager are persisting long term the data so that the Resources within
@@ -600,7 +606,7 @@ Section 50.5 describes some optional groupings that may be of interest
 for security considerations and Section 50.6 describes some optional
 groupings in other related profiles.
 
-Table 50.3-1: Required Actor Groupings
+**Table 50.3-1: Required Actor Groupings**
 
 <table style="width:100%;">
 <colgroup>
@@ -908,7 +914,7 @@ available only to direct care providers. This differentiation of the
 types of data can be represented using a diagram like found in Table
 50.5.3.2-1: Sample Access Control Policies.
 
-Table 50.5.3.2‑: Sample Access Control Policies
+**Table 50.5.3.2‑: Sample Access Control Policies**
 
 | Confidentiality vs Role             | U | L | M | N | R | V |
 | ----------------------------------- | - | - | - | - | - | - |
@@ -1036,7 +1042,7 @@ relationship, meaning that the Profile assists with the principle.
 Further details on the ‘√’ direct and ‘.’ Indirect relationships can be
 found in the profile text or through other webinars.
 
-Table 50.5.4-1: Profiles relationship to Controls
+**Table 50.5.4-1: Profiles relationship to Controls**
 
 | Function vs Profile                  | Audit Log | Identification and Authentication | Data Access Control (Authorization) | Secrecy | Data Integrity | Non-Repudiation | Patient Privacy |
 | ------------------------------------ | --------- | --------------------------------- | ----------------------------------- | ------- | -------------- | --------------- | --------------- |
@@ -1062,8 +1068,7 @@ actor and transaction level:
 
 ### 50.6.1 Interaction Diagram for the MHDS environment.
 
-Figure 50.6.1-1 shows a simplified view, where the following simplified
-components are defined:
+**Figure 50.6.1-1 shows a simplified view, where the following simplified components are defined:**
 
 - “Publisher” – represents “System that publishes Documents”
 - “Consumer” – represents “System that consumes Documents”
@@ -1122,7 +1127,7 @@ The diagram has “Opt” groupings with actions of a
 
 ![](.//media/image12.png)
 
-Figure 50.6.1-1: FHIR MHDS Controlled Exchange (100% FHIR)
+**Figure 50.6.1-1: FHIR MHDS Controlled Exchange (100% FHIR)**
 
 [Source for WebSequence diagram above](.//media/MHDS_controlled_exchange.plantuml)
 
