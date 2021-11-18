@@ -58,7 +58,7 @@ Technical Frameworks.
 This profile will show how to build a Document Sharing Exchange using
 IHE-profiled FHIR<sup>®</sup> standard, rather than the legacy IHE
 profiles that are dominated by XDS and HL7<sup>®</sup> v2. This profile
-will assemble profiles and define a [Document Registry](#150111_document_registry).
+will assemble profiles and define a [Document Registry](#150111-document-registry).
 
 The central HIE infrastructure defined in this Profile might be a single
 FHIR Server implementing all the defined central service actors or may
@@ -182,8 +182,8 @@ The MHDS Profile is described in the following sections:
 
 This profile orchestrates actors in many existing IHE profiles and
 creates one new actor. The actor that is specific to this profile is a
-[Document Registry](#150111_document_registry). Figure 1:50.1-1 shows a detailed actor diagram for the
-[MHDS Document Registry](#150111_document_registry).
+[Document Registry](#150111-document-registry). Figure 1:50.1-1 shows a detailed actor diagram for the
+[MHDS Document Registry](#150111-document-registry).
 
 ![](.//media/image3.png)
 
@@ -199,29 +199,30 @@ optional transactions (labeled “O”).
 |                   |                                                                           |                        |             |           |
 | ----------------- | ------------------------------------------------------------------------- | ---------------------- | ----------- | --------- |
 | Actors            | Transactions                                                              | Initiator or Responder | Optionality | Reference |
-| [Document Registry](#150111_document_registry) | (none) – transactions supported come from the grouped actors listed below | \--                    | \--         | [1:50.1.1.1 Document Registry](#150111_document_registry) |
+| [Document Registry](#150111-document-registry) | (none) – transactions supported come from the grouped actors listed below | \--                    | \--         | [1:50.1.1.1 Document Registry](#150111-document-registry) |
 
-The [Document Registry](#150111_document_registry) is grouped with a set of actors from other
+The [Document Registry](#150111-document-registry) is grouped with a set of actors from other
 profiles:
 
 - **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient)** supports publication requests by the [MHD Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source). The Comprehensive Metadata Option is required.
 - **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder)** supports the discovery and retrieval of documents by [MHD](https://profiles.ihe.net/ITI/MHD/index.html) [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer).
-- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) - Patient Identity Consumer** provides patient identity synchronization and specifically the merge function to be applied to any data managed in the [Document Registry](#150111_document_registry).
-- **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Consumer** enables the [Document Registry](#150111_document_registry) to gain access to ValueSets that the Registry is enforcing Metadata consistency.
+- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) - Patient Identity Consumer** provides patient identity synchronization and specifically the merge function to be applied to any data managed in the [Document Registry](#150111-document-registry).
+- **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Consumer** enables the [Document Registry](#150111-document-registry) to gain access to ValueSets that the Registry is enforcing Metadata consistency.
 - **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) – Care Services Selective Consumer** enables the Registry to have access to Organization and Practitioner resources.
-- **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) – Authorization Server and Resource Server** enforces access control decisions.
-- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the [Document Registry](#150111_document_registry) to be secure, record audit records, and support secure transactions.
-- **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the [Document Registry](#150111_document_registry) are aligned with the Time Source.
+- **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) – Authorization Server** and **Resource Server** enforces access control decisions.
+- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the [Document Registry](#150111-document-registry) to be secure, record audit records, and support secure transactions.
+- **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the [Document Registry](#150111-document-registry) are aligned with the Time Source.
 
 **<ins>HIE Central Infrastructure Requirements</ins>**
 
-In MHDS, the [Document Registry](#150111_document_registry) is part of a Document Sharing Health
-Information Exchange (HIE). See Figure 1:50.1-2. The [Document Registry](#150111_document_registry)
+In MHDS, the [Document Registry](#150111-document-registry) is part of a 
+[Document Sharing Health Information Exchange (HIE)](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html). 
+See Figure 1:50.1-2. The [Document Registry](#150111-document-registry)
 relies upon services that would be hosted within the HIE Central
 Infrastructure with a set of Service endpoints as illustrated in the
 yellow “HIE Central Infrastructure”. The HIE also contains systems,
 illustrated in green, that submit and consume documents. The combination
-of [MHDS Document Registry](#150111_document_registry) (white), HIE Central Infrastructure (yellow),
+of [MHDS Document Registry](#150111-document-registry) (white), HIE Central Infrastructure (yellow),
 and Systems that publish or consume documents (green) make up the
 Document Sharing Community (aka Community).
 
@@ -251,17 +252,16 @@ Authority, and other functionalities and non-functional requirements
 such as response-time, service-level-agreements, remediation-planning,
 remediation-access, etc.
 
-The [Document Registry](#150111_document_registry) and the supporting services listed above provide a
+The [Document Registry](#150111-document-registry) and the supporting services listed above provide a
 set of services that make up a Document Sharing Infrastructure that is
 based on FHIR. This set of services enable systems that publish
 documents and systems that consume documents. Additionally, the [mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html)
 Profile may be used to make the information in shared documents more
-consumable as FHIR Resources using [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf) Profile. See Section 1:50.6 Cross
-Profile Considerations for more details.
+consumable as FHIR Resources using [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf) Profile. See Section [1:50.6 Cross Profile Considerations](#1506-mhds-cross-profile-considerations) for more details.
 
 ### 1:50.1.1 Actor Descriptions and Actor Profile Requirements
 
-This profile assumes that some Health Information Exchange (HIE)
+This profile assumes that some [Health Information Exchange (HIE)](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
 authority manages the configuration of the Community. This includes
 specification of an appropriate Certificate Authority, Time Source,
 Domain Name Service, Valueset Management, Provider Directory, Audit
@@ -281,7 +281,7 @@ Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metad
 
 #### 1:50.1.1.1 Document Registry
 
-The functions of the [MHDS Document Registry](#150111_document_registry) rely on grouped actors from
+The functions of the [MHDS Document Registry](#150111-document-registry) rely on grouped actors from
 the other IHE Profiles; see Section 1:50.3.
 
 The Document Registry SHALL include a configuration management function
@@ -309,12 +309,12 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 **Figure 1:50.1.1.1.1-1: Document Publication Process Flow**
 
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the [ATNA Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) or [Secure Application](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.2) TLS protocol using a Certificate assigned to the Document Registry.
-2.  When the Authorization Option (Section 1:50.2.1) is implemented and enabled, the Document Registry SHALL confirm the client identity using the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Profile.
+2.  When the Authorization Option (Section [1:50.2.1](#15021-authorization-option)) is implemented and enabled, the Document Registry SHALL confirm the client identity using the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Profile.
 3.  The Document Registry SHALL validate to the requirements of [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) using the MHD Comprehensive Metadata Option. Additional policy driven requirements, not specified here, may also apply.
-4.  When the UnContained Reference Option is used in the grouped [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient), the Document Registry SHALL not require that the references are contained, but SHALL validate that the reference is found in the central registries. (See Section 1:50.2.4 UnContained Reference Option.)
+4.  When the UnContained Reference Option is used in the grouped [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient), the Document Registry SHALL not require that the references are contained, but SHALL validate that the reference is found in the central registries. (See Section [1:50.2.4 UnContained Reference Option](#15024-uncontained-reference-option).)
 5.  The Document Registry SHALL validate that the subject of the DocumentReference, DocumentManifest, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) in the document sharing community. This may be accomplished by a query of the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), by way of a cached internal patient database, or other means.
 6. The Document Registry SHALL validate the metadata conformance received according to the appropriate validation rules, and configured ValueSets to assure that the document submission request is valid. If any of the metadata are found to be not valid then the transaction shall be rejected.
-7. When the SVCM Validation Option (Section 1:50.2.3) is implemented and enabled, the Document Registry SHALL use the grouped [SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
+7. When the SVCM Validation Option (Section [1:50.2.3](#15023-svcm-validation-option)) is implemented and enabled, the Document Registry SHALL use the grouped [SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
 8. Provided the request is valid, the Document Registry SHALL persist all DocumentManifest, DocumentReference, List, and Binary that are received by way of the grouped MHD - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) – Provide Document Bundle \[ITI-65\] Transaction.
 9. When the request includes a DocumentReference intended to replace an existing DocumentReference, the Document Registry SHALL mark the replaced DocumentReference as deprecated. The Replace action in the request is indicated when the Bundle contains a new DocumentReference with `DocumentReference.relatesTo.code` of `replaces` and `DocumentReference.relatesTo.target` pointing at the existing DocumentReference to be deprecated. The Document Registry sets the existing `DocumentReference.status` element to `inactive`.
 10. Any of the above checks that fail will result in the whole Provide Document Bundle \[ITI-65\] failing and returning errors as defined in \[ITI-65\].
@@ -494,7 +494,7 @@ outside the scope of the security token given it by the [IUA](https://profiles.i
 Authorization Server.
 
 Note that this option does not protect Binary content stored outside of
-the Document Registry; see Section 1:50.1.1.2. When documents are stored
+the Document Registry; see Section [1:50.1.1.2](#150112-storage-of-binary). When documents are stored
 outside of the Document Registry, the [Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source) system takes on
 the burden of protecting the document.
 
@@ -558,7 +558,7 @@ directory.)
 The UnContained Reference Option recognizes that a Community may choose
 to longitudinally maintain their [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) provider directory and [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). 
 When this longitudinal consistency is managed, then
-the entries in the [MHDS Document Registry](#150111_document_registry) do not need to make a copy of
+the entries in the [MHDS Document Registry](#150111-document-registry) do not need to make a copy of
 the information known at the time of publication since a Reference to
 the information in these directories will be valid over the full
 lifecycle of the Document Registry entries.
@@ -579,7 +579,7 @@ referenced resource is published in the associated centrally managed
 **Figure 1:50.2.4-1: Author Reference Process Flow**
 
 The [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier and the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) are persisting long term the data so that the Resources within
-the [MHDS Document Registry](#150111_document_registry) are available for the life of the Document
+the [MHDS Document Registry](#150111-document-registry) are available for the life of the Document
 Registry entry.
 
 The Document Registry shall validate publication requests to ensure that
@@ -598,8 +598,8 @@ An actor from this profile (Column 1) shall implement all of the
 required transactions in this profile **in addition to all** of the requirements for the
 grouped actor (Column 3).
 
-Section 1:50.5 describes some optional groupings that may be of interest
-for security considerations and Section 1:50.6 describes some optional
+Section [1:50.5](#1505-mhds-security-considerations) describes some optional groupings that may be of interest
+for security considerations and Section [1:50.6](#1506-mhds-cross-profile-considerations) describes some optional
 groupings in other related profiles.
 
 **Table 1:50.3-1: Required Actor Groupings**
@@ -690,35 +690,38 @@ devices; but the solution is not limited to mobile devices.
 
 This use case utilizes [MHD Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source) using the Provide Document
 Bundle \[ITI-65\] transaction to the [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) that is grouped
-with the [MHDS Document Registry](#150111_document_registry). The Document Registry validates the
+with the [MHDS Document Registry](#150111-document-registry). The Document Registry validates the
 publication request and persists the information if approved. The MHD
 Comprehensive Metadata Option is required of the [MHD Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source) as
-the [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) within the [MHDS Document Registry](#150111_document_registry) will
-implement the Comprehensive Metadata Option. See Section 1:50.1.1.1.1.
+the [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) within the [MHDS Document Registry](#150111-document-registry) will
+implement the Comprehensive Metadata Option. 
+See Section [1:50.1.1.1.1](#1501111-when-the-grouped-mhd-document-recipient--is-triggered).
 
 #### 1:50.4.2.2 Use Case \#2: Update of patient identity after an authorized Merge
 
 This use case utilizes the grouped [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Patient Identity Consumer to
-enable the [Document Registry](#150111_document_registry) to receive updates of Patient Identity, so
-that when a Merge is authorized, the [Document Registry](#150111_document_registry) will update any
+enable the [Document Registry](#150111-document-registry) to receive updates of Patient Identity, so
+that when a Merge is authorized, the [Document Registry](#150111-document-registry) will update any
 of the references to the former Patient Identity with the Patient
-Identity that survives. See Section 1:50.1.1.1.3.
+Identity that survives. 
+See Section [1:50.1.1.1.3](#1501113-when-the-grouped-pmir-patient-identity-consumer--is-triggered).
 
 #### 1:50.4.2.3 Use Case \#3: Discovery and Retrieval of existing documents
 
-The [MHD Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) is supported by the [Document Registry](#150111_document_registry) grouped
+The [MHD Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) is supported by the [Document Registry](#150111-document-registry) grouped
 with the [MHD Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder) to allow for the [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) to
-discover and retrieve document metadata and content. See Section
-50.1.1.1.2.
+discover and retrieve document metadata and content. 
+See Section [1:50.1.1.1.2](#1501112-when-the-grouped-mhd-document-responder--is-triggered).
 
 #### 1:50.4.2.4 Use Case \#4: Consent Management for disclosure under Use Case \#3
 
-With the use of the Consent Management Option the [Document Registry](#150111_document_registry)
+With the use of the Consent Management Option the [Document Registry](#150111-document-registry)
 supports simple Allow and Deny patient privacy consents for disclosure.
 These controls are available to prevent unauthorized disclosure. These
 Consent Management function does not prevent publication from Use Case
 \#1 to enable documentation longitudinal consistency and for accesses
-not mediated by Patient Privacy Consent. See Section 1:50.2.2.
+not mediated by Patient Privacy Consent. 
+See Section [1:50.2.2](#15022-consent-manager-option).
 
 ## 1:50.5 MHDS Security Considerations
 
@@ -731,7 +734,8 @@ information security.
 
 An especially important aspect that is beyond the scope of IHE is the
 definition of the overall Policies of the community. There are
-whitepapers and handbooks from IHE (see Section 1:50.1), but there is no
+whitepapers and handbooks from IHE 
+(see Section [1:50.1](#1501-mhds-actors-transactions-and-content-modules)), but there is no
 single policy that must be put in place by an IHE based community to
 ensure privacy and security. In this section, we will discuss potential
 policy decisions and positions with regard to the profiles. It is
@@ -875,7 +879,7 @@ that provides this basic security principle is Audit Trail and Node
 Authentication ([ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html)). This profile requires three things of each
 system:
 
-1.  User authentication and Access Controls are enforced accordingly,
+1. User authentication and Access Controls are enforced accordingly,
 2. Security Audit Logs are recorded, and
 3. Strong network authentication and encryption for all communications of sensitive patient data
 
@@ -910,7 +914,7 @@ available only to direct care providers. This differentiation of the
 types of data can be represented using a diagram like found in Table
 50.5.3.2-1: Sample Access Control Policies.
 
-**Table 1:50.5.3.2‑: Sample Access Control Policies**
+**Table 1:50.5.3.2-1: Sample Access Control Policies**
 
 | Confidentiality vs Role             | U | L | M | N | R | V |
 | ----------------------------------- | - | - | - | - | - | - |
@@ -963,9 +967,10 @@ of the Document Sharing exchange includes background governance on
 appropriate use, as discussed above around the [ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) Profile.
 
 Privacy Consents may need to be expressed in a way that all parties in a
-Document Exchange can understand. IHE has published the Basic Patient
-Privacy Consents (BPPC) Profile that can be used to enable basic privacy
-consent controls, and Advanced Patient Privacy Consents (APPC) that can
+Document Exchange can understand. IHE has published 
+the [Basic Patient Privacy Consents (BPPC)](https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html) Profile 
+that can be used to enable basic privacy
+consent controls, and [Advanced Patient Privacy Consents (APPC)](https://profiles.ihe.net/ITI/TF/Volume1/ch-43.html) that can
 encode more complex rules specific to a patient consent. The encoding of
 Consent and advanced rules in FHIR “Consent” resource is possible but
 has not yet been profiled by IHE.
@@ -981,15 +986,18 @@ Privacy Consents are:
 - Explicit authorization captured that allows specific research project
 - Change the consent policy (change from opt-in to opt-out)
 
-The BPPC Profile can be used as a gate-keeper to the document sharing
-community. BPPC does not define the policies but does allow for a
+The [BPPC](https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html) Profile 
+can be used as a gate-keeper to the document sharing
+community. [BPPC](https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html) 
+does not define the policies but does allow for a
 community that has defined its set of policies to capture that a patient
 has chosen one or more of those policies.
 
 For example: Let’s say that the above set of sample policy fragments was
 available to a patient sharing in a community. The patient could agree
 to Opt-In, and also agree to a specific research project. This set of
-acknowledgments would be captured as one or more BPPC documents. These
+acknowledgments would be captured as one or 
+more [BPPC](https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html) documents. These
 documents would indicate the policy that is being acknowledged, the date
 it is being acknowledged, an expiration date if applicable, etc. Then
 the systems involved in the document sharing can know that the patient
@@ -1070,21 +1078,21 @@ actor and transaction level:
 - “Consumer” – represents “System that consumes Documents”
 - “Patient” – represents actions the patient themselves might do, such  as seeking care
 - “PatientDir” – represents the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) that is managing identity for the community
-- “ConsentMgr” – represents the Consent Manager function within the [Document Registry](#150111_document_registry) when the Consent Manager Option is used
-- “Registry” – represents the [MHDS Document Registry](#150111_document_registry) defined in this profile
+- “ConsentMgr” – represents the Consent Manager function within the [Document Registry](#150111-document-registry) when the Consent Manager Option is used
+- “Registry” – represents the [MHDS Document Registry](#150111-document-registry) defined in this profile
 
 The diagram has “Opt” groupings with actions of a
 
 1. Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the Patient at the source. Deeper details on this interaction can be found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile
   - This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for feed.
 2. Publication of new Documents to represent a case where new data need to be published.
-  - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111_document_registry).
+  - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111-document-registry).
 3. The Provide transaction includes a DocumentManifest, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
   - There is no standard protocol, this functionality would be provided by the Consent Manager. It might by a User Interface or some undefined transaction. The consent must be legally obtained according to local regulations and user experience expectations.
 4. Discover Patient Master Identity and data (MHD)
   - This portion starts with the patient visiting the Consumer. Thus there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager. Not all visits will result in a feed.
   - Given that the Consumer wants to discover documents, it will first use PDQm to get the proper identity for the community. As indicated above other methods are available other than PDQm.
-  - The Consumer must get a security token from the Consent Manager that is part of the [Document Registry](#150111_document_registry) using the Consent Manager Option
+  - The Consumer must get a security token from the Consent Manager that is part of the [Document Registry](#150111-document-registry) using the Consent Manager Option
   - The Recipient queries the Registry to find appropriate entries, and selects the one of interest
   - The Recipient will GET the document given the DocumentReference.content.attachment.url
 
