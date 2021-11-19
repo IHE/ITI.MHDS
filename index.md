@@ -1,5 +1,4 @@
 **TODO**
-- align to new MHD that does not use DocumentManifest 
 
 **DONE**
 - simplify front materials
@@ -15,6 +14,7 @@
 - links to IGs (MHD, PIXm, PDQm, FormatCode)
 - links to html (IUA, mCSD, metadataHandbook, TF)
 - internal section linking
+- align to new MHD that does not use DocumentManifest 
 
 **********************************************************************************************************
 
@@ -72,7 +72,7 @@ Core business functions provided by MHDS Profile:
 
 - Publication of Document based information
   - Content agnostic but CDA<sup>®</sup> and FHIR preferred
-- Persistence and lifecycle management of Documents, DocumentManifest, DocumentReference, and List resources
+- Persistence and lifecycle management of Documents, DocumentReference, and List resources
   - Enabling centralized document storage, or distributed document storage at a service identified at the source
 - Patient Identity Management –
   - specifically, a golden patient identity for use within the domain, cross-reference to other identities, and lifecycle of updates
@@ -312,17 +312,17 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 2.  When the Authorization Option (Section [1:50.2.1](#15021-authorization-option)) is implemented and enabled, the Document Registry SHALL confirm the client identity using the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Profile.
 3.  The Document Registry SHALL validate to the requirements of [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) using the MHD Comprehensive Metadata Option. Additional policy driven requirements, not specified here, may also apply.
 4.  When the UnContained Reference Option is used in the grouped [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient), the Document Registry SHALL not require that the references are contained, but SHALL validate that the reference is found in the central registries. (See Section [1:50.2.4 UnContained Reference Option](#15024-uncontained-reference-option).)
-5.  The Document Registry SHALL validate that the subject of the DocumentReference, DocumentManifest, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) in the document sharing community. This may be accomplished by a query of the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), by way of a cached internal patient database, or other means.
+5.  The Document Registry SHALL validate that the subject of the DocumentReference, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) in the document sharing community. This may be accomplished by a query of the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), by way of a cached internal patient database, or other means.
 6. The Document Registry SHALL validate the metadata conformance received according to the appropriate validation rules, and configured ValueSets to assure that the document submission request is valid. If any of the metadata are found to be not valid then the transaction shall be rejected.
 7. When the SVCM Validation Option (Section [1:50.2.3](#15023-svcm-validation-option)) is implemented and enabled, the Document Registry SHALL use the grouped [SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
-8. Provided the request is valid, the Document Registry SHALL persist all DocumentManifest, DocumentReference, List, and Binary that are received by way of the grouped MHD - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) – Provide Document Bundle \[ITI-65\] Transaction.
+8. Provided the request is valid, the Document Registry SHALL persist all DocumentReference, List, and Binary that are received by way of the grouped MHD - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) – Provide Document Bundle \[ITI-65\] Transaction.
 9. When the request includes a DocumentReference intended to replace an existing DocumentReference, the Document Registry SHALL mark the replaced DocumentReference as deprecated. The Replace action in the request is indicated when the Bundle contains a new DocumentReference with `DocumentReference.relatesTo.code` of `replaces` and `DocumentReference.relatesTo.target` pointing at the existing DocumentReference to be deprecated. The Document Registry sets the existing `DocumentReference.status` element to `inactive`.
 10. Any of the above checks that fail will result in the whole Provide Document Bundle \[ITI-65\] failing and returning errors as defined in \[ITI-65\].
 11. The Document Registry SHALL record success and failure events into the [ATNA Audit Record Repository](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.3).
 
 ##### 1:50.1.1.1.2 When the grouped MHD Document Responder – is triggered
 
-Triggered by: any Find Document Manifests \[ITI-66\], Find Document
+Triggered by: any Find Document Lists \[ITI-66\], Find Document
 References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 
 ![](.//media/image6.png)
@@ -347,7 +347,7 @@ a Merge:
 **Figure 1:50.1.1.1.3-1: Patient Merge Process Flow**
 
 The Document Registry SHALL search for any resources with the deprecated
-`_id` value in the `DocumentManifest.subject`, `DocumentReference.subject`,
+`_id` value in the `DocumentReference.subject`,
 and `List.subject`; and replace subject value of with the surviving id.
 The Document Registry SHALL record a single audit event indicating the
 Merge action, with an `.entity` element for each of the updated Document
@@ -522,12 +522,11 @@ patient="http://myserver.example/fhir/Patient/f5c7395"
 
 e.g., a request for Treatment, Payment, and Operations access to patient
 f5c7395 in addition to SMART-on-FHIR scopes for read access to
-DocumentReference, DocumentManifest, List, and Binary
+DocumentReference, List, and Binary
 
 ```
-user/DocumentReference.read user/DocumentManifest.read user/List.read
-user/Binary.read PurposeOfUse.TREAT PurposeOfUse.HPAYMT
-PurposeOfUse.OPERAT
+user/DocumentReference.read user/List.read user/Binary.read 
+PurposeOfUse.TREAT PurposeOfUse.HPAYMT PurposeOfUse.OPERAT
 patient="http://myserver.example/fhir/Patient/f5c7395"
 ```
 
@@ -546,7 +545,7 @@ By default in \[ITI-65\], an [MHD Document Source](https://profiles.ihe.net/ITI/
 by containment the information in the `DocumentReference.author`, 
 the `DocumentReference.authenticator`, 
 the `DocumentReference.context.sourcePatientInfo`, and 
-the `DocumentManifest.author`. This requirement encourages the persisting of
+the `List.source`. This requirement encourages the persisting of
 the information at the time the document is published. This supports
 lifecycle management that recognizes that these identities change over
 time, and often become invalid due to individual retirement or other
@@ -568,7 +567,7 @@ Recipient to support the MHD UnContained Option. An [MHD Document Source](https:
 may implement the MHD UnContained Option so as to be able to send
 UnContained References. The MHD and MHDS UnContained Option allows
 `DocumentReference.author`, `DocumentReference.authenticator`,
-`DocumentReference.context.sourcePatientInfo`, and `DocumentManifest.author`
+`DocumentReference.context.sourcePatientInfo`, and `List.source`
 to be a `Reference` to a
 `(Practitioner|PractitionerRole|Organization|Patient)` Resource, where the
 referenced resource is published in the associated centrally managed
@@ -583,9 +582,9 @@ the [MHDS Document Registry](#150111-document-registry) are available for the li
 Registry entry.
 
 The Document Registry shall validate publication requests to ensure that
-all DocumentReference.author, DocumentReference.authenticator,
-DocumentReference.context.sourcePatientInfo, and
-DocumentManifest.author; elements are either contained or are references
+all `DocumentReference.author`, `DocumentReference.authenticator`,
+`DocumentReference.context.sourcePatientInfo`, and
+`List.author`; elements are either contained or are references
 to valid and active entry in the [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier
 or [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). The Document Registry shall validate
 this by use of [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Consumer using the Find
@@ -1087,7 +1086,7 @@ The diagram has “Opt” groupings with actions of a
   - This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for feed.
 2. Publication of new Documents to represent a case where new data need to be published.
   - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111-document-registry).
-3. The Provide transaction includes a DocumentManifest, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
+3. The Provide transaction includes a List, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
   - There is no standard protocol, this functionality would be provided by the Consent Manager. It might by a User Interface or some undefined transaction. The consent must be legally obtained according to local regulations and user experience expectations.
 4. Discover Patient Master Identity and data (MHD)
   - This portion starts with the patient visiting the Consumer. Thus there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager. Not all visits will result in a feed.
