@@ -1,4 +1,5 @@
 **TODO**
+- now that IUA has defined OAuth scopes differently than SMART, MHDS needs to adjust. Should it switch to IUA, or show both? Not clear to me that the PurposeOfUse mechanism discussed here is consistent with SMART v2.0 published spec.
 
 **DONE**
 - simplify front materials
