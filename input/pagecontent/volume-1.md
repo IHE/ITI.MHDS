@@ -175,8 +175,9 @@ Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metad
 
 #### 1:50.1.1.1 Document Registry
 
-The functions of the [MHDS Document Registry](#150111-document-registry) rely on grouped actors from
-the other IHE Profiles; see Section 1:50.3.
+The functions of the MHDS Document Registry rely on grouped actors from
+the other IHE Profiles; see Section [1:50.3.](#1503-mhds-required-actor-groupings), 
+as defined in the [Document Registry FHIR CapabilityStatement of Requirements](CapabilityStatement-IHE.MHDS.DocumentRegistry.html) (note that [this CapabilityStatement](CapabilityStatement-IHE.MHDS.DocumentRegistry.html) is incomplete given that not all the grouped IHE Profile server actors are not yet defined in Implementation Guides).
 
 The Document Registry SHALL include a configuration management function
 to enable configuration of the grouped actors, including Metadata rules,
@@ -504,7 +505,7 @@ groupings in other related profiles.
 
 **Table 1:50.3-1: Required Actor Groupings**
 
-<table style="width:100%;">
+<table class="grid" style="width:100%;">
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 25%" />

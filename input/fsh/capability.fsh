@@ -1,169 +1,43 @@
-Instance: IHE.FooBar.client
+Instance: IHE.MHDS.DocumentRegistry
 InstanceOf: CapabilityStatement
-Usage: #definition
-* text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\t\tCapabilityStatement for Client Actor in the IHE IT Infrastructure Technical Framework Supplement\r\n\t\t\t<a href=\"https://profiles.ihe.net/ITI/TF/Volume1/ch-38.html\">FooBar</a>\r\n\t\tThe IHE Profile text is Normative, this conformance resource is Informative.</div>"
-* url = "http://ihe.net/fhir/CapabilityStatement/capabilitystatement-IHE.FooBar.client"
-* name = "IHE_FooBar_client"
-* title = "IHE FooBar client"
-* status = #active
-* experimental = false
-* date = "2018-04-13"
-* publisher = "Integrating the Healthcare Enterprise (IHE)"
-* contact[0].name = "IHE"
-* contact[=].telecom.system = #url
-* contact[=].telecom.value = "http://ihe.net"
-* contact[+].name = "John Moehrke"
-* contact[=].telecom.system = #email
-* contact[=].telecom.value = "JohnMoehrke@gmail.com"
-* description = "CapabilityStatement for Client Actor in the IHE IT Infrastructure Technical Framework Supplement IHE FooBar. See https://profiles.ihe.net/ITI/TF/Volume1/ch-38.html. The IHE Profile text is Normative, this conformance resource is Informative."
-* copyright = "IHE http://www.ihe.net/Governance/#Intellectual_Property"
-* kind = #requirements
-* fhirVersion = #4.0.1
-* format[0] = #application/fhir+xml
-* format[+] = #application/fhir+json
-* rest.mode = #client
-* rest.documentation = "FooBar client will query for Patient resources matching a sub-set of the FHIR core Patient resource query parameters"
-* rest.security.cors = false
-* rest.security.description = "None mandated by IHE, encouraged IHE-IUA or SMART-on-FHIR"
-* rest.resource.type = #Patient
-* rest.resource.interaction[0].code = #read
-* rest.resource.interaction[+].code = #search-type
-* rest.resource.searchParam[0].name = "_id"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-_id"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Logical id of this artifact"
-* rest.resource.searchParam[+].name = "active"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-active"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Whether the patient record is active"
-* rest.resource.searchParam[+].name = "address-city"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-city"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A city specified in an address"
-* rest.resource.searchParam[+].name = "address-country"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-country"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A country specified in an address"
-* rest.resource.searchParam[+].name = "address-postalcode"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-postalcode"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A postalCode specified in an address"
-* rest.resource.searchParam[+].name = "address-state"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-state"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A state specified in an address"
-* rest.resource.searchParam[+].name = "birthdate"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-birthdate"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[=].documentation = "The patient's date of birth"
-* rest.resource.searchParam[+].name = "family"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-family"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A portion of the family name of the patient"
-* rest.resource.searchParam[+].name = "gender"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-gender"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Gender of the patient"
-* rest.resource.searchParam[+].name = "given"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-given"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A portion of the given name of the patient"
-* rest.resource.searchParam[+].name = "identifier"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-identifier"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "A patient identifier"
-* rest.resource.searchParam[+].name = "telecom"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-telecom"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "The value in any kind of telecom details of the patient"
-* rest.resource.searchParam[+].name = "_lastUpdated"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-_lastUpdated"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[=].documentation = "When the resource version last changed"
-* rest.interaction.code = #search-system
+Title: "MHDS Document Registry"
+Description: """
+CapabilityStatement Requirements for the MHDS Document Registry Actor
 
-Instance: IHE.FooBar.server
-InstanceOf: CapabilityStatement
+- **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient)** supports publication requests by the [MHD Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source). The Comprehensive Metadata Option is required.
+- **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder)** supports the discovery and retrieval of documents by [MHD](https://profiles.ihe.net/ITI/MHD/index.html) [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer).
+- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) - Patient Identity Consumer** provides patient identity synchronization and specifically the merge function to be applied to any data managed in the Document Registry.
+- **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Consumer** enables the Document Registry to gain access to ValueSets that the Registry is enforcing Metadata consistency.
+- **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) – Care Services Selective Consumer** enables the Registry to have access to Organization and Practitioner resources.
+- **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) – Authorization Server** and **Resource Server** enforces access control decisions.
+- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the Document Registry to be secure, record audit records, and support secure transactions.
+- **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the Document Registry are aligned with the Time Source.
+"""
 Usage: #definition
-* text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\r\nCapabilityStatement for SERVER Actor in the IHE\r\n<a href=\"https://profiles.ihe.net/ITI/TF/Volume1/ch-38.html\">FooBar</a>.\r\nThe IHE Profile text is Normative, this conformance resource is Informative.</div>"
-* url = "http://ihe.net/fhir/CapabilityStatement/capabilitystatement-IHE.FooBar.server"
-* name = "IHE_FooBar_supplier"
-* title = "IHE FooBar Server"
+* url = "http://profiles.ihe.net/ITI/MHDS/CapabilityStatement/IHE.MHDS.DocumentRegistry"
+* name = "IHE_MHDS_DocumentRegistry"
+* title = "MHDS Document Registry"
+* description =  "MHD Document Registry Actor definition"
 * status = #active
 * experimental = false
-* date = "2019-07-05"
-* publisher = "Integrating the Healthcare Enterprise (IHE)"
-* contact[0].name = "IHE"
-* contact[=].telecom.system = #url
-* contact[=].telecom.value = "http://ihe.net"
-* contact[+].name = "John Moehrke"
-* contact[=].telecom.system = #email
-* contact[=].telecom.value = "JohnMoehrke@gmail.com"
-* description = "CapabilityStatement for Server Actor in the IHE IT Infrastructure Technical Framework Supplement IHE FooBar. See https://profiles.ihe.net/ITI/TF/Volume1/ch-38.html. The IHE Profile text is Normative, this conformance resource is Informative."
-* copyright = "IHE http://www.ihe.net/Governance/#Intellectual_Property"
+* date = "2021-12-16"
 * kind = #requirements
 * fhirVersion = #4.0.1
 * format[0] = #application/fhir+xml
 * format[+] = #application/fhir+json
+* imports[+] = "http://profiles.ihe.net/ITI/MHD/CapabilityStatement/IHE.MHD.DocumentRecipient"
+* imports[+] = "http://profiles.ihe.net/ITI/MHD/CapabilityStatement/IHE.MHD.DocumentResponder"
+* imports[+] = "http://ihe.net/fhir/CapabilityStatement/capabilitystatement-IHE.PDQm.server"
 * rest.mode = #server
-* rest.documentation = "FooBar server provides capability to query for Patient resources matching a sub-set of the FHIR core Patient resource query parameters"
-* rest.security.cors = false
-* rest.security.description = "None mandated by IHE, encouraged IHE-IUA or SMART-on-FHIR"
-* rest.resource.type = #Patient
-* rest.resource.interaction[0].code = #read
-* rest.resource.interaction[+].code = #search-type
-* rest.resource.searchParam[0].name = "_id"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-_id"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Logical id of this artifact"
-* rest.resource.searchParam[+].name = "active"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-active"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Whether the patient record is active"
-* rest.resource.searchParam[+].name = "address-city"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-city"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A city specified in an address"
-* rest.resource.searchParam[+].name = "address-country"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-country"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A country specified in an address"
-* rest.resource.searchParam[+].name = "address-postalcode"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-postalcode"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A postalCode specified in an address"
-* rest.resource.searchParam[+].name = "address-state"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-address-state"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A state specified in an address"
-* rest.resource.searchParam[+].name = "birthdate"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-birthdate"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[=].documentation = "The patient's date of birth"
-* rest.resource.searchParam[+].name = "family"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-family"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A portion of the family name of the patient"
-* rest.resource.searchParam[+].name = "gender"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-gender"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "Gender of the patient"
-* rest.resource.searchParam[+].name = "given"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-given"
-* rest.resource.searchParam[=].type = #string
-* rest.resource.searchParam[=].documentation = "A portion of the given name of the patient"
-* rest.resource.searchParam[+].name = "identifier"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-identifier"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "A patient identifier"
-* rest.resource.searchParam[+].name = "telecom"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-telecom"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[=].documentation = "The value in any kind of telecom details of the patient"
-* rest.resource.searchParam[+].name = "_lastUpdated"
-//* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Patient-_lastUpdated"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[=].documentation = "When the resource version last changed"
-* rest.interaction.code = #search-system
+* rest.documentation = """
+CapabilityStatement Requirements for the MHDS Document Registry Actor
+
+- **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient)** supports publication requests by the [MHD Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source). The Comprehensive Metadata Option is required.
+- **[MHD](https://profiles.ihe.net/ITI/MHD/index.html) - [Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder)** supports the discovery and retrieval of documents by [MHD](https://profiles.ihe.net/ITI/MHD/index.html) [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer).
+- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) - Patient Identity Consumer** provides patient identity synchronization and specifically the merge function to be applied to any data managed in the Document Registry.
+- **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Consumer** enables the Document Registry to gain access to ValueSets that the Registry is enforcing Metadata consistency.
+- **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) – Care Services Selective Consumer** enables the Registry to have access to Organization and Practitioner resources.
+- **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) – Authorization Server** and **Resource Server** enforces access control decisions.
+- **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the Document Registry to be secure, record audit records, and support secure transactions.
+- **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Client** assures that all records of time done by the Document Registry are aligned with the Time Source.
+"""
