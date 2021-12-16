@@ -7,7 +7,7 @@ could be provided by different vendors, leveraging as much as possible
 from a reference implementation of a FHIR Server, and also leverage as
 much as possible of modularity enabled by defined Profiles.
 
-Core business functions provided by MHDS Profile:
+**Core business functions provided by MHDS Profile:**
 
 - Publication of Document based information
   - Content agnostic but CDA<sup>®</sup> and FHIR preferred
@@ -29,8 +29,6 @@ Core business functions provided by MHDS Profile:
 - Consumption side can be further refined using [mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html) and [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)
 
 
-# 1:50 Mobile Health Document Sharing (MHDS) Profile
-
 The MHDS Profile specifies how a collection of IHE profiles can be used
 by communities for exchanging health information. These IHE profiles
 include support for patient identification, health document location and
@@ -39,8 +37,8 @@ security. MHDS shows how several IHE profiles work together to provide a
 standards-based, interoperable approach to community health information
 sharing.
 
-The IHE IT Infrastructure Domain has published several resources to
-support document sharing:
+**The IHE IT Infrastructure Domain has published several resources to
+support document sharing:**
 
 - [ITI Technical Framework](https://profiles.ihe.net/ITI/TF): [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4)
 - [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
@@ -55,8 +53,9 @@ whitepaper. This Document Sharing exchange requires the same management
 of metadata as described in the [Document Sharing Metadata
 Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
-![](image2.png)
-
+<div>
+<img src="image2.png" width="60%">
+</div>
 **Figure 1:50-1: MHDS High Level View Diagram**
 
 Readers that need background on high level concepts of Document Sharing
@@ -77,8 +76,9 @@ creates one new actor. The actor that is specific to this profile is a
 [Document Registry](#150111-document-registry). Figure 1:50.1-1 shows a detailed actor diagram for the
 [MHDS Document Registry](#150111-document-registry).
 
-![](image3.png)
-
+<div>
+<img src="image3.png" width="100%">
+</div>
 **Figure 1:50.1-1: MHDS Registry Actor Diagram**
 
 Table 1:50.1-1 lists the transactions for each actor directly involved in
@@ -92,6 +92,7 @@ optional transactions (labeled “O”).
 | ----------------- | ------------------------------------------------------------------------- | ---------------------- | ----------- | --------- |
 | Actors            | Transactions                                                              | Initiator or Responder | Optionality | Reference |
 | [Document Registry](#150111-document-registry) | (none) – transactions supported come from the grouped actors listed below | \--                    | \--         | [1:50.1.1.1 Document Registry](#150111-document-registry) |
+{:.grid}
 
 The [Document Registry](#150111-document-registry) is grouped with a set of actors from other
 profiles:
@@ -118,8 +119,9 @@ of [MHDS Document Registry](#150111-document-registry) (white), HIE Central Infr
 and Systems that publish or consume documents (green) make up the
 Document Sharing Community (aka Community).
 
-![](image4.png)
-
+<div>
+<img src="image4.png" width="100%">
+</div>
 **Figure 1:50.1-2: MHDS Document Sharing Health Information Exchange**
 
 The HIE Central Infrastructure is a set of Services based on IHE
@@ -173,8 +175,9 @@ Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metad
 
 #### 1:50.1.1.1 Document Registry
 
-The functions of the [MHDS Document Registry](#150111-document-registry) rely on grouped actors from
-the other IHE Profiles; see Section 1:50.3.
+The functions of the MHDS Document Registry rely on grouped actors from
+the other IHE Profiles; see Section [1:50.3.](#1503-mhds-required-actor-groupings), 
+as defined in the [Document Registry FHIR CapabilityStatement of Requirements](CapabilityStatement-IHE.MHDS.DocumentRegistry.html) (note that [this CapabilityStatement](CapabilityStatement-IHE.MHDS.DocumentRegistry.html) is incomplete given that not all the grouped IHE Profile server actors are not yet defined in Implementation Guides).
 
 The Document Registry SHALL include a configuration management function
 to enable configuration of the grouped actors, including Metadata rules,
@@ -196,8 +199,9 @@ Secure Application:
 
 Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 
-![](image5.png)
-
+<div>
+<img src="image5.png" width="100%">
+</div>
 **Figure 1:50.1.1.1.1-1: Document Publication Process Flow**
 
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the [ATNA Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) or [Secure Application](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.2) TLS protocol using a Certificate assigned to the Document Registry.
@@ -217,8 +221,9 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 Triggered by: any Find Document Lists \[ITI-66\], Find Document
 References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 
-![](image6.png)
-
+<div>
+<img src="image6.png" width="100%">
+</div>
 **Figure 1:50.1.1.1.2-1: Discovery and Retrieval of Existing Document Process Flow**
 
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the [ATNA Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) or [Secure Application](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.2) TLS protocol using a Certificate assigned to the Document Registry.
@@ -234,8 +239,9 @@ References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 Triggered by: a Mobile Patient Identity Feed \[ITI-93\] transaction with
 a Merge:
 
-![](image7.png)
-
+<div>
+<img src="image7.png" width="100%">
+</div>
 **Figure 1:50.1.1.1.3-1: Patient Merge Process Flow**
 
 The Document Registry SHALL search for any resources with the deprecated
@@ -283,7 +289,7 @@ applicable, are specified in notes.
 
 **Table 1:50.2-1: MHDS – Actors and Options**
 
-<table>
+<table class="grid">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -333,8 +339,9 @@ rules used for this authorization decision are not defined in the MHDS
 Profile. See the Consent Manager Option for specific access control
 rules associated with that option.
 
-![](image8.png)
-
+<div>
+<img src="image8.png" width="100%">
+</div>
 **Figure 1:50.2.1-1: Document Publication Process Flow with Authorization Option**
 
 ### 1:50.2.2 Consent Manager Option
@@ -352,8 +359,9 @@ changing of the status is a functional requirement that is not defined
 by IHE. The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server that is grouped with the MHDS Document
 Registry would enforce these decisions.
 
-![](image9.png)
-
+<div>
+<img src="image9.png" width="100%">
+</div>
 **Figure 1:50.2.2-1: Consent Management for Disclosure Process Flow**
 
 The grouped [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server SHALL support consent configuration
@@ -366,8 +374,9 @@ The Permit policy is specific to requests from an authorized Document
 Consumer from authorized identities (applications and/or users) with
 appropriate roles, and authorized Treatment PurposeOfUse.
 
-![](image10.png)
-
+<div>
+<img src="image10.png" width="100%">
+</div>
 **Figure 1:50.2.2-2: Simple Consent state diagram**
 
 The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server SHALL
@@ -465,8 +474,9 @@ to be a `Reference` to a
 referenced resource is published in the associated centrally managed
 [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier, or [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html).
 
-![](image11.png)
-
+<div>
+<img src="image11.png" width="100%">
+</div>
 **Figure 1:50.2.4-1: Author Reference Process Flow**
 
 The [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier and the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) are persisting long term the data so that the Resources within
@@ -495,7 +505,7 @@ groupings in other related profiles.
 
 **Table 1:50.3-1: Required Actor Groupings**
 
-<table style="width:100%;">
+<table class="grid" style="width:100%;">
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 25%" />
@@ -816,6 +826,7 @@ types of data can be represented using a diagram like found in Table
 | Emergency Care Provider (e.g., EMT) |   |   |   | X |   |   |
 | Researcher                          | X |   |   |   |   |   |
 | Patient or Legal Representative     |   | X | X | X | X |   |
+{:.grid}
 
 Then documents can be labeled with one or more of the codes on the
 columns, and results in the specified Functional Roles to be given
@@ -949,6 +960,7 @@ found in the profile text or through other webinars.
 | Mobile Care Services Discovery       |           | √                                 | ∙                                   |         |                | ∙               |                 |
 | Document Digital Signature           |           | √                                 |                                     |         | √              | √               |                 |
 | Document Encryption                  |           |                                   | √                                   | √       | ∙              |                 |                 |
+{:.grid}
 
 ## 1:50.6 MHDS Cross Profile Considerations
 
@@ -1015,7 +1027,7 @@ other actors shown are there to support this primary function.
 
 System that publishes documents - Integration Statement
 
-<table>
+<table class="grid">
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 37%" />
@@ -1093,7 +1105,7 @@ other actors shown are there to support this primary function.
 
 System that consumes documents - Integration Statement
 
-<table>
+<table class="grid">
 <colgroup>
 <col style="width: 18%" />
 <col style="width: 48%" />
@@ -1171,7 +1183,7 @@ function. Further details can be found in the referenced profiles.
 
 System that consumes clinical data elements - Integration Statement
 
-<table>
+<table class="grid">
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 37%" />
@@ -1254,7 +1266,7 @@ purposes.
 Central Infrastructure Integration Statement
 
 
-<table>
+<table class="grid">
 <colgroup>
 <col style="width: 17%" />
 <col style="width: 33%" />
