@@ -22,6 +22,15 @@ jurisdiction: 'http://unstats.un.org/unsd/methods/m49/m49.htm#001'
 copyright: IHE http://www.ihe.net/Governance/#Intellectual_Property
 copyrightYear: 2021+
 releaseLabel: ci-build
+dependencies:
+  ihe.mhd.fhir: 
+    id: ihemhdfhir
+    uri: http://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.mhd.fhir
+    version: 4.0.2
+  IHE.ITI.PDQm: 
+    id: ihepdqm
+    uri: http://profiles.ihe.net/ITI/PDQm/ImplementationGuide/IHE.ITI.PDQm
+    version: 2.3.0
 
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
@@ -50,27 +59,27 @@ resources:
 pages:
 # itemize here each narrative page. Include assigned section numbers when appropriate
   index.md:
-    title: 1:50. Profile Home
+    title: "MHDS Home"
     generation: markdown
   volume-1.md:
-    title: 1:50. Profile Volume 1
+    title: "1:50. MHDS Volume 1"
     generation: markdown
   testplan.md:
     title: "Test Plan"
     generation: markdown
   issues.md:
-    title: Open and Closed issues
+    title: "Open and Closed issues"
     generation: markdown
 
 menu:
-  FooBar Home: index.html
+  MHDS Home: index.html
   Volume 1:
     Introduction: volume-1.html
-    Actors and Transactions: volume-1.html#actors-and-transactions
-    Actor Options: volume-1.html#actor-options
-    Required Groupings: volume-1.html#required-groupings
-    Overview: volume-1.html#overview
-    Security Considerations: volume-1.html#security-considerations
-    Cross-Profile Considerations: volume-1.html#grouping
+    Actors and Transactions: volume-1.html#1501-mhds-actors-transactions-and-content-modules
+    Actor Options: volume-1.html#1502-mhds-actor-options
+    Required Groupings: volume-1.html#1503-mhds-required-actor-groupings
+    Overview: volume-1.html#1504-mhds-overview
+    Security Considerations: volume-1.html#1505-mhds-security-considerations
+    Cross-Profile Considerations: volume-1.html#1506-mhds-cross-profile-considerations
   Test Plan: testplan.html
   Artifacts: artifacts.html
