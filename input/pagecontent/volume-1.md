@@ -1,65 +1,3 @@
-**TODO**
-- now that IUA has defined OAuth scopes differently than SMART, MHDS needs to adjust. Should it switch to IUA, or show both? Not clear to me that the PurposeOfUse mechanism discussed here is consistent with SMART v2.0 published spec.
-
-**DONE**
-- simplify front materials
-- simplify table of content
-- removed the General Intro section, as that Actor is already in appendix A
-- fixup markdown to be more simple than got from export
-- change references from pointers at old PDF technical framework to the new profiles.ihe.net site
-- removed section 50.7 in favor of the more updated HIE-Whitepaper
-- multiple markdown tables likely need to be converted to html as they really need merged cells (e.g. actors with multiple options) ( note one can get the right tables with pandoc and markdown_strict)
-- bold figure / table titles
-- code block `style`
-- UML is websequence format, should be plantuml (e.g. -->+ )
-- links to IGs (MHD, PIXm, PDQm, FormatCode)
-- links to html (IUA, mCSD, metadataHandbook, TF)
-- internal section linking
-- align to new MHD that does not use DocumentManifest 
-
-**********************************************************************************************************
-
-**Integrating the Healthcare Enterprise**
-
-**[IHE IT Infrastructure](https://profiles.ihe.net/ITI)** **Supplement**
-
-**Mobile Health Document Sharing (MHDS)**
-
-**Revision 2.2 - Public Comment**
-
-Date: December 31, 2021
-
-Author: ITI Technical Committee
-
-Email: [iti@ihe.net](mailto:iti@ihe.net)
-
-**Please verify you have the most recent version of this Supplement. See [here](http://profiles.ihe.net/ITI) for the Published version.
-
-# Foreword
-
-This is a supplement to the [IHE](http://www.ihe.net) [IT Infrastructure Technical Framework](https://profiles.ihe.net/ITI/TF/index.html).
-Each supplement undergoes a process of public comment and trial
-implementation before being incorporated into the volumes of the
-Technical Frameworks.
-
-
-**CONTENTS**
-
-* [1:50 Mobile Health Document Sharing (MHDS) Profile](#150-mobile-health-document-sharing-mhds-profile)
-* [1:50.1 MHDS Actors, Transactions, and Content Modules](#1501-mhds-actors-transactions-and-content-modules)
-* [1:50.2 MHDS Actor Options](#1502-mhds-actor-options)
-* [1:50.3 MHDS Required Actor Groupings](#1503-mhds-required-actor-groupings)
-* [1:50.4 MHDS Overview](#1504-mhds-overview)
-* [1:50.5 MHDS Security Considerations](#1505-mhds-security-considerations)
-* [1:50.6 MHDS Cross Profile Considerations](#1506-mhds-cross-profile-considerations)
-
-
-# Introduction to this Supplement
-
-This profile will show how to build a Document Sharing Exchange using
-IHE-profiled FHIR<sup>®</sup> standard, rather than the legacy IHE
-profiles that are dominated by XDS and HL7<sup>®</sup> v2. This profile
-will assemble profiles and define a [Document Registry](#150111-document-registry).
 
 The central HIE infrastructure defined in this Profile might be a single
 FHIR Server implementing all the defined central service actors or may
@@ -90,53 +28,6 @@ Core business functions provided by MHDS Profile:
 - Audit Log Management
 - Consumption side can be further refined using [mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html) and [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)
 
-## Open Issues and Questions
-
-no open issues
-
-## Closed Issues
-
-1.  This profile was renamed from MHD-HIE to Mobile Health Document
-    Sharing (MHDS). This name leverages the concept of “Document
-    Sharing” as defined in the HIE whitepaper and includes the
-    original MHD acronym while removing the word “access” which is
-    important in MHD to define it as an API and inserting the word
-    “Sharing” which indicates persistence.
-
-2.  There is no action defined for the Document Registry when the PMIR
-    feed transaction indicated a Delete action on a Patient that the
-    Document Registry has records for. The concern is that this action
-    is not clear outside of a policy. It is reasonable that policy may
-    choose to ignore Delete, may choose to mark the affected Resources
-    inactive, or may choose to delete the affected Resources. Thus, we
-    have left this action undefined. It is expected that a Delete action
-    is unusual, and that administrative user interface may be the better
-    solution.
-
-3.  Where XDS/XCA is used the MHDS Profile does not apply, as the MHD
-    Profile provides the API functionality to XDS/XCA
-
-4.  MHDS defines an OAuth scope for use with MHDS and IUA to support
-    Patient Privacy Disclosure Consent functionality. This scope is
-    crafted to be minimally impacting on uses of IUA and SMART-on-FHIR.
-    See the “Consent Management Option” for details.
-
-5.  In this profile, there is no formal Document Repository, although
-    the functionality is provided virtually when a Document Source
-    chooses to not include the document as a Binary resource, but rather
-    include a URL to a repository that is recognized as part of the
-    trust domain. This distinction is available in MHD today, although
-    it is not pointed out as such and thus not well known. There is
-    description of this virtual Document Repository functionality.
-
-6.  The MHDS environment allows for some normally contained Resources be
-    recorded as a link to data in the mCSD managed Directory or PMIR
-    Patient Identity Manager. This is defined in the “UnContained
-    Reference Option”. The necessary change to MHD has not been done yet
-    in order to get feedback from Public Comment. CP-ITI-1200 has
-    updated. MHD to add an UnContained Reference Option for this support
-
-7.  Removed section 50.7 as the current HIE-Whitepaper contains MHD now.
 
 # 1:50 Mobile Health Document Sharing (MHDS) Profile
 
@@ -164,7 +55,7 @@ whitepaper. This Document Sharing exchange requires the same management
 of metadata as described in the [Document Sharing Metadata
 Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
-![](.//media/image2.png)
+![](image2.png)
 
 **Figure 1:50-1: MHDS High Level View Diagram**
 
@@ -186,7 +77,7 @@ creates one new actor. The actor that is specific to this profile is a
 [Document Registry](#150111-document-registry). Figure 1:50.1-1 shows a detailed actor diagram for the
 [MHDS Document Registry](#150111-document-registry).
 
-![](.//media/image3.png)
+![](image3.png)
 
 **Figure 1:50.1-1: MHDS Registry Actor Diagram**
 
@@ -227,7 +118,7 @@ of [MHDS Document Registry](#150111-document-registry) (white), HIE Central Infr
 and Systems that publish or consume documents (green) make up the
 Document Sharing Community (aka Community).
 
-![](.//media/image4.png)
+![](image4.png)
 
 **Figure 1:50.1-2: MHDS Document Sharing Health Information Exchange**
 
@@ -305,7 +196,7 @@ Secure Application:
 
 Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 
-![](.//media/image5.png)
+![](image5.png)
 
 **Figure 1:50.1.1.1.1-1: Document Publication Process Flow**
 
@@ -326,7 +217,7 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 Triggered by: any Find Document Lists \[ITI-66\], Find Document
 References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 
-![](.//media/image6.png)
+![](image6.png)
 
 **Figure 1:50.1.1.1.2-1: Discovery and Retrieval of Existing Document Process Flow**
 
@@ -343,7 +234,7 @@ References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 Triggered by: a Mobile Patient Identity Feed \[ITI-93\] transaction with
 a Merge:
 
-![](.//media/image7.png)
+![](image7.png)
 
 **Figure 1:50.1.1.1.3-1: Patient Merge Process Flow**
 
@@ -442,7 +333,7 @@ rules used for this authorization decision are not defined in the MHDS
 Profile. See the Consent Manager Option for specific access control
 rules associated with that option.
 
-![](.//media/image8.png)
+![](image8.png)
 
 **Figure 1:50.2.1-1: Document Publication Process Flow with Authorization Option**
 
@@ -461,7 +352,7 @@ changing of the status is a functional requirement that is not defined
 by IHE. The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server that is grouped with the MHDS Document
 Registry would enforce these decisions.
 
-![](.//media/image9.png)
+![](image9.png)
 
 **Figure 1:50.2.2-1: Consent Management for Disclosure Process Flow**
 
@@ -475,7 +366,7 @@ The Permit policy is specific to requests from an authorized Document
 Consumer from authorized identities (applications and/or users) with
 appropriate roles, and authorized Treatment PurposeOfUse.
 
-![](.//media/image10.png)
+![](image10.png)
 
 **Figure 1:50.2.2-2: Simple Consent state diagram**
 
@@ -574,7 +465,7 @@ to be a `Reference` to a
 referenced resource is published in the associated centrally managed
 [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier, or [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html).
 
-![](.//media/image11.png)
+![](image11.png)
 
 **Figure 1:50.2.4-1: Author Reference Process Flow**
 
@@ -1096,11 +987,12 @@ The diagram has “Opt” groupings with actions of a
   - The Recipient queries the Registry to find appropriate entries, and selects the one of interest
   - The Recipient will GET the document given the DocumentReference.content.attachment.url
 
-![](.//media/image12.png)
+<div>
+{%include MHDS_controlled_exchange.svg%}
+</div>
+<div style="clear:left"/>
 
 **Figure 1:50.6.1-1: FHIR MHDS Controlled Exchange (100% FHIR)**
-
-[Source for WebSequence diagram above](.//media/MHDS_controlled_exchange.plantuml)
 
 
 ### 1:50.6.2 Typical Client System Designs
