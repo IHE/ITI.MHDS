@@ -1,0 +1,5 @@
+@startuml
+agent "Content Creator" as Creator
+agent "Content Consumer" as Consumer
+Creator -- Consumer : "Share Content ↓"
+@enduml
