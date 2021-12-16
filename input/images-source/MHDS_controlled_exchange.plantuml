@@ -1,0 +1,59 @@
+@startuml
+title FHIR MHDS Controlled Exchange (100% FHIR)
+
+participant Publisher
+participant Patient
+participant PatientDir
+participant ConsentMgr
+participant Registry
+participant Consumer
+
+
+opt Patient identity (PMIR feed)
+Patient->Publisher: visits Publisher
+Publisher->PatientDir: update Patient Identity
+PatientDir->PatientDir: cross-reference to Patient Master Identity
+PatientDir->Registry: feed update Patient Master Identity
+end
+
+opt publish new document (MHD)
+Publisher->PatientDir: discover Patient Master Identity (PDQm)
+Publisher->Registry: publish New DocumentManifest, DocumentReference, and Binary (MHD provide)
+activate Registry
+Registry->Registry: persist DocumentReference, Binary, and DocumentManifest
+Registry->Publisher: success
+deactivate Registry
+end
+
+opt get consent to disclose documents
+note right of Patient
+Patient is presented with opportunity to 
+ConsentMgr likely internal to ConsentMgr
+could be FHIR Consent or BPPC
+end note
+Patient->ConsentMgr: Record Consent Permit
+end
+
+opt discover Patient Master Identity and data (MHD)
+Patient->Consumer: visits Consumer
+Consumer->PatientDir: update Patient Identity (PatientDir feed)
+PatientDir->PatientDir: cross-reference to Patient Master Identity
+PatientDir->Registry: feed update Patient Master Identity
+Consumer->PatientDir: discover Patient Master Identity (PDQ query)
+Consumer->ConsentMgr: get authorization token
+activate ConsentMgr
+ConsentMgr->ConsentMgr: lookup state of Consent for this patient
+ConsentMgr->Consumer: provide token permitting access
+deactivate ConsentMgr
+Consumer->Registry: using token discovery Entry(s) (MHD query)
+activate Registry
+Registry->Registry: confirm token
+Registry->Consumer: here are DocumentReference Entry(s)
+deactivate Registry
+Consumer->Registry: using token Ask for data (MHD retrieve)
+activate Registry
+Registry->Registry: confirm token
+Registry->Consumer: Here is the document requested
+deactivate Registry
+end
+@enduml
