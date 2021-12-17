@@ -328,8 +328,10 @@ Note 1: The Consent Manager Option requires the Authorization Option
 
 ### 1:50.2.1 Authorization Option
 
-The Document Registry SHALL be grouped with an [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server and
-[IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server Actors. The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server enforces OAuth
+The Document Registry SHALL be grouped with an [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server and the
+[IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server Actors. The IUA [Authorization Server Metadata Option](https://profiles.ihe.net/ITI/IUA/index.html#3421-authorization-server-metadata-option) shall be supported.
+
+The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server enforces OAuth
 Authorization decisions made by the grouped [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server.
 Thus, all accesses to the Document Registry must have a token issued by
 the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server. These [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server decisions
@@ -346,6 +348,7 @@ rules associated with that option.
 
 ### 1:50.2.2 Consent Manager Option
 
+The Consent Manager Option requires support of the Authorization Option.
 The Document Registry SHALL be grouped with an [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server and
 the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server in order to enforce simple Permit and Deny
 access patient specific privacy disclosure consents for Treatment
@@ -549,12 +552,12 @@ groupings in other related profiles.
 </tr>
 <tr class="even">
 <td>if the Authorization Option</td>
-<td>IUA / Resource Server</td>
+<td>IUA / Resource Server with the The IUA Authorization Server Metadata Option</td>
 <td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
 </tr>
 <tr class="odd">
 <td>if the Authorization Option</td>
-<td>IUA / Authorization Server</td>
+<td>IUA / Authorization Server with the The IUA Authorization Server Metadata Option</td>
 <td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
 </tr>
 <tr class="even">
@@ -1326,11 +1329,11 @@ Central Infrastructure Integration Statement
 <tr class="odd">
 <td rowspan="2">IUA</td>
 <td>Resource Server</td>
-<td></td>
+<td>Authorization Server Metadata Option</td>
 </tr>
 <tr class="even">
 <td>Authorization Server</td>
-<td></td>
+<td>Authorization Server Metadata Option</td>
 </tr>
 <tr class="odd">
 <td rowspan="4">ATNA</td>
@@ -1366,11 +1369,11 @@ Central Infrastructure Integration Statement
 <tr class="even">
 <td rowspan="2">IUA</td>
 <td>Authorization Server</td>
-<td></td>
+<td>Authorization Server Metadata Option</td>
 </tr>
 <tr class="odd">
 <td>Resource Server</td>
-<td></td>
+<td>Authorization Server Metadata Option</td>
 </tr>
 <tr class="even">
 <td>mCSD</td>

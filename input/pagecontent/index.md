@@ -5,7 +5,9 @@ profiles that are dominated by XDS and HL7<sup>®</sup> v2.
 This Implementation Guide assembles other IHE Implementation guides (Profiles) 
 and defines a [Document Registry](volume-1.html#150111-document-registry) Actor.
 
-[Open and Closed Issues](issues.html)
+<div markdown="1" class="stu-note">
+[Significant Changes, Open, and Closed Issues](issues.html)
+</div>
 
 ### Organization of This Guide
 This guide is organized into two main sections:

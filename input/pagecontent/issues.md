@@ -3,14 +3,17 @@
 The version 2.2.0 is intended to be changes to the publication mechanism from WORD/PDF to an Implementation Guide published using the IG-Publisher. However some other changes have been necessary due to the passing of time.
 - Mentions of DocumentManifest are now List.source due to the change in MHD.
 - Mentions of the PMIR Patient Identity Manager are changed to Patient Identity Registry due to change in PMIR.
+- This version has a CapabilityStatement that was not previously published. 
+- Updates due to changes in the IUA profile, such as the additional leverage of the Authorization Server Metadata Option.
+- Removed section 50.7 as the current HIE-Whitepaper contains MHD and MHDS now.
+- diagrams have been changed to support the above changes.
 
-
-#### Open Issues
+### Open Issues
 
 - now that IUA has defined OAuth scopes differently than SMART, MHDS needs to adjust. Should it switch to IUA, or show both? Not clear to me that the PurposeOfUse mechanism discussed here is consistent with SMART v2.0 published spec.
 
 
-#### Closed Issues
+### Closed Issues
 
 1.  This profile was renamed from MHD-HIE to Mobile Health Document
     Sharing (MHDS). This name leverages the concept of “Document
@@ -52,4 +55,4 @@ The version 2.2.0 is intended to be changes to the publication mechanism from WO
     in order to get feedback from Public Comment. CP-ITI-1200 has
     updated. MHD to add an UnContained Reference Option for this support
 
-7.  Removed section 50.7 as the current HIE-Whitepaper contains MHD now.
+
