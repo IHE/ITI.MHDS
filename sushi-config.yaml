@@ -2,7 +2,7 @@
 # ───────────────────────────────────────────────────
 id: ihe.iti.mhds
 canonical: http://profiles.ihe.net/ITI/MHDS
-version: 0.1.0
+version: 2.1.1
 name: IHE_ITI_MHDS
 title: "Mobile Health Document Sharing"
 status: active

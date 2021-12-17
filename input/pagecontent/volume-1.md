@@ -1,4 +1,12 @@
 
+The MHDS Profile specifies how a collection of IHE profiles can be used
+by communities for exchanging health information. These IHE profiles
+include support for patient identification, health document location and
+retrieval, provider directories, and the protection of privacy and
+security. MHDS shows how several IHE profiles work together to provide a
+standards-based, interoperable approach to community health information
+sharing.
+
 The central HIE infrastructure defined in this Profile might be a single
 FHIR Server implementing all the defined central service actors or may
 be virtual cloud of the systems implementing the defined profile actors.
@@ -28,14 +36,6 @@ much as possible of modularity enabled by defined Profiles.
 - Audit Log Management
 - Consumption side can be further refined using [mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html) and [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)
 
-
-The MHDS Profile specifies how a collection of IHE profiles can be used
-by communities for exchanging health information. These IHE profiles
-include support for patient identification, health document location and
-retrieval, provider directories, and the protection of privacy and
-security. MHDS shows how several IHE profiles work together to provide a
-standards-based, interoperable approach to community health information
-sharing.
 
 **The IHE IT Infrastructure Domain has published several resources to
 support document sharing:**
@@ -129,7 +129,7 @@ Profiles as shown in Figure 1:50.1-2:
 
 - **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - Time Server** – to provide consistent time to all participant systems
 - **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) – [Audit Record Repository](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.3)** with support for the ATX: FHIR Feed Option – to capture audit events and provide appropriate audit log access for security and privacy use-cases
-- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) – Patient Identity Source and Patient Identity Manager** – to provide patient identity lookup by demographics or identity, and to receive create and update of patient identity from participants
+- **[PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) – Patient Identity Source and Patient Identity Registry** – to provide patient identity lookup by demographics or identity, and to receive create and update of patient identity from participants
 - **[SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) – Terminology Repository** – Provide vocabulary and value set management within the Community
 - **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) – Care Services Selective Supplier** – a Provider Directory to enable endpoint lookup and optionally provider identity management
 
@@ -159,7 +159,7 @@ This profile assumes that some [Health Information Exchange (HIE)](https://profi
 authority manages the configuration of the Community. This includes
 specification of an appropriate Certificate Authority, Time Source,
 Domain Name Service, Valueset Management, Provider Directory, Audit
-Record Repository, Patient Identity Manager, and Authorization Service.
+Record Repository, Patient Identity Registry, and Authorization Service.
 
 The HIE authority is responsible for setting Patient Identity quality
 criteria including the minimally acceptable Patient identity
@@ -208,7 +208,7 @@ Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 2.  When the Authorization Option (Section [1:50.2.1](#15021-authorization-option)) is implemented and enabled, the Document Registry SHALL confirm the client identity using the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Profile.
 3.  The Document Registry SHALL validate to the requirements of [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) using the MHD Comprehensive Metadata Option. Additional policy driven requirements, not specified here, may also apply.
 4.  When the UnContained Reference Option is used in the grouped [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient), the Document Registry SHALL not require that the references are contained, but SHALL validate that the reference is found in the central registries. (See Section [1:50.2.4 UnContained Reference Option](#15024-uncontained-reference-option).)
-5.  The Document Registry SHALL validate that the subject of the DocumentReference, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) in the document sharing community. This may be accomplished by a query of the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), by way of a cached internal patient database, or other means.
+5.  The Document Registry SHALL validate that the subject of the DocumentReference, and List Resources is the same Patient, and that Patient is a recognized and active Patient within the Community. The Patient identity must be recognized and active by the [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) in the document sharing community. This may be accomplished by a query of the [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), by way of a cached internal patient database, or other means.
 6. The Document Registry SHALL validate the metadata conformance received according to the appropriate validation rules, and configured ValueSets to assure that the document submission request is valid. If any of the metadata are found to be not valid then the transaction shall be rejected.
 7. When the SVCM Validation Option (Section [1:50.2.3](#15023-svcm-validation-option)) is implemented and enabled, the Document Registry SHALL use the grouped [SVCM](https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html) Terminology Consumer to validate metadata elements as appropriate to configured policy. For example, the DocumentReference.type often must be a value within a ValueSet agreed to by the Community.
 8. Provided the request is valid, the Document Registry SHALL persist all DocumentReference, List, and Binary that are received by way of the grouped MHD - [Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133113-document-recipient) – Provide Document Bundle \[ITI-65\] Transaction.
@@ -229,7 +229,7 @@ References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 1.  The Document Registry SHALL confirm its identity to the requesting system by use of the [ATNA Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) or [Secure Application](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.2) TLS protocol using a Certificate assigned to the Document Registry.
 2. When the Authorization Option is implemented and enabled, the Document Registry SHALL confirm the client identity using the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Profile.
 3. Additional policy driven requirements, not specified here, may also apply. Such as enforcement at the Document Registry of Patient-specific Consent Directives.
-4. The Document Registry SHALL validate that the subject of the find or retrieve request is a Patient that is a recognized Patient within the Community. The Patient identity must be recognized by the approved [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) system. This may be accomplished by a query of the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager, by way of a cached internal patient database, or other means.
+4. The Document Registry SHALL validate that the subject of the find or retrieve request is a Patient that is a recognized Patient within the Community. The Patient identity must be recognized by the approved [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) system. This may be accomplished by a query of the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) registry, by way of a cached internal patient database, or other means.
 5. The Document Registry SHALL provide the persisted resources to the grouped [MHD Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder) in support of the [Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder) duties to return results.
 6. The Document Registry, if the Authorization Option is used, SHALL confirm that only authorized results are returned.
 7. The Document Registry SHALL record a success or failure event into the [ATNA Audit Record Repository](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.3).
@@ -456,7 +456,7 @@ since retired and would therefore not be in an active provider
 directory.)
 
 The UnContained Reference Option recognizes that a Community may choose
-to longitudinally maintain their [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) provider directory and [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). 
+to longitudinally maintain their [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) provider directory and [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). 
 When this longitudinal consistency is managed, then
 the entries in the [MHDS Document Registry](#150111-document-registry) do not need to make a copy of
 the information known at the time of publication since a Reference to
@@ -472,14 +472,14 @@ UnContained References. The MHD and MHDS UnContained Option allows
 to be a `Reference` to a
 `(Practitioner|PractitionerRole|Organization|Patient)` Resource, where the
 referenced resource is published in the associated centrally managed
-[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier, or [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html).
+[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier, or [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html).
 
 <div>
 <img src="image11.png" width="100%">
 </div>
 **Figure 1:50.2.4-1: Author Reference Process Flow**
 
-The [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier and the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) are persisting long term the data so that the Resources within
+The [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier and the [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) are persisting long term the data so that the Resources within
 the [MHDS Document Registry](#150111-document-registry) are available for the life of the Document
 Registry entry.
 
@@ -488,10 +488,10 @@ all `DocumentReference.author`, `DocumentReference.authenticator`,
 `DocumentReference.context.sourcePatientInfo`, and
 `List.author`; elements are either contained or are references
 to valid and active entry in the [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier
-or [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). The Document Registry shall validate
+or [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html). The Document Registry shall validate
 this by use of [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Consumer using the Find
 Matching Care Services \[ITI-90\] transaction, and Patient identity
-either internal Patient identity cache or possibly by [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) using the PDQm Query \[ITI-78\].
+either internal Patient identity cache or possibly by [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) using the PDQm Query \[ITI-78\].
 
 ## 1:50.3 MHDS Required Actor Groupings 
 
@@ -980,7 +980,7 @@ actor and transaction level:
 - “Publisher” – represents “System that publishes Documents”
 - “Consumer” – represents “System that consumes Documents”
 - “Patient” – represents actions the patient themselves might do, such  as seeking care
-- “PatientDir” – represents the [PMIR Patient Identity Manager](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) that is managing identity for the community
+- “PatientDir” – represents the [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) that is managing identity for the community
 - “ConsentMgr” – represents the Consent Manager function within the [Document Registry](#150111-document-registry) when the Consent Manager Option is used
 - “Registry” – represents the [MHDS Document Registry](#150111-document-registry) defined in this profile
 
@@ -1335,12 +1335,6 @@ Central Infrastructure Integration Statement
 <tr class="odd">
 <td rowspan="4">ATNA</td>
 <td rowspan="4">Secure Node</td>
-<td>STX: TLS 1.0 Floor with AES Option</td>
-</tr>
-<tr class="even">
-<td>STX: TLS 1.0 Floor using BCP195 Option</td>
-</tr>
-<tr class="odd">
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="even">
@@ -1358,18 +1352,12 @@ Central Infrastructure Integration Statement
 </tr>
 <tr class="odd">
 <td>PMIR</td>
-<td>Patient Identity Manager</td>
+<td>Patient Identity Registry</td>
 <td></td>
 </tr>
 <tr class="even">
 <td rowspan="4">ATNA</td>
 <td rowspan="4">Audit Record Repository</td>
-<td>STX: TLS 1.0 Floor with AES Option</td>
-</tr>
-<tr class="odd">
-<td>STX: TLS 1.0 Floor using BCP195 Option</td>
-</tr>
-<tr class="even">
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="odd">

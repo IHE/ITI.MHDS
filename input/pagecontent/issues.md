@@ -1,4 +1,9 @@
-### Issues
+### Changes since 2.1
+
+The version 2.2.0 is intended to be changes to the publication mechanism from WORD/PDF to an Implementation Guide published using the IG-Publisher. However some other changes have been necessary due to the passing of time.
+- Mentions of DocumentManifest are now List.source due to the change in MHD.
+- Mentions of the PMIR Patient Identity Manager are changed to Patient Identity Registry due to change in PMIR.
+
 
 #### Open Issues
 
@@ -6,8 +11,6 @@
 
 
 #### Closed Issues
-
-
 
 1.  This profile was renamed from MHD-HIE to Mobile Health Document
     Sharing (MHDS). This name leverages the concept of “Document
@@ -44,7 +47,7 @@
 
 6.  The MHDS environment allows for some normally contained Resources be
     recorded as a link to data in the mCSD managed Directory or PMIR
-    Patient Identity Manager. This is defined in the “UnContained
+    Patient Identity Registry. This is defined in the “UnContained
     Reference Option”. The necessary change to MHD has not been done yet
     in order to get feedback from Public Comment. CP-ITI-1200 has
     updated. MHD to add an UnContained Reference Option for this support
