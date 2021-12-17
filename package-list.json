@@ -1,5 +1,5 @@
 {
- "package-id" : "ihe.iti.mhds.fhir",
+ "package-id" : "ihe.iti.mhds",
  "title" : "Mobile Health Document Sharing", 
  "canonical" : "http://profiles.ihe.net/ITI/MHDS", 
  "introduction" : "This Implementation Guide shows how to build a Document Sharing Exchange using IHE-profiled FHIR standard, rather than the legacy IHE profiles that are dominated by XDS and HL7 v2. This Implementation Guide assembles other IHE Implementation guides (Profiles) and defines a Document Registry Actor.",

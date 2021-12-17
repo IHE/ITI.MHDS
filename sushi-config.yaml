@@ -1,6 +1,6 @@
 # sushi-config.yaml is documented https://fshschool.org/docs/sushi/configuration/
 # ───────────────────────────────────────────────────
-id: IHE.ITI.MHDS
+id: ihe.iti.mhds
 canonical: http://profiles.ihe.net/ITI/MHDS
 version: 0.1.0
 name: IHE_ITI_MHDS
