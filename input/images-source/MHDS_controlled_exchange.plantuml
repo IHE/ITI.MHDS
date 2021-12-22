@@ -1,5 +1,5 @@
 @startuml
-skinparam maxMessageSize 100
+skinparam svgDimensionStyle false
 title FHIR MHDS Controlled Exchange (100% FHIR)
 
 participant Publisher
