@@ -72,8 +72,10 @@ The MHDS Profile is described in the following sections:
 ## 1:50.1 MHDS Actors, Transactions, and Content Modules
 
 This profile orchestrates actors in many existing IHE profiles and
-creates one new actor. The actor that is specific to this profile is a
-[Document Registry](#150111-document-registry). Figure 1:50.1-1 shows a detailed actor diagram for the
+creates one new actor. The actor defined in this profile is a
+[Document Registry](#150111-document-registry). 
+The [Document Registry](#150111-document-registry) has internal grouping with a set of actors from other profiles, and is responsible for persisting the Metadata and documents. 
+Figure 1:50.1-1 shows a detailed actor diagram for the
 [MHDS Document Registry](#150111-document-registry).
 
 <div>
@@ -81,10 +83,11 @@ creates one new actor. The actor that is specific to this profile is a
 </div>
 **Figure 1:50.1-1: MHDS Registry Actor Diagram**
 
-Table 1:50.1-1 lists the transactions for each actor directly involved in
+Table 1:50.1-1 lists the transactions for each actor directly defined in
 the MHDS Profile. To claim compliance with this profile, an actor shall
 support all required transactions (labeled “R”) and may support the
-optional transactions (labeled “O”).
+optional transactions (labeled “O”). 
+This does not include the transactions defined in the grouped profiles, which are defined in those grouped profiles.
 
 **Table 1:50.1-1: MHDS Profile - Actors and Transactions**
 
@@ -190,7 +193,7 @@ records of time are correlated.
 The Document Registry SHALL be grouped with an [ATNA Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1) or
 Secure Application:
 
-- The Document Registry SHALL obtain a Digital Certificate from the HIE-defined Certificate Authority.
+- The Document Registry SHALL obtain a Digital Certificate from the HIE-designated Certificate Authority.
 - The Document Registry SHALL support at least the [ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) “STX: TLS 1.2 Floor using BCP195” Option.
 - The Document Registry SHALL allow only authorized access to the protected resources managed by the Document Registry.
 - The Document Registry SHALL record all security relevant events to [ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) [Audit Record Repository](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.3) with the “ATX: FHIR Feed” Option. This SHALL include all IHE-defined audit events that are in the control of the Document Registry, including its grouped actors.
@@ -351,8 +354,7 @@ rules associated with that option.
 The Consent Manager Option requires support of the Authorization Option.
 The Document Registry SHALL be grouped with an [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server and
 the [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server in order to enforce simple Permit and Deny
-access patient specific privacy disclosure consents for Treatment
-purpose. The Consent Manager Option does not affect publication by
+access patient specific privacy disclosure consents. The Consent Manager Option does not affect publication by
 [Document Source](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133111-document-source) to the Document Registry, but rather only affects
 disclosure activities between a [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) and the Document Registry.
 
@@ -362,10 +364,12 @@ changing of the status is a functional requirement that is not defined
 by IHE. The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server that is grouped with the MHDS Document
 Registry would enforce these decisions.
 
+An interaction where a Consent Manager decision to Permit the interaction would look just like Figure 1:50.2.1-1 above, where the ITI-71 would have also considered the Consent state. In Figure 1:50.2.2-1 below, the Document Registry (IUA Resource Server) denies access (403 Forbidden). This deny would be an IUA Resource Server enforcement action of the ITI-71 issued token. For example where the ITI-68 was requesting a document that was not within the authorization scope given in ITI-71.
+
 <div>
 <img src="Slide9.PNG" width="100%">
 </div>
-**Figure 1:50.2.2-1: Consent Management for Disclosure Process Flow**
+**Figure 1:50.2.2-1: Consent Management for Denied Disclosure Process Flow**
 
 The grouped [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server SHALL support consent configuration
 to enable Implied Consent and Explicit Consent environments. Implied
@@ -387,7 +391,7 @@ The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server SHAL
 - support Permit and Deny policies and may support other policies.
 - support through some functionality the patient consent state to be changed: Authorize action to move from Deny to Permit state, and Revoke action to move from Permit to Deny state.
 - support consent state for PurposeOfUse of Treatment (HL7 PurposeOfUse code of “TREAT”) and may support consent states for other PurposeOfUse values within the scope of the MHDS community.
-- Deny access to any PurposeOfUse not authorized.
+- will deny access to any PurposeOfUse not authorized.
 - support expiring a consent that results in a Permit state automatically transitioning to Deny at expiration.
 
 The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server enforcement point grouped with the MHDS Document
@@ -413,11 +417,10 @@ included in the scope separated by a space and repeated as necessary:
 
 ```
 “PurposeOfUse” '.' PurposeOfUse
-
-queryParam (e.g. “patient” '=' Patient)
+queryParam
 ```
 
-e.g., a simple request for Treatment access to patient f5c7395
+For example, a simple request for Treatment access to patient f5c7395:
 
 ```
 PurposeOfUse.TREAT
@@ -601,7 +604,7 @@ the [MHD Document Recipient](https://profiles.ihe.net/ITI/MHD/1331_actors_and_tr
 implement the Comprehensive Metadata Option. 
 See Section [1:50.1.1.1.1](#1501111-when-the-grouped-mhd-document-recipient--is-triggered).
 
-#### 1:50.4.2.2 Use Case \#2: Update of patient identity after an authorized Merge
+#### 1:50.4.2.2 Use Case \#2: Update of patient identity after an authorized merge
 
 This use case utilizes the grouped [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Patient Identity Consumer to
 enable the [Document Registry](#150111-document-registry) to receive updates of Patient Identity, so
@@ -610,14 +613,14 @@ of the references to the former Patient Identity with the Patient
 Identity that survives. 
 See Section [1:50.1.1.1.3](#1501113-when-the-grouped-pmir-patient-identity-consumer--is-triggered).
 
-#### 1:50.4.2.3 Use Case \#3: Discovery and Retrieval of existing documents
+#### 1:50.4.2.3 Use Case \#3: Discovery and retrieval of existing documents
 
 The [MHD Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) is supported by the [Document Registry](#150111-document-registry) grouped
 with the [MHD Document Responder](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133114-document-responder) to allow for the [Document Consumer](https://profiles.ihe.net/ITI/MHD/1331_actors_and_transactions.html#133112-document-consumer) to
 discover and retrieve document metadata and content. 
 See Section [1:50.1.1.1.2](#1501112-when-the-grouped-mhd-document-responder--is-triggered).
 
-#### 1:50.4.2.4 Use Case \#4: Consent Management for disclosure under Use Case \#3
+#### 1:50.4.2.4 Use Case \#4: Consent management for disclosure under use case \#3
 
 With the use of the Consent Management Option the [Document Registry](#150111-document-registry)
 supports simple Allow and Deny patient privacy consents for disclosure.
@@ -637,7 +640,7 @@ Profiles for document sharing can protect patient privacy and
 information security.
 
 An especially important aspect that is beyond the scope of IHE is the
-definition of the overall Policies of the community. There are
+definition of the overall policies of the community. There are
 whitepapers and handbooks from IHE 
 (see Section [1:50.1](#1501-mhds-actors-transactions-and-content-modules)), but there is no
 single policy that must be put in place by an IHE based community to
@@ -658,10 +661,11 @@ some of these layers in this section and show how they influence the
 technology. At the highest layer are international policies, like the
 International Data Protection Principles. Countries or regions will have
 specific policies. Some examples are USA HIPAA Security and Privacy
-Rules, with further refinement by the states. There are horizontal
+Rules, with further refinement by individual states. There are horizontal
 policies that are common among a specific industry, such as those from
-medical professional societies. Then within the enterprise will be
-specific information technology policies. As shown in this section, the
+medical professional societies. 
+There are business driven policies that might further control specific information. 
+As shown in this section, the
 IHE Profiles offer not only the means to exchange information, but to do
 so in a way that is supportive of many of the policies mentioned.
 
@@ -731,8 +735,8 @@ on the surface and can be addressed upfront once the details of the
 policy are understood. A good example of a policy conflict is in records
 retention requirements at the national level vs. at the Medical Records
 level. Medical Records regulatory retention is typically fixed at a
-short period after death, yet if the patient has black lung then the
-records must be preserved well beyond.
+short period after death, but there may be exceptions (e.g., if the patient has black lung then the
+records must be preserved well beyond.)
 
 ### 1:50.5.2 Technical Security and Privacy controls
 
@@ -816,7 +820,8 @@ carrier and billing address. Yet another document might carry the
 results of a very private procedure that the patient wishes to be
 available only to direct care providers. This differentiation of the
 types of data can be represented using a diagram like found in Table
-50.5.3.2-1: Sample Access Control Policies.
+50.5.3.2-1: Sample Access Control Policies, 
+showing an 'X' where the defined Role (rows) would have permitted access to data tagged with the given (columns) [ConfidentialityCode](https://terminology.hl7.org/CodeSystem-v3-Confidentiality.html) (U-Unrestricted, L-Low, M-Moderate, N-Normal, R-Restricted, V-Very Restricted).
 
 **Table 1:50.5.3.2-1: Sample Access Control Policies**
 
@@ -970,7 +975,7 @@ found in the profile text or through other webinars.
 This section includes interactions between systems, with details at the
 actor and transaction level:
 
-1.  Overall Perspective from publication of documents to consumption of documents
+1. Overall Perspective from publication of documents to consumption of documents
 2. Typical system that publishes documents
 3. Typical system that consumes documents
 4. Typical system that consumes data elements extracted from documents
@@ -987,13 +992,14 @@ actor and transaction level:
 - “ConsentMgr” – represents the Consent Manager function within the [Document Registry](#150111-document-registry) when the Consent Manager Option is used
 - “Registry” – represents the [MHDS Document Registry](#150111-document-registry) defined in this profile
 
-The diagram has “Opt” groupings with actions of a
+The diagram has groupings with actions of a
 
 1. Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the Patient at the source. Deeper details on this interaction can be found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile
   - This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for feed.
 2. Publication of new Documents to represent a case where new data need to be published.
   - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111-document-registry).
-3. The Provide transaction includes a List, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
+  - The Provide transaction includes a List, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
+3. Get consent to disclose documents
   - There is no standard protocol, this functionality would be provided by the Consent Manager. It might by a User Interface or some undefined transaction. The consent must be legally obtained according to local regulations and user experience expectations.
 4. Discover Patient Master Identity and data (MHD)
   - This portion starts with the patient visiting the Consumer. Thus there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager. Not all visits will result in a feed.

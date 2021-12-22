@@ -1,4 +1,5 @@
 @startuml
+skinparam maxMessageSize 100
 title FHIR MHDS Controlled Exchange (100% FHIR)
 
 participant Publisher
@@ -9,14 +10,14 @@ participant Registry
 participant Consumer
 
 
-opt Patient identity (PMIR feed)
+group Patient identity (PMIR feed)
 Patient->Publisher: visits Publisher
 Publisher->PatientDir: update Patient Identity
 PatientDir->PatientDir: cross-reference to Patient Master Identity
 PatientDir->Registry: feed update Patient Master Identity
 end
 
-opt publish new document (MHD)
+group publish new document (MHD)
 Publisher->PatientDir: discover Patient Master Identity (PDQm)
 Publisher->Registry: publish New DocumentManifest, DocumentReference, and Binary (MHD provide)
 activate Registry
@@ -25,7 +26,7 @@ Registry->Publisher: success
 deactivate Registry
 end
 
-opt get consent to disclose documents
+group get consent to disclose documents
 note right of Patient
 Patient is presented with opportunity to 
 ConsentMgr likely internal to ConsentMgr
@@ -34,7 +35,7 @@ end note
 Patient->ConsentMgr: Record Consent Permit
 end
 
-opt discover Patient Master Identity and data (MHD)
+group discover Patient Master Identity and data (MHD)
 Patient->Consumer: visits Consumer
 Consumer->PatientDir: update Patient Identity (PatientDir feed)
 PatientDir->PatientDir: cross-reference to Patient Master Identity
