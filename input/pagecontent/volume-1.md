@@ -54,7 +54,7 @@ of metadata as described in the [Document Sharing Metadata
 Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
 <div>
-<img src="Slide2.png" width="60%">
+<img src="Slide2.PNG" width="60%">
 </div>
 **Figure 1:50-1: MHDS High Level View Diagram**
 
@@ -77,7 +77,7 @@ creates one new actor. The actor that is specific to this profile is a
 [MHDS Document Registry](#150111-document-registry).
 
 <div>
-<img src="Slide3.png" width="100%">
+<img src="Slide3.PNG" width="100%">
 </div>
 **Figure 1:50.1-1: MHDS Registry Actor Diagram**
 
@@ -120,7 +120,7 @@ and Systems that publish or consume documents (green) make up the
 Document Sharing Community (aka Community).
 
 <div>
-<img src="Slide4.png" width="100%">
+<img src="Slide4.PNG" width="100%">
 </div>
 **Figure 1:50.1-2: MHDS Document Sharing Health Information Exchange**
 
@@ -200,7 +200,7 @@ Secure Application:
 Triggered by: a Provide Document Bundle \[ITI-65\] transaction.
 
 <div>
-<img src="Slide5.png" width="100%">
+<img src="Slide5.PNG" width="100%">
 </div>
 **Figure 1:50.1.1.1.1-1: Document Publication Process Flow**
 
@@ -222,7 +222,7 @@ Triggered by: any Find Document Lists \[ITI-66\], Find Document
 References \[ITI-67\], and Retrieve Document \[ITI-68\] Transactions.
 
 <div>
-<img src="Slide6.png" width="100%">
+<img src="Slide6.PNG" width="100%">
 </div>
 **Figure 1:50.1.1.1.2-1: Discovery and Retrieval of Existing Document Process Flow**
 
@@ -240,7 +240,7 @@ Triggered by: a Mobile Patient Identity Feed \[ITI-93\] transaction with
 a Merge:
 
 <div>
-<img src="Slide7.png" width="100%">
+<img src="Slide7.PNG" width="100%">
 </div>
 **Figure 1:50.1.1.1.3-1: Patient Merge Process Flow**
 
@@ -342,7 +342,7 @@ Profile. See the Consent Manager Option for specific access control
 rules associated with that option.
 
 <div>
-<img src="Slide8.png" width="100%">
+<img src="Slide8.PNG" width="100%">
 </div>
 **Figure 1:50.2.1-1: Document Publication Process Flow with Authorization Option**
 
@@ -363,7 +363,7 @@ by IHE. The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server t
 Registry would enforce these decisions.
 
 <div>
-<img src="Slide9.png" width="100%">
+<img src="Slide9.PNG" width="100%">
 </div>
 **Figure 1:50.2.2-1: Consent Management for Disclosure Process Flow**
 
@@ -378,7 +378,7 @@ Consumer from authorized identities (applications and/or users) with
 appropriate roles, and authorized Treatment PurposeOfUse.
 
 <div>
-<img src="Slide10.png" width="100%">
+<img src="Slide10.PNG" width="100%">
 </div>
 **Figure 1:50.2.2-2: Simple Consent state diagram**
 
@@ -478,7 +478,7 @@ referenced resource is published in the associated centrally managed
 [mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) Care Services Selective Supplier, or [PMIR Patient Identity Registry](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html).
 
 <div>
-<img src="Slide11.png" width="100%">
+<img src="Slide11.PNG" width="100%">
 </div>
 **Figure 1:50.2.4-1: Author Reference Process Flow**
 
@@ -1336,8 +1336,8 @@ Central Infrastructure Integration Statement
 <td>Authorization Server Metadata Option</td>
 </tr>
 <tr class="odd">
-<td rowspan="4">ATNA</td>
-<td rowspan="4">Secure Node</td>
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Secure Node</td>
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="even">
@@ -1359,8 +1359,8 @@ Central Infrastructure Integration Statement
 <td></td>
 </tr>
 <tr class="even">
-<td rowspan="4">ATNA</td>
-<td rowspan="4">Audit Record Repository</td>
+<td rowspan="2">ATNA</td>
+<td rowspan="2">Audit Record Repository</td>
 <td>STX: TLS 1.2 Floor using BCP195 Option</td>
 </tr>
 <tr class="odd">
