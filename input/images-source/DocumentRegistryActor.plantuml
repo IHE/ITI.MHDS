@@ -1,0 +1,13 @@
+@startuml
+node "Document Registry" {
+  [MHD Document Recipient]
+  [MHD Document Responder]
+  [IUA Authentication Server]
+  [IUA Resource Server]
+  [PMIR Patient Identity Consumer]
+  [SVCM Terminology Consumer]
+  [mCSD Care Services Selective Consumer]
+  [CT Time Client]
+  [ATNA Secure Node]
+}
+@enduml
