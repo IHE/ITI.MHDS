@@ -7,13 +7,13 @@ security. MHDS shows how several IHE profiles work together to provide a
 standards-based, interoperable approach to community health information
 sharing.
 
-The central HIE infrastructure defined in this Profile might be a single
+The central HIE infrastructure defined in this profile might be a single
 FHIR Server implementing all the defined central service actors or may
 be virtual cloud of the systems implementing the defined profile actors.
 These deployment models allow for modularity where each service function
 could be provided by different vendors, leveraging as much as possible
 from a reference implementation of a FHIR Server, and also leverage as
-much as possible of modularity enabled by defined Profiles.
+much as possible of modularity enabled by defined profiles.
 
 **Core business functions provided by MHDS Profile:**
 
@@ -37,8 +37,7 @@ much as possible of modularity enabled by defined Profiles.
 - Consumption side can be further refined using [mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html) and [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf)
 
 
-**The IHE IT Infrastructure Domain has published several resources to
-support document sharing:**
+**The IHE IT Infrastructure Domain has published several resources to support document sharing:**
 
 - [ITI Technical Framework](https://profiles.ihe.net/ITI/TF): [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4)
 - [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
@@ -91,9 +90,8 @@ This does not include the transactions defined in the grouped profiles, which ar
 
 **Table 1:50.1-1: MHDS Profile - Actors and Transactions**
 
-|                   |                                                                           |                        |             |           |
-| ----------------- | ------------------------------------------------------------------------- | ---------------------- | ----------- | --------- |
 | Actors            | Transactions                                                              | Initiator or Responder | Optionality | Reference |
+| ----------------- | ------------------------------------------------------------------------- | ---------------------- | ----------- | --------- |
 | [Document Registry](#150111-document-registry) | (none) – transactions supported come from the grouped actors listed below | \--                    | \--         | [1:50.1.1.1 Document Registry](#150111-document-registry) |
 {:.grid}
 
@@ -951,7 +949,7 @@ what way the IHE profiles can help. The following table shows the set of
 identified Controls (identified in above) as columns and the supportive
 IHE Profiles as rows. In this table a ‘√’ indicates a direct
 relationship. A direct relationship means that the Profile addresses the
-security and/or privacy principle. An ‘.” indicates an indirect
+security and/or privacy principle. An ‘.’ indicates an indirect
 relationship, meaning that the Profile assists with the principle.
 Further details on the ‘√’ direct and ‘.’ Indirect relationships can be
 found in the profile text or through other webinars.
