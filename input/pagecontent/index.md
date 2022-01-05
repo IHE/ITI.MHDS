@@ -12,7 +12,7 @@ and defines a [Document Registry](volume-1.html#150111-document-registry) Actor.
 ### Organization of This Guide
 This guide is organized into two main sections:
 
-**Volume I: [Overview](volume-1.html)**
+**Volume 1: [Overview](volume-1.html)**
 * [1:50.1 MHDS Actors, Transactions, and Content Modules](volume-1.html#1501-mhds-actors-transactions-and-content-modules)
 * [1:50.2 MHDS Actor Options](volume-1.html#1502-mhds-actor-options)
 * [1:50.3 MHDS Required Actor Groupings](volume-1.html#1503-mhds-required-actor-groupings)
@@ -24,7 +24,7 @@ This guide is organized into two main sections:
 * [Test Plan](testplan.html)
 
 
-Click on any of the links above, head on over the [table of contents](toc.html), or
+Click on any of the links above, go to the [table of contents](toc.html), or
 if you are looking for a specific artifact, check out the [index](artifacts.html).
 
 You can also download:
