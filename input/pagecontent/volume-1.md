@@ -21,7 +21,7 @@ much as possible of modularity enabled by defined profiles.
   - Content agnostic but CDA<sup>®</sup> and FHIR preferred
 - Persistence and lifecycle management of Documents, DocumentReference, and List resources
   - Enabling centralized document storage, or distributed document storage at a service identified at the source
-- Patient Identity Management –
+- Patient Identity Management
   - specifically, a golden patient identity for use within the domain, cross-reference to other identities, and lifecycle of updates
   - Appropriate comprehensive handling of patient identity updates including merge
 - Participant Organizations management
@@ -48,7 +48,7 @@ This MHDS Profile defines a Document Sharing Exchange that is based
 around the HL7 FHIR standard, following the principles described in the
 [Health Information Exchange: Enabling Document Sharing Using IHE
 Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) 
-whitepaper. This Document Sharing exchange requires the same management
+White Paper. This Document Sharing exchange requires the same management
 of metadata as described in the [Document Sharing Metadata
 Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metadata.pdf).
 
@@ -58,7 +58,7 @@ Handbook](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Handbook_Metad
 **Figure 1:50-1: MHDS High Level View Diagram**
 
 Readers that need background on high level concepts of Document Sharing
-should first review the whitepaper [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html). 
+should first review the white paper [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html). 
 The MHDS Profile is described in the following sections:
 
 * [1:50.1 MHDS Actors, Transactions, and Content Modules](#1501-mhds-actors-transactions-and-content-modules)
@@ -529,47 +529,47 @@ groupings in other related profiles.
 <td rowspan="9">Document Registry</td>
 <td>Required</td>
 <td>CT / Time Client</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html">ITI TF-1:7</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html">ITI TF-1: 7</a></td>
 </tr>
 <tr class="even">
 <td>Required</td>
 <td>ATNA / Secure Node or Secure Application with the STX: TLS 1.2 with the BCP195 Option and the ATX: FHIR Feed Option</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">ITI TF-1:9</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">ITI TF-1: 9</a></td>
 </tr>
 <tr class="odd">
 <td>Required</td>
 <td>MHD / Document Responder</td>
-<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1:33</a></td>
+<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1: 33</a></td>
 </tr>
 <tr class="even">
 <td>Required</td>
 <td>MHD / Document Recipient with the Comprehensive Metadata Option</td>
-<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1:33</a></td>
+<td><a href="https://profiles.ihe.net/ITI/MHD/index.html">ITI TF-1: 33</a></td>
 </tr>
 <tr class="odd">
 <td>Required</td>
 <td>PMIR / Patient Identity Consumer</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html">ITI TF-1:49</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html">ITI TF-1: 49</a></td>
 </tr>
 <tr class="even">
 <td>if the Authorization Option</td>
 <td>IUA / Resource Server with the The IUA Authorization Server Metadata Option</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1: 34</a></td>
 </tr>
 <tr class="odd">
 <td>if the Authorization Option</td>
 <td>IUA / Authorization Server with the The IUA Authorization Server Metadata Option</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1:34</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-34.html">ITI TF-1: 34</a></td>
 </tr>
 <tr class="even">
 <td>if the UnContained References Option</td>
 <td>mCSD / Care Services Selective Consumer</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-46.html">ITI TF-1:46</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-46.html">ITI TF-1: 46</a></td>
 </tr>
 <tr class="odd">
 <td>if the SVCM Validation Option</td>
 <td>SVCM / Terminology Consumer</td>
-<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html">ITI TF-1:51</a></td>
+<td><a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-51.html">ITI TF-1: 51</a></td>
 </tr>
 </tbody>
 </table>
@@ -579,7 +579,7 @@ groupings in other related profiles.
 
 The MHDS Profile provides a Document Registry that persists, manages,
 and provides access using the [MHD](https://profiles.ihe.net/ITI/MHD/index.html) access methods. This is in support of
-IHE Document Sharing as described in the [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) whitepaper.
+IHE Document Sharing as described in the [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) White Paper.
 
 ### 1:50.4.1 Concepts
 
@@ -639,7 +639,7 @@ information security.
 
 An especially important aspect that is beyond the scope of IHE is the
 definition of the overall policies of the community. There are
-whitepapers and handbooks from IHE 
+white papers and handbooks from IHE 
 (see Section [1:50.1](#1501-mhds-actors-transactions-and-content-modules)), but there is no
 single policy that must be put in place by an IHE based community to
 ensure privacy and security. In this section, we will discuss potential
@@ -979,9 +979,9 @@ actor and transaction level:
 4. Typical system that consumes data elements extracted from documents
 5. Central Infrastructure supporting services
 
-### 1:50.6.1 Interaction Diagram for the MHDS environment.
+### 1:50.6.1 Interaction Diagram for the MHDS environment
 
-**Figure 1:50.6.1-1 shows a simplified view, where the following simplified components are defined:**
+Figure 1:50.6.1-1 shows a simplified view, where the following simplified components are defined:
 
 - “Publisher” – represents “System that publishes Documents”
 - “Consumer” – represents “System that consumes Documents”
