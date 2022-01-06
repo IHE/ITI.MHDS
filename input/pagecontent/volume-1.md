@@ -18,7 +18,7 @@ much as possible of modularity enabled by defined profiles.
 **Core business functions provided by MHDS Profile:**
 
 - Publication of Document based information
-  - Content agnostic but CDA<sup>®</sup> and FHIR preferred
+  - Content agnostic but CDA<sup>®</sup> and FHIR<sup>®</sup> preferred
 - Persistence and lifecycle management of Documents, DocumentReference, and List resources
   - Enabling centralized document storage, or distributed document storage at a service identified at the source
 - Patient Identity Management
