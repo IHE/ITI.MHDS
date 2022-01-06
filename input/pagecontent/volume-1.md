@@ -45,7 +45,7 @@ much as possible of modularity enabled by defined profiles.
 - [Template for XDS Affinity Domain Deployment Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)
 
 This MHDS Profile defines a Document Sharing Exchange that is based
-around the HL7 FHIR standard, following the principles described in the
+around the HL7<sup>®</sup> FHIR<sup>®</sup> standard, following the principles described in the
 [Health Information Exchange: Enabling Document Sharing Using IHE
 Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) 
 White Paper. This Document Sharing exchange requires the same management
