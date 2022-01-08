@@ -41,7 +41,7 @@ much as possible of modularity enabled by defined profiles.
 
 - [ITI Technical Framework](https://profiles.ihe.net/ITI/TF): [Vol. 3 - Section 4.0 Metadata used in Document Sharing](https://profiles.ihe.net/ITI/TF/Volume3/index.html#4)
 - [Health Information Exchange: Enabling Document Sharing Using IHE Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html)
-- [Document Sharing Metadata Handbook](https://profiles.ihe.net/ITI/handbooks/metadata/index.html)
+- [Document Sharing Metadata Handbook](https://profiles.ihe.net/ITI/papers/metadata/index.html)
 - [Template for XDS Affinity Domain Deployment Planning](https://www.ihe.net/Technical_Framework/upload/IHE_ITI_White_Paper_XDS_Affinity_Domain_Template_TI_2008-12-02.pdf)
 
 This MHDS Profile defines a Document Sharing Exchange that is based
@@ -50,7 +50,7 @@ around the HL7<sup>®</sup> FHIR<sup>®</sup> standard, following the principles
 Profiles](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html) 
 White Paper. This Document Sharing exchange requires the same management
 of metadata as described in the [Document Sharing Metadata
-Handbook](https://profiles.ihe.net/ITI/handbooks/metadata/index.html).
+Handbook](https://profiles.ihe.net/ITI/papers/metadata/index.html).
 
 <div>
 <img src="Slide2.PNG" width="60%">
@@ -172,7 +172,7 @@ The HIE authority is responsible for setting Document Sharing Metadata
 rules, following the metadata rules and using the Metadata Handbook to
 set specific metadata element requirements including the specification
 of mandatory ValueSets. See the [Document Sharing Metadata
-Handbook](https://profiles.ihe.net/ITI/handbooks/metadata/index.html).
+Handbook](https://profiles.ihe.net/ITI/papers/metadata/index.html).
 
 #### 1:50.1.1.1 Document Registry
 
