@@ -14,7 +14,7 @@
  {
   "version" : "2.3.0",
   "date" : "2022-03-01",
-  "desc" : "Public Comment - Converted to IG publisher",
+  "desc" : "Trial Implementation - Converted to IG publisher",
   "path" : "http://profiles.ihe.net/ITI/MHDS/2.3.0",
   "status" : "trial-use",
   "fhirversion" : "4.0.1",
