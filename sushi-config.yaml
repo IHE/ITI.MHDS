@@ -2,10 +2,11 @@
 # ───────────────────────────────────────────────────
 id: ihe.iti.mhds
 canonical: http://profiles.ihe.net/ITI/MHDS
-version: 2.2.1
+version: 2.3.0
 name: IHE_ITI_MHDS
 title: "Mobile Health Document Sharing"
-releaseLabel: ci-build
+#releaseLabel: ci-build
+releaseLabel: Trial-Implementation
 #date: 2022-01-12
 status: active
 publisher:
@@ -27,12 +28,19 @@ dependencies:
   ihe.mhd.fhir: 
     id: ihemhdfhir
     uri: http://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.mhd.fhir
-    version: 4.0.2
-  IHE.ITI.PDQm: 
+    version: 4.1.0
+  ihe.iti.pdqm: 
     id: ihepdqm
-    uri: http://profiles.ihe.net/ITI/PDQm/ImplementationGuide/IHE.ITI.PDQm
-    version: 2.3.0
-
+    uri: http://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
+    version: 2.4.0
+  ihe.iti.pixm:
+    id: iheitipixm
+    uri: https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm
+    version: 3.0.2
+  ihe.iti.mcsd:
+    id: iheitimcsd
+    uri: https://profiles.ihe.net/ITI/mCSD/ImplementationGuide/ihe.iti.mcsd
+    version: 3.5.0
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
