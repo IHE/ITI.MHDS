@@ -1,7 +1,7 @@
 # sushi-config.yaml is documented https://fshschool.org/docs/sushi/configuration/
 # ───────────────────────────────────────────────────
 id: ihe.iti.mhds
-canonical: http://profiles.ihe.net/ITI/MHDS
+canonical: https://profiles.ihe.net/ITI/MHDS
 version: 2.3.0
 name: IHE_ITI_MHDS
 title: "Mobile Health Document Sharing"
@@ -27,12 +27,12 @@ copyrightYear: 2021+
 dependencies:
   ihe.mhd.fhir: 
     id: ihemhdfhir
-    uri: http://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.mhd.fhir
+    uri: https://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.mhd.fhir
 #    version: 4.1.0
     version: current
   ihe.iti.pdqm: 
     id: ihepdqm
-    uri: http://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
+    uri: https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
 #    version: 2.4.0
     version: current
   ihe.iti.pixm:
