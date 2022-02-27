@@ -278,8 +278,8 @@ The \[ITI-65\] transaction does not include the Binary, and the
 the Binary content. When this is used by the Community, the service
 hosting the Binary shall:
 
-- persist the Binary for the lifecycle expected of the Community,
-- provide access to the community members,
+- persist the Binary for the lifecycle expected of the Community
+- provide access to the community members
 - use the security model agreed to by the community members
 
 ## 1:50.2 MHDS Actor Options
@@ -386,11 +386,11 @@ appropriate roles, and authorized Treatment PurposeOfUse.
 
 The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Authorization Server SHALL
 
-- support Permit and Deny policies and may support other policies.
-- support through some functionality the patient consent state to be changed: Authorize action to move from Deny to Permit state, and Revoke action to move from Permit to Deny state.
-- support consent state for PurposeOfUse of Treatment (HL7 PurposeOfUse code of “TREAT”) and may support consent states for other PurposeOfUse values within the scope of the MHDS community.
-- will deny access to any PurposeOfUse not authorized.
-- support expiring a consent that results in a Permit state automatically transitioning to Deny at expiration.
+- support Permit and Deny policies and may support other policies
+- support through some functionality the patient consent state to be changed: Authorize action to move from Deny to Permit state, and Revoke action to move from Permit to Deny state
+- support consent state for PurposeOfUse of Treatment (HL7 PurposeOfUse code of “TREAT”) and may support consent states for other PurposeOfUse values within the scope of the MHDS community
+- will deny access to any PurposeOfUse not authorized
+- support expiring a consent that results in a Permit state automatically transitioning to Deny at expiration
 
 The [IUA](https://profiles.ihe.net/ITI/IUA/index.html) Resource Server enforcement point grouped with the MHDS Document
 Registry SHALL enforce the security authorization decision. This
@@ -717,9 +717,9 @@ risks they present. When these use cases are factored in up-front, the
 mitigations are reasonable.
 
 - Natural or man-made catastrophic disaster (e.g., hurricane, earthquake) – often times additional workforce migrates into the area from other places to help out. These individuals need to quickly be screened and provisioned with appropriate access.
-- Utility failure (e.g., electric failure) – this situation is common and easily handled through uninterruptible power supplies and backup generation
-- IT infrastructure failure (e.g., hard drive crash) – this situation is also common and handled through common infrastructural redundancy
-- Need to elevate privileges due to a patient emergency, often called break-glass (e.g., nurse needs to prescribe)
+- Utility failure (e.g., electric failure) – this situation is common and easily handled through uninterruptible power supplies and backup generation.
+- IT infrastructure failure (e.g., hard drive crash) – this situation is also common and handled through common infrastructural redundancy.
+- Need to elevate privileges due to a patient emergency, often called break-glass (e.g., nurse needs to prescribe).
 - Need to override a patient specified privacy block due to eminent danger to that patient – this override is not a breaking of the policy but would need to be an explicit condition within the policy.
 
 Often times being in the emergency department is considered as an
@@ -759,13 +759,13 @@ Management.
 These security and privacy controls are:
 
 1.  Audit Log Controls – The controls that can prove the system is protecting the resources in accordance to the policies. This set of controls includes security audit logging, reporting, alerting and  alarming.
-2. Identification and Authentication Controls – The controls that prove that a system or person is who they say that they are. For example: personal interactions, Oauth, OpenID-Connect
+2. Identification and Authentication Controls – The controls that prove that a system or person is who they say that they are. For example: personal interactions, Oauth, OpenID-Connect.
 3. Data Access Controls – The controls that limit access by an authenticated entity to the information and functions that they are authorized to have access to. These controls are often implemented using Role Based Access Controls (RBAC), or Attribute Based Access Controls (ABAC).
 4. Secrecy Controls– As sensitive information is created, stored, communicated, and modified; this control protects the information from being exposed. For example: encryption or access controls.
 5. Data Integrity Controls – The controls that prove that the data has not changed in an unauthorized way. For example: digital signatures, secure hash algorithms, CRC, and checksum.
 6. Non-Repudiation Controls – The controls that ensure that an entity cannot later refute that they participated in an act. For example, author of a document, order of a test, prescribe of medications.
 7. Patient Privacy Controls – The controls that enforce patient specific handling instructions.
-8. Availability Controls – The controls that ensure that information is available when needed. For example: backup, replication, fault tolerance, RAID, trusted recovery, uninterruptible power supplies, etc. (not an area where Interoperability applies)
+8. Availability Controls – The controls that ensure that information is available when needed. For example: backup, replication, fault tolerance, RAID, trusted recovery, uninterruptible power supplies, etc. (not an area where Interoperability applies).
 
 ### 1:50.5.3 Applying Security and Privacy to Document Sharing
 
@@ -992,19 +992,19 @@ Figure 1:50.6.1-1 shows a simplified view, where the following simplified compon
 
 The diagram has groupings with actions of a
 
-1. Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the Patient at the source. Deeper details on this interaction can be found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile
+1. Patient Identity ([PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed): representing new knowledge about the Patient at the source. Deeper details on this interaction can be found in the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) Profile.
   - This diagram does not show the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed out to all the community participants, but this is enabled by [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html), where all the community participants can subscribe to the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager for feed.
 2. Publication of new Documents to represent a case where new data need to be published.
   - The PDQm is used to get the golden patient identifier for use in the [Document Registry](#150111-document-registry).
-  - The Provide transaction includes a List, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents
-3. Get consent to disclose documents
+  - The Provide transaction includes a List, DocumentReference, and the Binary resource containing the document. Get consent to disclose documents.
+3. Get consent to disclose documents.
   - There is no standard protocol, this functionality would be provided by the Consent Manager. It might by a User Interface or some undefined transaction. The consent must be legally obtained according to local regulations and user experience expectations.
-4. Discover Patient Master Identity and data (MHD)
+4. Discover Patient Master Identity and data (MHD).
   - This portion starts with the patient visiting the Consumer. Thus there is a potential for a [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) feed updating the [PMIR](https://profiles.ihe.net/ITI/TF/Volume1/ch-49.html) manager. Not all visits will result in a feed.
   - Given that the Consumer wants to discover documents, it will first use PDQm to get the proper identity for the community. As indicated above other methods are available other than PDQm.
-  - The Consumer must get a security token from the Consent Manager that is part of the [Document Registry](#150111-document-registry) using the Consent Manager Option
-  - The Recipient queries the Registry to find appropriate entries, and selects the one of interest
-  - The Recipient will GET the document given the DocumentReference.content.attachment.url
+  - The Consumer must get a security token from the Consent Manager that is part of the [Document Registry](#150111-document-registry) using the Consent Manager Option.
+  - The Recipient queries the Registry to find appropriate entries, and selects the one of interest.
+  - The Recipient will GET the document given the DocumentReference.content.attachment.url.
 
 <div>
 {%include MHDS_controlled_exchange.svg%}
