@@ -28,23 +28,23 @@ dependencies:
   ihe.iti.mhd: 
     id: iheitimhd
     uri: https://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.iti.mhd
-#    version: 4.1.0
-    version: current
+    version: 4.1.0
+#    version: current
   ihe.iti.pdqm: 
     id: ihepdqm
     uri: https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
-#    version: 2.4.0
-    version: current
+    version: 2.4.0
+#    version: current
   ihe.iti.pixm:
     id: iheitipixm
     uri: https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm
-#    version: 3.0.2
-    version: current
+    version: 3.0.2
+#    version: current
   ihe.iti.mcsd:
     id: iheitimcsd
     uri: https://profiles.ihe.net/ITI/mCSD/ImplementationGuide/ihe.iti.mcsd
-#    version: 3.5.0
-    version: current
+    version: 3.5.0
+#    version: current
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
