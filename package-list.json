@@ -1,6 +1,6 @@
 {
  "package-id" : "ihe.iti.mhds",
- "title" : "Mobile Health Document Sharing", 
+ "title" : "IHE Mobile Health Document Sharing (MHDS)", 
  "canonical" : "https://profiles.ihe.net/ITI/MHDS", 
  "introduction" : "This Implementation Guide shows how to build a Document Sharing Exchange using IHE-profiled FHIR standard, rather than the legacy IHE profiles that are dominated by XDS and HL7 v2. This Implementation Guide assembles other IHE Implementation guides (Profiles) and defines a Document Registry Actor.",
  "category": "Clinical Documents",
@@ -35,7 +35,7 @@
   "version" : "2.1.0",
   "date" : "2020-05-29",
   "desc" : "Last PDF Trial Implementation",
-  "path" : "https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_MHDS.pdf",
+  "path" : "https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_MHDS_Rev2-1_TI_2020-05-29.pdf",
   "status" : "trial-use",
   "fhirversion" : "4.0.1",
   "sequence" : "Trial Implementation",
