@@ -247,7 +247,7 @@ a Merge:
 
 The Document Registry SHALL search for any resources with the deprecated
 `_id` value in the `DocumentReference.subject`,
-and `List.subject`; and replace subject value of with the surviving id.
+and `List.subject`; and replace subject value in those resources with the surviving `id` value.
 The Document Registry SHALL record a single audit event indicating the
 Merge action, with an `.entity` element for each of the updated Document
 Registry Resources updated. The Document Registry SHOULD create within
