@@ -40,7 +40,7 @@ dependencies:
   ihe.iti.mcsd:
     id: iheitimcsd
     uri: https://profiles.ihe.net/ITI/mCSD/ImplementationGuide/ihe.iti.mcsd
-    version: 3.5.0
+    version: 3.8.0
   ihe.formatcode.fhir:
     id: iheformatcodefhir
     uri: https://profiles.ihe.net/fhir/ihe.formatcode.fhir/ImplementationGuide/ihe.formatcode.fhir
@@ -52,6 +52,10 @@ dependencies:
   ihe.iti.pmir:
     id: iheitipmir
     uri: https://profiles.ihe.net/ITI/PMIR/ImplementationGuide/ihe.iti.pmir
+    version: 1.5.0
+  ihe.iti.svcm:
+    id: iheitisvcm
+    uri: https://profiles.ihe.net/ITI/SVCM/ImplementationGuide/ihe.iti.svcm
     version: 1.4.0
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
