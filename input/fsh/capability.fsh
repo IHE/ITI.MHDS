@@ -21,7 +21,7 @@ Usage: #definition
 * description =  "MHD Document Registry Actor definition"
 * status = #active
 * experimental = false
-* date = "2021-12-16"
+* date = "2022-10-28"
 * kind = #requirements
 * fhirVersion = #4.0.1
 * format[0] = #application/fhir+xml
