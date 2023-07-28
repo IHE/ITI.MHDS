@@ -1,0 +1,17 @@
+{
+"package-id" : "ihe.iti.mhds",
+"version" : "2.3.1",
+"path" : "https://profiles.ihe.net/ITI/MHDS/2.3.1",
+"mode" : "milestone",
+"status" : "trial-use",
+"sequence": "Publication",
+"desc" : "Trial Implementation - use shareable as parent, quality, capabilityStatement improvements.",
+"descmd" : "2.3.1
+
+- Quality improvements
+- Merge in approved CP-ITI-1238
+- add requirement for PMIR
+- Cleanup CapabilityStatements
+- update to pull in latest dependent IGs",
+"changes" : "issues.html"
+}

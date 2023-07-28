@@ -1,4 +1,20 @@
-### Changes since 2.1
+## Significant changes 
+
+### Changes in 2.3.1
+
+- Quality improvements
+- Merge in approved CP-ITI-1238
+- add requirement for PMIR
+- Cleanup CapabilityStatements
+- update to pull in latest dependent IGs
+
+### Changes in 2.3.0
+
+- no public-comments were received
+- add google analytics
+- set depends-on to formally PIXm, PDQm, mCSD, and MHD IGs
+
+### Changes in 2.2.0
 
 Version 2.2.0 is intended to be changes to the publication mechanism from WORD/PDF to an Implementation Guide published using the IG-Publisher. However, some other changes have been necessary due to the passing of time.
 - Mentions of DocumentManifest are now List.source due to the change in MHD.

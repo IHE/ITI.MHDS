@@ -2,12 +2,12 @@
 # ───────────────────────────────────────────────────
 id: ihe.iti.mhds
 canonical: https://profiles.ihe.net/ITI/MHDS
-version: 2.3.1-current
+version: 2.3.1
 name: IHE_ITI_MHDS
 title: "Mobile Health Document Sharing"
-releaseLabel: ci-build
-#releaseLabel: Trial-Implementation
-#date: 2022-03-01
+#releaseLabel: ci-build
+releaseLabel: Trial-Implementation
+date: 2022-08-04
 status: active
 publisher:
   - name: IHE IT Infrastructure Technical Committee
@@ -28,35 +28,35 @@ dependencies:
   ihe.iti.mhd: 
     id: iheitimhd
     uri: https://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.iti.mhd
-    version: 4.2.0
+    version: 4.2.x
   ihe.iti.pdqm: 
     id: ihepdqm
     uri: https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
-    version: 2.4.0
+    version: 2.4.x
   ihe.iti.pixm:
     id: iheitipixm
     uri: https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm
-    version: 3.0.2
+    version: 3.0.x
   ihe.iti.mcsd:
     id: iheitimcsd
     uri: https://profiles.ihe.net/ITI/mCSD/ImplementationGuide/ihe.iti.mcsd
-    version: 3.8.0
+    version: 3.8.x
   ihe.formatcode.fhir:
     id: iheformatcodefhir
     uri: https://profiles.ihe.net/fhir/ihe.formatcode.fhir/ImplementationGuide/ihe.formatcode.fhir
-    version: 1.1.0
+    version: 1.1.x
   ihe.iti.balp:
     id: iheitibasicaudit
     uri: https://profiles.ihe.net/ITI/BALP/ImplementationGuide/ihe.iti.balp
-    version: 1.1.1
+    version: 1.1.x
   ihe.iti.pmir:
     id: iheitipmir
     uri: https://profiles.ihe.net/ITI/PMIR/ImplementationGuide/ihe.iti.pmir
-    version: 1.5.0
+    version: 1.5.x
   ihe.iti.svcm:
     id: iheitisvcm
     uri: https://profiles.ihe.net/ITI/SVCM/ImplementationGuide/ihe.iti.svcm
-    version: 1.5.0
+    version: 1.5.x
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
@@ -76,7 +76,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   apply-publisher: 'true'
   apply-version: 'true'
 
-resources:
+# resources:
 # list every example here with a name, description and that exampleBoolean is true; These are used to populate the artifacts page, and are needed to eliminate build warnings 
 # You may delay filling out this section until you approach publication as it is merely a nice to have and eliminates build warnings -- If you do this then you will need above the autoload-resources true
 
@@ -95,6 +95,9 @@ pages:
   issues.md:
     title: "Open and Closed issues"
     generation: markdown
+  download.md:
+    title: "Download and Analysis"
+    generation: markdown
 
 menu:
   MHDS Home: index.html
@@ -106,5 +109,6 @@ menu:
     Overview: volume-1.html#1504-mhds-overview
     Security Considerations: volume-1.html#1505-mhds-security-considerations
     Cross-Profile Considerations: volume-1.html#1506-mhds-cross-profile-considerations
-  Test Plan: testplan.html
   Artifacts: artifacts.html
+  Test Plan: testplan.html
+  Download: download.html
