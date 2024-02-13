@@ -104,6 +104,7 @@ profiles:
 - **[SVCM](https://profiles.ihe.net/ITI/SVCM/index.html) - [Terminology Consumer](https://profiles.ihe.net/ITI/SVCM/volume-1.html#1511-svcm-actorstransactions)** enables the Document Registry to gain access to ValueSets that the Registry is enforcing Metadata consistency.
 - **[mCSD](https://profiles.ihe.net/ITI/mCSD/index.html) - [Care Services Selective Consumer](https://profiles.ihe.net/ITI/mCSD/volume-1.html#146111-care-services-selective-consumer)** enables the Registry to have access to Organization and Practitioner resources.
 - **[IUA](https://profiles.ihe.net/ITI/IUA/index.html) - [Authorization Server and Resource Server](https://profiles.ihe.net/ITI/IUA/index.html)** enforces access control decisions.
+- **[PCF](https://profiles.ihe.net/ITI/PCF/index.html) - [Consent Authorization Server and Consent Enforcement Point](https://profiles.ihe.net/ITI/PCF/volume-1.html#actors-and-transactions)** Enforces Privacy Consent based access control decisions.
 - **[ATNA](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html) - [Secure Node](https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html#9.1.1.1)** enable the Document Registry to be secure, record audit records, and support secure transactions.
 - **[CT](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html) - [Time Client](https://profiles.ihe.net/ITI/TF/Volume1/ch-7.html)** assures that all records of time done by the Document Registry are aligned with the Time Source.
 - **[BALP](https://profiles.ihe.net/ITI/BALP/index.html) - [Audit Creator](https://profiles.ihe.net/ITI/BALP/volume-1.html#152111-audit-creator)** recording rich audit log entries to ATNA.
@@ -138,9 +139,11 @@ Profiles as shown in Figure 1:50.1-2:
 There are other useful actors that are compatible with MHDS, but are not
 required by the MHDS Profile:
 
-- **[NPFS](https://profiles.ihe.net/ITI/TF/Volume1/ch-47.html) – File Manager** – Provide files that are needed in the community but are not patient specific such as policy documents
-- **[mXDE](https://profiles.ihe.net/ITI/TF/Volume1/ch-45.html) – Data Element Extractor** – to enable [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf) access to data elements derived from published documents
+- **[NPFS](https://profiles.ihe.net/ITI/NPFS/index.html) – File Manager** – Provide files that are needed in the community but are not patient specific such as policy documents
+- **[mXDE](https://profiles.ihe.net/ITI/mXDE/index.html) – Data Element Extractor** – to enable [QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf) access to data elements derived from published documents
 - **[QEDm](https://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_QEDm.pdf) – Clinical Data Source** – to enable access to data elements (aka FHIR clinical Resources)
+- **[DSUBm](https://profiles.ihe.net/ITI/DSUBm/index.html) – Document Subscription for Mobile** – a subscription model for Documents
+- **[sIPS](https://profiles.ihe.net/ITI/sIPS/index.html) – Sharing of IPS** – a model for using MHDS for sharing IPS Documents
 
 In addition to these IHE-defined actors, the Community will also select
 how they will manage Digital Certificates through a Certificate

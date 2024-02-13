@@ -2,12 +2,12 @@
 # ───────────────────────────────────────────────────
 id: ihe.iti.mhds
 canonical: https://profiles.ihe.net/ITI/MHDS
-version: 2.3.1
+version: 2.3.2-current
 name: IHE_ITI_MHDS
 title: "Mobile Health Document Sharing"
-#releaseLabel: ci-build
-releaseLabel: Trial-Implementation
-date: 2022-08-04
+releaseLabel: ci-build
+#releaseLabel: Trial-Implementation
+#date: 2022-08-04
 status: active
 publisher:
   - name: IHE IT Infrastructure Technical Committee
@@ -28,35 +28,68 @@ dependencies:
   ihe.formatcode.fhir:
     id: iheformatcodefhir
     uri: https://profiles.ihe.net/fhir/ihe.formatcode.fhir/ImplementationGuide/ihe.formatcode.fhir
-    version: 1.1.x
+#    version: 1.1.x
+    version: current
   ihe.iti.balp:
     id: iheitibasicaudit
     uri: https://profiles.ihe.net/ITI/BALP/ImplementationGuide/ihe.iti.balp
-    version: 1.1.x
+#    version: 1.1.x
+    version: current
   ihe.iti.mhd: 
     id: iheitimhd
     uri: https://profiles.ihe.net/ITI/MHD/ImplementationGuide/ihe.iti.mhd
-    version: 4.2.1
+#    version: 4.2.1
+    version: current
   ihe.iti.svcm:
     id: iheitisvcm
     uri: https://profiles.ihe.net/ITI/SVCM/ImplementationGuide/ihe.iti.svcm
-    version: 1.5.1
+#    version: 1.5.1
+    version: current
   ihe.iti.mcsd:
     id: iheitimcsd
     uri: https://profiles.ihe.net/ITI/mCSD/ImplementationGuide/ihe.iti.mcsd
-    version: 3.8.x
+#   version: 3.8.x
+    version: current
   ihe.iti.pdqm: 
     id: ihepdqm
     uri: https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm
-    version: 2.4.x
+#    version: 3.0.0
+    version: current
   ihe.iti.pixm:
     id: iheitipixm
     uri: https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm
-    version: 3.0.3
+#    version: 3.0.3
+    version: current
   ihe.iti.pmir:
     id: iheitipmir
     uri: https://profiles.ihe.net/ITI/PMIR/ImplementationGuide/ihe.iti.pmir
-    version: 1.5.x
+#    version: 1.5.x
+    version: current
+  ihe.iti.pcf:
+    id: iheitipcf
+    uri: https://profiles.ihe.net/ITI/PCF/ImplementationGuide/ihe.iti.pcf
+#    version: 1.1.x
+    version: current
+  ihe.iti.dsubm:
+    id: iheitidsubm
+    uri: https://profiles.ihe.net/ITI/DSUBm/ImplementationGuide/ihe.iti.dsubm
+#    version: 1.0.x
+    version: current
+  ihe.iti.mxde:
+    id: iheitimxde
+    uri: https://profiles.ihe.net/ITI/mXDE/ImplementationGuide/ihe.iti.mxde
+#    version: 1.0.x
+    version: current
+  ihe.iti.npfs:
+    id: iheitinpfs
+    uri: https://profiles.ihe.net/ITI/NPFS/ImplementationGuide/ihe.iti.npfs
+#    version: 1.0.x
+    version: current
+  ihe.iti.sips:
+    id: iheitisips
+    uri: https://profiles.ihe.net/ITI/sIPS/ImplementationGuide/ihe.iti.sips
+#    version: 1.0.x
+    version: current
 
 parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
   path-resource:
@@ -95,9 +128,7 @@ pages:
   issues.md:
     title: "Open and Closed issues"
     generation: markdown
-  download.md:
-    title: "Download and Analysis"
-    generation: markdown
+
 
 menu:
   MHDS Home: index.html
@@ -111,4 +142,4 @@ menu:
     Cross-Profile Considerations: volume-1.html#1506-mhds-cross-profile-considerations
   Artifacts: artifacts.html
   Test Plan: testplan.html
-  Download: download.html
+

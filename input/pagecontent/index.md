@@ -1,8 +1,8 @@
 
-This Implementation Guide shows how to build a Document Sharing Exchange 
-using IHE-profiled FHIR<sup>®</sup> standard, rather than the legacy IHE 
-profiles that are dominated by XDS and HL7<sup>®</sup> v2. 
-This Implementation Guide assembles other IHE Implementation guides (Profiles) 
+This Implementation Guide shows how to build a Document Sharing Exchange
+using IHE-profiled FHIR<sup>®</sup> standard, rather than the legacy IHE
+profiles that are dominated by XDS and HL7<sup>®</sup> v2.
+This Implementation Guide assembles other IHE Implementation guides (Profiles)
 and defines a [Document Registry](volume-1.html#150111-document-registry) Actor.
 
 <div markdown="1" class="stu-note">
@@ -10,6 +10,7 @@ and defines a [Document Registry](volume-1.html#150111-document-registry) Actor.
 </div>
 
 ### Organization of This Guide
+
 This guide is organized into two main sections:
 
 - Volume 1: [Overview](volume-1.html)
@@ -21,7 +22,32 @@ This guide is organized into two main sections:
   - [1:50.6 MHDS Cross Profile Considerations](volume-1.html#1506-mhds-cross-profile-considerations)
 - Other
   - [Test Plan](testplan.html)
-  - [Download and Analysis](download.html)
 
 Click on any of the links above, go to the [table of contents](toc.html), or
 if you are looking for a specific artifact, check out the [index](artifacts.html).
+
+### Download and Analysis
+
+You can download:
+
+- [this entire guide](full-ig.zip),
+- the definition resources in [json](definitions.json.zip), [xml](definitions.xml.zip), or [ttl](definitions.ttl.zip) format, or
+- the example resources in [json](examples.json.zip), [xml](examples.xml.zip) or [ttl](examples.ttl.zip) format.
+
+The source code for this Implementation Guide can be found on [IHE ITI.MHDS Github Repo](https://github.com/IHE/ITI.MHDS).
+
+#### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+#### Dependency Table
+
+{% include dependency-table.xhtml %}
+
+#### Globals Table
+
+{% include globals-table.xhtml %}
+
+#### IP Statements
+
+{% include ip-statements.xhtml %}
