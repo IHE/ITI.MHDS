@@ -128,7 +128,9 @@ pages:
   issues.md:
     title: "Open and Closed issues"
     generation: markdown
-
+  about.md:
+    title: "About"
+    generation: markdown
 
 menu:
   MHDS Home: index.html
@@ -142,4 +144,5 @@ menu:
     Cross-Profile Considerations: volume-1.html#1506-mhds-cross-profile-considerations
   Artifacts: artifacts.html
   Test Plan: testplan.html
+  About: about.html
 
