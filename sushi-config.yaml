@@ -122,8 +122,8 @@ pages:
   volume-1.md:
     title: "1:50. MHDS Volume 1"
     generation: markdown
-  cp.html:
-    title: "Changes to other profiles"
+  other.html:
+    title: "Changes to Other IHE Specifications"
     generation: markdown
   testplan.md:
     title: "Test Plan"
@@ -143,7 +143,7 @@ menu:
     Overview: volume-1.html#1504-mhds-overview
     Security Considerations: volume-1.html#1505-mhds-security-considerations
     Cross-Profile Considerations: volume-1.html#1506-mhds-cross-profile-considerations
-  Changes to other profiles: cp.html
   Artifacts: artifacts.html
-  Test Plan: testplan.html
-
+  Other:
+    Changes to Other IHE Specifications: other.html
+    Test Plan: testplan.html
