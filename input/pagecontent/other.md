@@ -57,14 +57,14 @@ Responding Gateways that are grouped with a Document Consumer:
 | **FindDocuments** | **Find Document References** |
 | **FindSubmissionSets** | **Find Document Lists** |
 | **FindFolders** | **Find Document Lists** |
-| **GetAll** | **Find Document References Find Document Lists** |
+| **GetAll** | **Find Document References<br /> Find Document Lists** |
 | **GetDocuments** | **Find Document References** |
 | **GetFolders** | **Find Document Lists** |
-| **GetAssociations** | **Find Document References Find Document Lists** |
+| **GetAssociations** | **Find Document References<br /> Find Document Lists** |
 | **GetDocumentsAndAssociations** | **Find Document References** |
 | **GetSubmissionSets** | **Find Document Lists** |
-| **GetSubmissionSetAndContents** | **Find Document References Find Document Lists** |
-| **GetFolderAndContents** | **Find Document References Find Document Lists** |
+| **GetSubmissionSetAndContents** | **Find Document References<br /> Find Document Lists** |
+| **GetFolderAndContents** | **Find Document References<br /> Find Document Lists** |
 | **GetFoldersForDocument** | **Find Document Lists** |
 | **GetRelatedDocuments** | **Find Document References** |
 | **FindDocumentsByReferenceId** | **Find Document References** |
