@@ -26,28 +26,3 @@ This guide is organized into two main sections:
 Click on any of the links above, go to the [table of contents](toc.html), or
 if you are looking for a specific artifact, check out the [index](artifacts.html).
 
-### Download and Analysis
-
-You can download:
-
-- [this entire guide](full-ig.zip),
-- the definition resources in [json](definitions.json.zip), [xml](definitions.xml.zip), or [ttl](definitions.ttl.zip) format, or
-- the example resources in [json](examples.json.zip), [xml](examples.xml.zip) or [ttl](examples.ttl.zip) format.
-
-The source code for this Implementation Guide can be found on [IHE ITI.MHDS Github Repo](https://github.com/IHE/ITI.MHDS).
-
-#### Cross Version Analysis
-
-{% include cross-version-analysis.xhtml %}
-
-#### Dependency Table
-
-{% include dependency-table.xhtml %}
-
-#### Globals Table
-
-{% include globals-table.xhtml %}
-
-#### IP Statements
-
-{% include ip-statements.xhtml %}
