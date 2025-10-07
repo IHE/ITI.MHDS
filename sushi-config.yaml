@@ -131,7 +131,9 @@ pages:
   issues.md:
     title: "Open and Closed issues"
     generation: markdown
-
+  about.md:
+    title: "About"
+    generation: markdown
 
 menu:
   MHDS Home: index.html
@@ -146,4 +148,6 @@ menu:
   Artifacts: artifacts.html
   Other:
     Changes to Other IHE Specifications: other.html
+    About: about.html
     Test Plan: testplan.html
+
