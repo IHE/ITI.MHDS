@@ -15,6 +15,8 @@ could be provided by different vendors, leveraging as much as possible
 from a reference implementation of a FHIR Server, and also leverage as
 much as possible of modularity enabled by defined profiles.
 
+Federation of MHDS communities can be performed via the grouping of a Responding Gateway with an MHD Document Consumer as described in XCA profile at Section 18.2.3.3 and via the grouping of a Responding Gateway with a Patient Demographics Consumer as described in XCPD profile at Section 27.2.3 
+
 **Core business functions provided by MHDS Profile:**
 
 - Publication of Document based information
